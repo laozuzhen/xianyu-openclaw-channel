@@ -6951,6 +6951,23 @@ class XianyuLive:
     def is_chat_message(self, message):
         """判断是否为用户聊天消息"""
         try:
+            # 处理 message["1"] 是列表的情况
+            msg_1 = message.get("1")
+            if isinstance(msg_1, list) and len(msg_1) > 0:
+                msg_1 = msg_1[0]  # 取第一个元素
+            
+            return (
+                isinstance(message, dict)
+                and "1" in message
+                and isinstance(msg_1, dict)
+                and "10" in msg_1
+                and isinstance(msg_1["10"], dict)
+                and "reminderContent" in msg_1["10"]
+            )
+        except Exception:
+            return False
+        """判断是否为用户聊天消息"""
+        try:
             return (
                 isinstance(message, dict)
                 and "1" in message
