@@ -1,0 +1,5 @@
+{
+  "id": "xianyu",
+  "channels": ["xianyu"],
+  "configSchema": { "type": "object", "additionalProperties": true, "properties": {} }
+}

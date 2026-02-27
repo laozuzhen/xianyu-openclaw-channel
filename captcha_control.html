@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮乐验证控制面板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .status.connected {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.disconnected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status.completed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status.connected .status-indicator {
+            background: #28a745;
+        }
+
+        .status.disconnected .status-indicator {
+            background: #dc3545;
+        }
+
+        .status.completed .status-indicator {
+            background: #17a2b8;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .canvas-container {
+            position: relative;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #captchaCanvas {
+            max-width: 100%;
+            display: block;
+            cursor: crosshair;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .info-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .instructions li {
+            margin-bottom: 5px;
+        }
+
+        .session-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .session-input input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .session-input button {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .session-input button:hover {
+            background: #5568d3;
+        }
+
+        .session-input button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .log {
+            background: #2d3748;
+            color: #a0aec0;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+        }
+
+        .log-entry.success {
+            color: #48bb78;
+        }
+
+        .log-entry.error {
+            color: #f56565;
+        }
+
+        .log-entry.info {
+            color: #4299e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 刮刮乐验证控制面板</h1>
+        </div>
+
+        <div id="status" class="status disconnected">
+            <div class="status-indicator"></div>
+            <span id="statusText">未连接</span>
+        </div>
+
+        <div class="session-input">
+            <input type="text" id="sessionIdInput" placeholder="输入会话ID（通常是用户ID）" />
+            <button id="connectBtn" onclick="connectSession()">连接</button>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 使用说明</h3>
+            <ol>
+                <li>输入会话ID并点击"连接"按钮</li>
+                <li>等待页面截图加载</li>
+                <li>使用鼠标在滑块按钮上按下并拖动</li>
+                <li>释放鼠标完成验证</li>
+            </ol>
+        </div>
+
+        <div class="info-panel">
+            <div class="info-card">
+                <h3>会话ID</h3>
+                <p id="sessionIdDisplay">-</p>
+            </div>
+            <div class="info-card">
+                <h3>连接状态</h3>
+                <p id="connectionStatus">未连接</p>
+            </div>
+            <div class="info-card">
+                <h3>验证状态</h3>
+                <p id="verificationStatus">待处理</p>
+            </div>
+        </div>
+
+        <div class="canvas-container" id="canvasContainer">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
+            <canvas id="captchaCanvas"></canvas>
+        </div>
+
+        <div class="log" id="log">
+            <div class="log-entry info">等待连接...</div>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let currentSessionId = null;
+        let canvas = null;
+        let ctx = null;
+        let isMouseDown = false;
+        let lastMoveTime = 0;
+        let moveThrottle = 5; // 节流：每10ms最多发送一次（极致流畅）
+        let captchaOffset = {x: 0, y: 0}; // 滑块区域在页面中的偏移量
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            canvas = document.getElementById('captchaCanvas');
+            ctx = canvas.getContext('2d');
+
+            // 检查是否为嵌入模式（从URL参数或iframe检测）
+            const urlParams = new URLSearchParams(window.location.search);
+            const isEmbed = urlParams.get('embed') === '1' || window.self !== window.top;
+            
+            if (isEmbed) {
+                // 隐藏不必要的元素
+                document.querySelector('.header').style.display = 'none';
+                document.querySelector('.session-input').style.display = 'none';
+                document.querySelector('.instructions').style.display = 'none';
+                document.querySelector('.info-panel').style.display = 'none';
+                document.querySelector('.log').style.display = 'none';
+                document.getElementById('status').style.display = 'none';
+                
+                // 调整容器样式
+                document.querySelector('.container').style.padding = '0';
+                document.querySelector('.container').style.boxShadow = 'none';
+                document.querySelector('.container').style.background = 'transparent';
+                document.body.style.padding = '0';
+            }
+
+            // 检查是否有预设的会话ID
+            if (window.INITIAL_SESSION_ID) {
+                document.getElementById('sessionIdInput').value = window.INITIAL_SESSION_ID;
+                connectSession();
+            }
+
+            // 鼠标事件
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseleave', handleMouseUp);
+        });
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            entry.textContent = `[${timestamp}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function updateStatus(status, text) {
+            const statusEl = document.getElementById('status');
+            const statusTextEl = document.getElementById('statusText');
+            
+            statusEl.className = `status ${status}`;
+            statusTextEl.textContent = text;
+            
+            document.getElementById('connectionStatus').textContent = text;
+        }
+
+        async function connectSession() {
+            const sessionId = document.getElementById('sessionIdInput').value.trim();
+            
+            if (!sessionId) {
+                alert('请输入会话ID');
+                return;
+            }
+
+            currentSessionId = sessionId;
+            document.getElementById('sessionIdDisplay').textContent = sessionId;
+            document.getElementById('connectBtn').disabled = true;
+
+            log(`正在连接会话: ${sessionId}`, 'info');
+
+            try {
+                // 建立 WebSocket 连接
+                const wsUrl = `ws://${window.location.host}/api/captcha/ws/${sessionId}`;
+                log(`WebSocket URL: ${wsUrl}`, 'info');
+                
+                ws = new WebSocket(wsUrl);
+
+                ws.onopen = () => {
+                    log('WebSocket 连接成功', 'success');
+                    updateStatus('connected', '已连接');
+                };
+
+                ws.onmessage = async (event) => {
+                    const data = JSON.parse(event.data);
+                    handleWebSocketMessage(data);
+                };
+
+                ws.onerror = (error) => {
+                    log(`WebSocket 错误: ${error}`, 'error');
+                    updateStatus('disconnected', '连接错误');
+                    document.getElementById('connectBtn').disabled = false;
+                };
+
+                ws.onclose = () => {
+                    log('WebSocket 连接关闭', 'info');
+                    updateStatus('disconnected', '连接已关闭');
+                    document.getElementById('connectBtn').disabled = false;
+                };
+
+            } catch (error) {
+                log(`连接失败: ${error}`, 'error');
+                updateStatus('disconnected', '连接失败');
+                document.getElementById('connectBtn').disabled = false;
+            }
+        }
+
+        function handleWebSocketMessage(data) {
+            const type = data.type;
+
+            if (type === 'session_info') {
+                log('收到会话信息', 'success');
+                
+                // 保存验证码容器偏移量
+                if (data.captcha_info && data.captcha_info.x !== undefined) {
+                    captchaOffset.x = Math.max(0, data.captcha_info.x - 10);
+                    captchaOffset.y = Math.max(0, data.captcha_info.y - 10);
+                    log(`验证码容器偏移: (${captchaOffset.x}, ${captchaOffset.y})`, 'info');
+                    log(`容器大小: ${data.captcha_info.width}x${data.captcha_info.height}`, 'info');
+                }
+                
+                displayScreenshot(data.screenshot);
+            }
+
+            else if (type === 'screenshot_update') {
+                displayScreenshot(data.screenshot);
+                
+                // 如果是在等待验证结果时收到截图更新，说明验证失败
+                const currentStatus = document.getElementById('verificationStatus').textContent;
+                if (currentStatus === '验证中...') {
+                    log('⚠️ 验证未通过，请重试', 'error');
+                    document.getElementById('verificationStatus').textContent = '待处理';
+                }
+            }
+
+            else if (type === 'completed') {
+                log('✅ 验证成功！', 'success');
+                updateStatus('completed', '验证成功');
+                document.getElementById('verificationStatus').textContent = '已完成';
+                
+                // 显示成功提示
+                setTimeout(() => {
+                    alert('✅ 验证成功！页面即将关闭...');
+                    if (ws) {
+                        ws.close();
+                    }
+                }, 500);
+            }
+
+            else if (type === 'error') {
+                log(`错误: ${data.message}`, 'error');
+            }
+        }
+
+        function displayScreenshot(base64Image) {
+            const img = new Image();
+            img.onload = () => {
+                // 调整 canvas 大小（只在必要时调整）
+                if (canvas.width !== img.width || canvas.height !== img.height) {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                }
+                
+                // 使用 imageSmoothingEnabled 优化渲染
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'low'; // 低质量平滑，提升性能
+                
+                // 绘制图片
+                ctx.drawImage(img, 0, 0);
+                
+                // 隐藏加载提示
+                document.getElementById('loading').style.display = 'none';
+                canvas.style.display = 'block';
+            };
+            // 使用 JPEG 格式（后端已改为 JPEG）
+            img.src = `data:image/jpeg;base64,${base64Image}`;
+        }
+
+        function handleMouseDown(event) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                return;
+            }
+
+            isMouseDown = true;
+            const coords = getMouseCoords(event);
+            
+            log(`鼠标按下: (${coords.x}, ${coords.y})`, 'info');
+            
+            ws.send(JSON.stringify({
+                type: 'mouse_event',
+                event_type: 'down',
+                x: coords.x,
+                y: coords.y
+            }));
+        }
+
+        function handleMouseMove(event) {
+            if (!ws || ws.readyState !== WebSocket.OPEN || !isMouseDown) {
+                return;
+            }
+
+            // 节流：限制发送频率，避免卡顿
+            const now = Date.now();
+            if (now - lastMoveTime < moveThrottle) {
+                return; // 跳过这次事件
+            }
+            lastMoveTime = now;
+
+            const coords = getMouseCoords(event);
+            
+            ws.send(JSON.stringify({
+                type: 'mouse_event',
+                event_type: 'move',
+                x: coords.x,
+                y: coords.y
+            }));
+        }
+
+        function handleMouseUp(event) {
+            if (!ws || ws.readyState !== WebSocket.OPEN || !isMouseDown) {
+                return;
+            }
+
+            isMouseDown = false;
+            const coords = getMouseCoords(event);
+            
+            log(`鼠标释放: (${coords.x}, ${coords.y})`, 'info');
+            log(`等待验证结果...`, 'info');
+            
+            // 更新状态显示
+            document.getElementById('verificationStatus').textContent = '验证中...';
+            
+            ws.send(JSON.stringify({
+                type: 'mouse_event',
+                event_type: 'up',
+                x: coords.x,
+                y: coords.y
+            }));
+        }
+
+        function getMouseCoords(event) {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            
+            // 计算canvas上的坐标
+            const canvasX = Math.round((event.clientX - rect.left) * scaleX);
+            const canvasY = Math.round((event.clientY - rect.top) * scaleY);
+            
+            // 转换为页面上的实际坐标（加上偏移量）
+            return {
+                x: canvasX + captchaOffset.x,
+                y: canvasY + captchaOffset.y
+            };
+        }
+    </script>
+</body>
+</html>
+

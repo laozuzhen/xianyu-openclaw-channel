@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "lib": ["ES2023"],
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "noEmitOnError": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "useDefineForClassFields": false,
+    "types": ["node", "vitest/globals"],
+    "paths": {
+      "openclaw/plugin-sdk": ["../openclaw-channel-dingtalk-repo/../../dist/plugin-sdk/plugin-sdk/index.d.ts"],
+      "openclaw/plugin-sdk/*": ["../openclaw-channel-dingtalk-repo/../../dist/plugin-sdk/plugin-sdk/*.d.ts"]
+    }
+  },
+  "include": ["index.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
