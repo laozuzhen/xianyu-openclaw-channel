@@ -3119,6 +3119,26 @@ def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_u
             raise HTTPException(status_code=403, detail="无权限操作该Cookie")
 
         cookie_manager.manager.remove_cookie(cid)
+        
+        # 🔄 通知 Bridge 注销实例
+        from bridge_api import xianyu_instances, unregister_xianyu_instance
+        if cid in xianyu_instances:
+            unregister_xianyu_instance(cid)
+        
+        return {"msg": "removed"}
+def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_user)):
+    if cookie_manager.manager is None:
+        raise HTTPException(status_code=500, detail="CookieManager 未就绪")
+    try:
+        # 检查cookie是否属于当前用户
+        user_id = current_user['user_id']
+        from db_manager import db_manager
+        user_cookies = db_manager.get_all_cookies(user_id)
+
+        if cid not in user_cookies:
+            raise HTTPException(status_code=403, detail="无权限操作该Cookie")
+
+        cookie_manager.manager.remove_cookie(cid)
         return {"msg": "removed"}
     except HTTPException:
         raise
