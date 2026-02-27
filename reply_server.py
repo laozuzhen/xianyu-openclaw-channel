@@ -3126,6 +3126,12 @@ def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_u
             unregister_xianyu_instance(cid)
         
         return {"msg": "removed"}
+
+
+class AutoConfirmUpdate(BaseModel):
+            unregister_xianyu_instance(cid)
+        
+        return {"msg": "removed"}
 def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     if cookie_manager.manager is None:
         raise HTTPException(status_code=500, detail="CookieManager 未就绪")
