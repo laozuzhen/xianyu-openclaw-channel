@@ -2384,16 +2384,6 @@ async def process_qr_login_cookies(cookies: str, unb: str, current_user: Dict[st
                             log_with_user('info', f"已通知运行中的实例 {account_id} 刷新Cookie, new myid: {instance.myid}", current_user)
                             
                     return {
-                    if cookie_manager.manager:
-                        if is_new_account:
-                            cookie_manager.manager.add_cookie(account_id, real_cookies)
-                            log_with_user('info', f"已将真实cookie添加到cookie_manager: {account_id}", current_user)
-                        else:
-                            # refresh_cookies_from_qr_login 已经保存到数据库了，这里不需要再保存
-                            cookie_manager.manager.update_cookie(account_id, real_cookies, save_to_db=False)
-                            log_with_user('info', f"已更新cookie_manager中的真实cookie: {account_id}", current_user)
-
-                    return {
                         'account_id': account_id,
                         'is_new_account': is_new_account,
                         'real_cookie_refreshed': True,
@@ -3127,9 +3117,7 @@ def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_u
         
         return {"msg": "removed"}
 
-
-class AutoConfirmUpdate(BaseModel):
-            unregister_xianyu_instance(cid)
+    except HTTPException:
         
         return {"msg": "removed"}
 def remove_cookie(cid: str, current_user: Dict[str, Any] = Depends(get_current_user)):

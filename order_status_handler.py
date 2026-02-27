@@ -380,14 +380,6 @@ class OrderStatusHandler:
                         logger.info(f"[Bridge] 订单状态已推送到Gateway: {order_id} -> {status_text}")
                     except Exception as bridge_e:
                         logger.warning(f"[Bridge] 推送订单状态失败: {bridge_e}")
-                else:
-                    # 记录状态历史（用于退款撤销时回退）
-                    self._record_status_history(order_id, current_status, new_status, context)
-                    
-                    status_text = self.status_mapping.get(new_status, new_status)
-                    if self.config.get('enable_status_logging', True):
-                        logger.info(f"✅ 订单状态更新成功: {order_id} -> {status_text} ({context})")
-                else:
                     logger.error(f"❌ 订单状态更新失败: {order_id} -> {new_status} ({context})")
                 
                 return success
