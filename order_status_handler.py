@@ -344,6 +344,49 @@ class OrderStatusHandler:
                     status_text = self.status_mapping.get(new_status, new_status)
                     if self.config.get('enable_status_logging', True):
                         logger.info(f"✅ 订单状态更新成功: {order_id} -> {status_text} ({context})")
+                    
+                    # 🔗 OpenClaw Bridge: 推送订单状态变化到 Gateway
+                    try:
+                        from bridge_message_queue import bridge_queue
+                        import asyncio
+                        
+                        async def push_order_status():
+                            await bridge_queue.publish(cookie_id, {
+                                "event": "order_status",
+                                "data": {
+                                    "orderId": order_id,
+                                    "oldStatus": current_status,
+                                    "newStatus": new_status,
+                                    "statusText": status_text,
+                                    "context": context,
+                                    "accountId": cookie_id,
+                                    "timestamp": int(time.time() * 1000)
+                                }
+                            })
+                        
+                        # 创建新事件循环来运行 async 函数
+                        try:
+                            loop = asyncio.get_event_loop()
+                            if loop.is_running():
+                                asyncio.create_task(push_order_status())
+                            else:
+                                loop.run_until_complete(push_order_status())
+                        except RuntimeError:
+                            # 没有事件循环，创建新的
+                            new_loop = asyncio.new_event_loop()
+                            asyncio.set_event_loop(new_loop)
+                            new_loop.run_until_complete(push_order_status())
+                            new_loop.close()
+                        logger.info(f"[Bridge] 订单状态已推送到Gateway: {order_id} -> {status_text}")
+                    except Exception as bridge_e:
+                        logger.warning(f"[Bridge] 推送订单状态失败: {bridge_e}")
+                else:
+                    # 记录状态历史（用于退款撤销时回退）
+                    self._record_status_history(order_id, current_status, new_status, context)
+                    
+                    status_text = self.status_mapping.get(new_status, new_status)
+                    if self.config.get('enable_status_logging', True):
+                        logger.info(f"✅ 订单状态更新成功: {order_id} -> {status_text} ({context})")
                 else:
                     logger.error(f"❌ 订单状态更新失败: {order_id} -> {new_status} ({context})")
                 
