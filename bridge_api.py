@@ -228,7 +228,66 @@ async def get_status():
 # 确认发货  POST /api/bridge/confirm-delivery
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# 确认发货  POST /api/bridge/confirm-delivery
+# ---------------------------------------------------------------------------
+
 @bridge_router.post("/confirm-delivery")
+async def confirm_delivery(body: ConfirmDeliveryRequest):
+    """调用 XianyuLive 的发货确认功能"""
+    try:
+        instance = _get_instance(body.accountId)
+        result = await instance.auto_confirm(body.orderId)
+        if isinstance(result, dict) and "error" in result:
+            raise HTTPException(status_code=400, detail=result["error"])
+        return {"ok": True, "result": result}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"[Bridge] 确认发货失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+# ----------------------------------------------------------------------------
+# 刷新Cookie  POST /api/bridge/refresh-cookie
+# ----------------------------------------------------------------------------
+
+class RefreshCookieRequest(BaseModel):
+    accountId: Optional[str] = "default"
+
+
+@bridge_router.post("/refresh-cookie")
+async def refresh_cookie(body: RefreshCookieRequest):
+    """手动触发Cookie刷新，从数据库重新加载最新Cookie"""
+    try:
+        instance = xianyu_instances.get(body.accountId)
+        if instance is None:
+            raise HTTPException(status_code=404, detail=f"Account '{body.accountId}' not found")
+        
+        # 从数据库获取最新Cookie
+        from cookie_manager import manager as cookie_manager
+        account_info = cookie_manager.get_cookie(body.accountId)
+        if not account_info:
+            raise HTTPException(status_code=404, detail=f"Cookie not found for account '{body.accountId}'")
+        
+        db_cookie_value = account_info.get('cookie_value', '')
+        if db_cookie_value and db_cookie_value != instance.cookies_str:
+            instance.cookies_str = db_cookie_value
+            from utils.trans_cookies import trans_cookies
+            instance.cookies = trans_cookies(instance.cookies_str)
+            # 更新 myid
+            if 'unb' in instance.cookies:
+                instance.myid = instance.cookies['unb']
+            logger.info(f"[Bridge] 账号 {body.accountId} Cookie已刷新, new myid: {instance.myid}")
+            return {"ok": True, "message": f"Cookie refreshed for account {body.accountId}", "new_myid": instance.myid}
+        else:
+            return {"ok": True, "message": "Cookie unchanged, no refresh needed", "myid": instance.myid}
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"[Bridge] 刷新Cookie失败: {e}")
+        return {"ok": False, "error": str(e)}
 async def confirm_delivery(body: ConfirmDeliveryRequest):
     """调用 XianyuLive 的发货确认功能"""
     try:

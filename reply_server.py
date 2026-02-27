@@ -2371,6 +2371,27 @@ async def process_qr_login_cookies(cookies: str, unb: str, current_user: Dict[st
                             # refresh_cookies_from_qr_login 已经保存到数据库了，这里不需要再保存
                             cookie_manager.manager.update_cookie(account_id, real_cookies, save_to_db=False)
                             log_with_user('info', f"已更新cookie_manager中的真实cookie: {account_id}", current_user)
+                        
+                        # 🔄 通知正在运行的 XianyuLive 实例重新加载 Cookie
+                        from bridge_api import xianyu_instances
+                        instance = xianyu_instances.get(account_id)
+                        if instance:
+                            from utils.trans_cookies import trans_cookies
+                            instance.cookies_str = real_cookies
+                            instance.cookies = trans_cookies(instance.cookies_str)
+                            if 'unb' in instance.cookies:
+                                instance.myid = instance.cookies['unb']
+                            log_with_user('info', f"已通知运行中的实例 {account_id} 刷新Cookie, new myid: {instance.myid}", current_user)
+                            
+                    return {
+                    if cookie_manager.manager:
+                        if is_new_account:
+                            cookie_manager.manager.add_cookie(account_id, real_cookies)
+                            log_with_user('info', f"已将真实cookie添加到cookie_manager: {account_id}", current_user)
+                        else:
+                            # refresh_cookies_from_qr_login 已经保存到数据库了，这里不需要再保存
+                            cookie_manager.manager.update_cookie(account_id, real_cookies, save_to_db=False)
+                            log_with_user('info', f"已更新cookie_manager中的真实cookie: {account_id}", current_user)
 
                     return {
                         'account_id': account_id,
