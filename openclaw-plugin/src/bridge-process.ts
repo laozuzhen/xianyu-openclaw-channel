@@ -26,10 +26,10 @@ export class BridgeProcessManager {
   private stopping = false;
   private restartTimer: ReturnType<typeof setTimeout> | null = null;
 
-  /** Python 项目根目录（xianyu-auto-reply-repo/） */
+  /** Python 项目根目录 */
   private get pythonRoot(): string {
-    // 编译后: openclaw-plugin/dist/src/bridge-process.js → 上三级 = xianyu-auto-reply-repo/
-    return path.resolve(__dirname, "..", "..", "..");
+    // 硬编码路径指向实际的 Python 项目目录
+    return "C:\\Users\\Administrator\\.openclaw\\workspace\\skills\\xianyu-openclaw-channel";
   }
 
   async start(logger: BridgeLogger): Promise<void> {
