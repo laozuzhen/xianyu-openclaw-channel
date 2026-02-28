@@ -34,9 +34,11 @@ export class BridgeClient {
    * 使用 fetch + ReadableStream 解析 SSE 事件流
    * 连接断开时抛出错误（由 connection-manager 处理重连）
    *
+   * @param accountId - 闲鱼账号ID (对应 cookie_id)，用于订阅特定账号的消息
    * @param onConnected - 可选回调，fetch 成功且流就绪后立即调用（用于精确的连接状态检测）
    */
   async connectSSE(
+    accountId: string,
     onMessage: (msg: BridgeMessageEvent) => void,
     signal: AbortSignal,
     lastEventId?: string,
@@ -50,7 +52,8 @@ export class BridgeClient {
       headers["Last-Event-ID"] = lastEventId;
     }
 
-    const url = `${this.apiUrl}/api/bridge/messages`;
+    // 构建 SSE URL，传递 account_id 参数订阅特定账号的消息
+    const url = `${this.apiUrl}/api/bridge/messages?account_id=${encodeURIComponent(accountId)}`;
     const response = await fetch(url, { headers, signal });
 
     if (!response.ok) {

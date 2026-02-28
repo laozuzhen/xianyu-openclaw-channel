@@ -6871,6 +6871,51 @@ class XianyuLive:
             "Accept-Language": "zh-CN,zh;q=0.9",
         }
         # 兼容不同版本的websockets库
+        # 首先尝试使用 headers 参数（websockets>=12.0）
+        try:
+            async with websockets.connect(
+                self.base_url,
+                headers=headers
+            ) as websocket:
+                await self._handle_websocket_connection(websocket, toid, item_id, text)
+                return
+        except Exception as e:
+            error_msg = self._safe_str(e)
+            logger.warning(f"headers参数失败: {error_msg}")
+
+        # 尝试使用 extra_headers 参数（旧版本）
+        try:
+            async with websockets.connect(
+                self.base_url,
+                extra_headers=headers
+            ) as websocket:
+                await self._handle_websocket_connection(websocket, toid, item_id, text)
+                return
+        except TypeError as e:
+            error_msg = self._safe_str(e)
+            if "extra_headers" in error_msg:
+                logger.warning("websockets库不支持extra_headers参数，使用additional_headers")
+            else:
+                raise
+
+        # 尝试使用 additional_headers 参数
+        async with websockets.connect(
+            self.base_url,
+            additional_headers=headers
+        ) as websocket:
+            await self._handle_websocket_connection(websocket, toid, item_id, text)
+        headers = {
+            "Cookie": self.cookies_str,
+            "Host": "wss-goofish.dingtalk.com",
+            "Connection": "Upgrade",
+            "Pragma": "no-cache",
+            "Cache-Control": "no-cache",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+            "Origin": "https://www.goofish.com",
+            "Accept-Encoding": "gzip, deflate, br, zstd",
+            "Accept-Language": "zh-CN,zh;q=0.9",
+        }
+        # 兼容不同版本的websockets库
         try:
             async with websockets.connect(
                 self.base_url,
@@ -6893,6 +6938,53 @@ class XianyuLive:
                 raise
 
     async def _create_websocket_connection(self, headers):
+        """创建WebSocket连接，兼容不同版本的websockets库"""
+        import websockets
+
+        # 获取websockets版本用于调试
+        websockets_version = getattr(websockets, '__version__', '未知')
+        logger.warning(f"websockets库版本: {websockets_version}")
+
+        # 首先尝试使用 headers 参数（websockets>=12.0）
+        try:
+            return websockets.connect(
+                self.base_url,
+                headers=headers
+            )
+        except Exception as e:
+            error_msg = self._safe_str(e)
+            logger.warning(f"headers参数失败: {error_msg}")
+
+        # 尝试使用 extra_headers 参数（旧版本）
+        try:
+            return websockets.connect(
+                self.base_url,
+                extra_headers=headers
+            )
+        except Exception as e:
+            error_msg = self._safe_str(e)
+            logger.warning(f"extra_headers参数失败: {error_msg}")
+
+        # 尝试使用 additional_headers 参数（某些版本）
+        if "extra_headers" in error_msg or "unexpected keyword argument" in error_msg:
+            logger.warning("websockets库不支持extra_headers参数，尝试additional_headers")
+            try:
+                return websockets.connect(
+                    self.base_url,
+                    additional_headers=headers
+                )
+            except Exception as e2:
+                error_msg2 = self._safe_str(e2)
+                logger.warning(f"additional_headers参数失败: {error_msg2}")
+
+                if "additional_headers" in error_msg2 or "unexpected keyword argument" in error_msg2:
+                    # 如果都不支持，则不传递headers
+                    logger.warning("websockets库不支持headers参数，使用基础连接模式")
+                    return websockets.connect(self.base_url)
+                else:
+                    raise e2
+        else:
+            raise e
         """创建WebSocket连接，兼容不同版本的websockets库"""
         import websockets
 

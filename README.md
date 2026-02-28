@@ -70,25 +70,87 @@ install-openclaw.bat
 
 ### 3. 配置 OpenClaw
 
-在 `openclaw.json` 中添加闲鱼频道：
+在 `~/.clawdbot/moltbot.json` 中添加闲鱼频道：
 
-```json
+#### 单账号配置（推荐）
+
+```json5
 {
   "channels": {
     "xianyu": {
-      "enabled": true,
       "apiUrl": "http://localhost:8080",
-      "bridgeToken": "安装脚本输出的 Token"
+      "enabled": true
     }
-  }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu"
+      }
+    }
+  ]
 }
 ```
+
+**重要**: 
+- 不指定 `accountId` 时,默认使用 `"default"`
+- 确保闲鱼管理界面中添加的账号 ID 为 `"default"`,或者在配置中明确指定 `accountId`
+
+#### 多账号配置
+
+如果你有多个闲鱼账号,需要为每个账号指定 `accountId`:
+
+```json5
+{
+  "channels": {
+    "xianyu": {
+      "accounts": {
+        "shop1": {
+          "apiUrl": "http://localhost:8080",
+          "enabled": true
+        },
+        "shop2": {
+          "apiUrl": "http://localhost:8081",
+          "enabled": true
+        }
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop1"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop2"
+      }
+    }
+  ]
+}
+```
+
+**说明**:
+- `accountId` 必须与闲鱼管理界面中添加的账号 ID 一致
+- 每个账号需要运行独立的 Python Bridge API 实例(不同端口)
+- SSE 连接会自动订阅对应 `accountId` 的消息队列
 
 ### 4. 配置闲鱼账号
 
 1. 访问 `http://localhost:8080`（闲鱼管理界面）
 2. 默认账号：`admin` / `admin123`（首次登录请改密码）
 3. 添加闲鱼账号的 Cookie
+
+**重要**: 
+- 添加账号时,账号 ID 必须与 OpenClaw 配置中的 `accountId` 一致
+- 单账号模式: 账号 ID 设置为 `"default"`
+- 多账号模式: 账号 ID 设置为 `"shop1"`, `"shop2"` 等(与配置对应)
 
 ### 5. 启动
 
@@ -138,56 +200,124 @@ xianyu-openclaw-channel/
 
 ## 🔌 Bridge API 端点
 
-所有端点需要 `Authorization: Bearer <BRIDGE_TOKEN>` 请求头。
-
 | 端点 | 方法 | 说明 |
 |------|------|------|
-| `/api/bridge/messages` | GET (SSE) | 实时消息推送流 |
+| `/api/bridge/messages?account_id=<accountId>` | GET (SSE) | 实时消息推送流(订阅特定账号) |
 | `/api/bridge/send` | POST | 发送文本消息 |
 | `/api/bridge/send-media` | POST | 发送图片消息 |
 | `/api/bridge/accounts` | GET | 获取账号列表 |
 | `/api/bridge/status` | GET | 获取桥接状态 |
 | `/api/bridge/confirm-delivery` | POST | 确认发货 |
 
+**重要**: 
+- SSE 端点 `/api/bridge/messages` 需要传递 `account_id` 参数
+- `account_id` 对应闲鱼管理界面中的账号 ID
+- OpenClaw 插件会自动根据配置的 `accountId` 订阅对应的消息队列
+
 ## ⚙️ 高级配置
 
-### 多账号
+### 多账号配置
 
-```json
+#### 方案 A: 单 Python 实例 + 多账号
+
+如果所有账号在同一个 Python 实例中管理:
+
+```json5
 {
   "channels": {
     "xianyu": {
-      "enabled": true,
-      "apiUrl": "http://localhost:8080",
-      "bridgeToken": "token-for-default",
       "accounts": {
-        "shop-a": {
-          "apiUrl": "http://server-a:8080",
-          "bridgeToken": "token-a"
+        "shop1": {
+          "apiUrl": "http://localhost:8080",
+          "enabled": true
         },
-        "shop-b": {
-          "apiUrl": "http://server-b:8080",
-          "bridgeToken": "token-b"
+        "shop2": {
+          "apiUrl": "http://localhost:8080",  // 同一个 API 地址
+          "enabled": true
         }
       }
     }
-  }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop1"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop2"
+      }
+    }
+  ]
 }
 ```
 
-### 连接参数
+**说明**:
+- 所有账号共享同一个 Python Bridge API 实例
+- 每个 `accountId` 对应闲鱼管理界面中的一个账号
+- SSE 连接会根据 `accountId` 订阅不同的消息队列
 
-```json
+#### 方案 B: 多 Python 实例 + 多账号
+
+如果每个账号运行独立的 Python 实例:
+
+```json5
 {
   "channels": {
     "xianyu": {
-      "enabled": true,
+      "accounts": {
+        "shop1": {
+          "apiUrl": "http://localhost:8080",
+          "enabled": true
+        },
+        "shop2": {
+          "apiUrl": "http://localhost:8081",  // 不同端口
+          "enabled": true
+        }
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop1"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "shop2"
+      }
+    }
+  ]
+}
+```
+
+**说明**:
+- 每个账号运行独立的 Python 进程(不同端口)
+- 适合需要完全隔离的场景
+
+### 连接参数
+
+```json5
+{
+  "channels": {
+    "xianyu": {
       "apiUrl": "http://localhost:8080",
-      "bridgeToken": "your-token",
-      "maxConnectionAttempts": 10,
-      "initialReconnectDelay": 1000,
-      "maxReconnectDelay": 60000,
-      "reconnectJitter": 0.3
+      "enabled": true,
+      // 可选: 连接重试配置
+      "maxConnectionAttempts": 10,        // 最大重连次数
+      "initialReconnectDelay": 1000,      // 初始重连延迟(毫秒)
+      "maxReconnectDelay": 60000,         // 最大重连延迟(毫秒)
+      "reconnectJitter": 0.3              // 重连抖动系数
     }
   }
 }
@@ -222,7 +352,19 @@ moltbot plugins install -l ./openclaw-plugin
 A: 检查 `venv/` 是否存在，或者系统 PATH 中是否有 python。插件日志会输出 `[bridge-process]` 前缀的信息。
 
 **Q: SSE 连接一直断开重连？**
-A: 确认 Python 端 `reply_server.py` 正在运行，且 `apiUrl` 和 `bridgeToken` 配置正确。
+A: 
+1. 确认 Python 端 `Start.py` 正在运行
+2. 检查 `apiUrl` 配置是否正确
+3. 确认 `accountId` 与闲鱼管理界面中的账号 ID 一致
+
+**Q: 收不到消息？**
+A:
+1. 检查 OpenClaw 配置中的 `accountId` 是否与闲鱼管理界面中的账号 ID 一致
+2. 查看 Python 日志,确认消息是否被正确发布到队列
+3. 查看 OpenClaw 日志,确认 SSE 连接是否订阅了正确的 `account_id`
+
+**Q: 如何查看当前账号 ID？**
+A: 访问闲鱼管理界面 `http://localhost:8080`,在账号列表中查看账号 ID 列。
 
 **Q: 如何只用闲鱼自动回复，不用 OpenClaw？**
 A: 直接 `python Start.py`，访问 `http://localhost:8080` 使用原生管理界面。

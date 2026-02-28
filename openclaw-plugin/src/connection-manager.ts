@@ -112,6 +112,7 @@ export class ConnectionManager {
         // - then block reading the stream until it ends or is aborted
         // - throw "SSE connection closed by server" when stream ends normally
         await this.bridgeClient.connectSSE(
+          this.accountId, // 传递 accountId 用于订阅特定账号的消息
           onMessage,
           this.abortController.signal,
           this.lastEventId,
