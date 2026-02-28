@@ -6943,81 +6943,32 @@ class XianyuLive:
 
         # 获取websockets版本用于调试
         websockets_version = getattr(websockets, '__version__', '未知')
-        logger.warning(f"websockets库版本: {websockets_version}")
-
-        # 首先尝试使用 headers 参数（websockets>=12.0）
-        try:
-            return websockets.connect(
-                self.base_url,
-                headers=headers
-            )
-        except Exception as e:
-            error_msg = self._safe_str(e)
-            logger.warning(f"headers参数失败: {error_msg}")
-
-        # 尝试使用 extra_headers 参数（旧版本）
-        try:
-            return websockets.connect(
-                self.base_url,
-                extra_headers=headers
-            )
-        except Exception as e:
-            error_msg = self._safe_str(e)
-            logger.warning(f"extra_headers参数失败: {error_msg}")
-
-        # 尝试使用 additional_headers 参数（某些版本）
-        if "extra_headers" in error_msg or "unexpected keyword argument" in error_msg:
-            logger.warning("websockets库不支持extra_headers参数，尝试additional_headers")
-            try:
-                return websockets.connect(
-                    self.base_url,
-                    additional_headers=headers
-                )
-            except Exception as e2:
-                error_msg2 = self._safe_str(e2)
-                logger.warning(f"additional_headers参数失败: {error_msg2}")
-
-                if "additional_headers" in error_msg2 or "unexpected keyword argument" in error_msg2:
-                    # 如果都不支持，则不传递headers
-                    logger.warning("websockets库不支持headers参数，使用基础连接模式")
-                    return websockets.connect(self.base_url)
-                else:
-                    raise e2
-        else:
-            raise e
-        """创建WebSocket连接，兼容不同版本的websockets库"""
-        import websockets
-
-        # 获取websockets版本用于调试
-        websockets_version = getattr(websockets, '__version__', '未知')
-        logger.warning(f"websockets库版本: {websockets_version}")
+        logger.info(f"【{self.cookie_id}】websockets库版本: {websockets_version}")
 
         try:
-            # 尝试使用extra_headers参数
+            # 首先尝试使用 additional_headers 参数（标准参数名）
             return websockets.connect(
                 self.base_url,
-                extra_headers=headers
+                additional_headers=headers
             )
-        except Exception as e:
-            # 捕获所有异常类型，不仅仅是TypeError
+        except TypeError as e:
             error_msg = self._safe_str(e)
-            logger.warning(f"extra_headers参数失败: {error_msg}")
+            logger.warning(f"【{self.cookie_id}】additional_headers参数失败: {error_msg}")
 
-            if "extra_headers" in error_msg or "unexpected keyword argument" in error_msg:
-                logger.warning("websockets库不支持extra_headers参数，尝试additional_headers")
-                # 使用additional_headers参数（较新版本）
+            if "additional_headers" in error_msg or "unexpected keyword argument" in error_msg:
+                # 尝试使用 extra_headers 参数（旧版本）
                 try:
                     return websockets.connect(
                         self.base_url,
-                        additional_headers=headers
+                        extra_headers=headers
                     )
-                except Exception as e2:
+                except TypeError as e2:
                     error_msg2 = self._safe_str(e2)
-                    logger.warning(f"additional_headers参数失败: {error_msg2}")
+                    logger.warning(f"【{self.cookie_id}】extra_headers参数失败: {error_msg2}")
 
-                    if "additional_headers" in error_msg2 or "unexpected keyword argument" in error_msg2:
+                    if "extra_headers" in error_msg2 or "unexpected keyword argument" in error_msg2:
                         # 如果都不支持，则不传递headers
-                        logger.warning("websockets库不支持headers参数，使用基础连接模式")
+                        logger.warning(f"【{self.cookie_id}】websockets库不支持headers参数，使用基础连接模式")
                         return websockets.connect(self.base_url)
                     else:
                         raise e2
