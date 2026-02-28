@@ -163,7 +163,7 @@ export const xianyuPlugin: XianyuChannelPlugin = {
             ctx.setStatus({
               ...ctx.getStatus(),
               running: true,
-              lastStartAt: new Date().toISOString(),
+              lastStartAt: Date.now(),
               lastError: null,
             });
           } else if (state === ConnectionState.FAILED || state === ConnectionState.DISCONNECTED) {
@@ -196,7 +196,7 @@ export const xianyuPlugin: XianyuChannelPlugin = {
           ctx.setStatus({
             ...ctx.getStatus(),
             running: false,
-            lastStopAt: new Date().toISOString(),
+            lastStopAt: Date.now(),
           });
         });
       }
@@ -215,7 +215,7 @@ export const xianyuPlugin: XianyuChannelPlugin = {
         ctx.setStatus({
           ...ctx.getStatus(),
           running: false,
-          lastStartAt: new Date().toISOString(),
+          lastStartAt: Date.now(),
         });
 
         ctx.log?.info?.(`[${account.accountId}] Bridge SSE connection started in background`);
@@ -237,7 +237,7 @@ export const xianyuPlugin: XianyuChannelPlugin = {
           ctx.setStatus({
             ...ctx.getStatus(),
             running: false,
-            lastStopAt: new Date().toISOString(),
+            lastStopAt: Date.now(),
           });
         },
       };

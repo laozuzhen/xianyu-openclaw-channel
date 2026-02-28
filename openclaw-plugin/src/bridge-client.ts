@@ -72,7 +72,6 @@ export class BridgeClient {
     let buffer = "";
 
     // SSE 解析状态
-    let currentId = "";
     let currentEvent = "";
     let currentData = "";
 
@@ -96,7 +95,6 @@ export class BridgeClient {
                 onMessage,
               );
             }
-            currentId = "";
             currentEvent = "";
             currentData = "";
             continue;
@@ -123,16 +121,13 @@ export class BridgeClient {
           }
 
           switch (field) {
-            case "id":
-              currentId = val;
-              break;
             case "event":
               currentEvent = val;
               break;
             case "data":
               currentData += (currentData ? "\n" : "") + val;
               break;
-            // retry 等字段忽略
+            // retry、id 等字段忽略
           }
         }
       }

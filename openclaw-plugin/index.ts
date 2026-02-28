@@ -27,6 +27,7 @@ const plugin: XianyuPluginModule = {
     // 注册确认发货工具
     api.registerTool({
       name: "xianyu_confirm_delivery",
+      label: "确认发货",
       description: "确认闲鱼订单发货",
       parameters: {
         type: "object",
@@ -46,9 +47,9 @@ const plugin: XianyuPluginModule = {
             body: JSON.stringify({ orderId, accountId: account }),
           });
           const result = await response.json();
-          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }], details: {} };
         } catch (e: any) {
-          return { content: [{ type: "text", text: `Error: ${e.message}` }], isError: true };
+          return { content: [{ type: "text", text: `Error: ${e.message}` }], isError: true, details: {} };
         }
       },
     });
@@ -56,6 +57,7 @@ const plugin: XianyuPluginModule = {
     // 注册获取订单列表工具
     api.registerTool({
       name: "xianyu_get_orders",
+      label: "获取订单",
       description: "获取闲鱼订单列表",
       parameters: {
         type: "object",
@@ -69,113 +71,18 @@ const plugin: XianyuPluginModule = {
         const { status, limit, accountId } = params as any;
         const account = accountId || "default";
         try {
-          const params = new URLSearchParams();
-          if (status) params.set("status", status);
-          if (limit) params.set("limit", String(limit));
-          params.set("accountId", account);
-          const response = await fetch(`http://localhost:8080/api/orders?${params}`);
+          const queryParams = new URLSearchParams();
+          if (status) queryParams.set("status", status);
+          if (limit) queryParams.set("limit", String(limit));
+          queryParams.set("accountId", account);
+          const response = await fetch(`http://localhost:8080/api/orders?${queryParams}`);
           const result = await response.json();
-          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }], details: {} };
         } catch (e: any) {
-          return { content: [{ type: "text", text: `Error: ${e.message}` }], isError: true };
+          return { content: [{ type: "text", text: `Error: ${e.message}` }], isError: true, details: {} };
         }
       },
     });
-
-    // 注册 Bridge 进程服务 — Gateway 启动时自动启动 Python 进程
-    (api as any).registerService({
-      id: "xianyu-bridge",
-      start: async (ctx: any) => {
-        await bridgeManager.start(ctx.logger);
-      },
-      stop: async () => {
-        await bridgeManager.stop();
-      },
-    });
-  },
-};
-  id: "xianyu",
-  name: "Xianyu Channel",
-  description: "Xianyu (闲鱼) messaging channel via Bridge mode",
-  configSchema: emptyPluginConfigSchema(),
-  register(api: OpenClawPluginApi): void {
-    setXianyuRuntime(api.runtime);
-    api.registerChannel({ plugin: xianyuPlugin });
-
-    // 注册发货工具
-    api.registerTool(
-      {
-        name: "confirmDelivery",
-        description: "Confirm delivery for a Xianyu order",
-        inputSchema: {
-          type: "object" as const,
-          properties: {
-            orderId: { type: "string", description: "Order ID" },
-            accountId: { type: "string", description: "Account ID (optional)" },
-          },
-          required: ["orderId"],
-        },
-      },
-      async (ctx) => {
-        const { orderId, accountId } = ctx.params as any;
-        const account = accountId || "default";
-        // 调用 Bridge API
-        const response = await fetch(`http://localhost:8080/api/bridge/confirm-delivery`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ orderId, accountId: account }),
-        });
-        const result = await response.json();
-        return { content: [{ type: "text" as const, text: JSON.stringify(result) }] };
-      }
-    );
-
-    // 注册获取订单列表工具
-    api.registerTool(
-      {
-        name: "getOrders",
-        description: "Get Xianyu order list",
-        inputSchema: {
-          type: "object" as const,
-          properties: {
-            status: { type: "string", description: "Order status filter (optional)" },
-            limit: { type: "number", description: "Number of orders to fetch (optional)" },
-            accountId: { type: "string", description: "Account ID (optional)" },
-          },
-        },
-      },
-      async (ctx) => {
-        const { status, limit, accountId } = ctx.params as any;
-        const account = accountId || "default";
-        const params = new URLSearchParams();
-        if (status) params.set("status", status);
-        if (limit) params.set("limit", String(limit));
-        params.set("accountId", account);
-        const response = await fetch(`http://localhost:8080/api/orders?${params}`);
-        const result = await response.json();
-        return { content: [{ type: "text" as const, text: JSON.stringify(result) }] };
-      }
-    );
-
-    // 注册 Bridge 进程服务 — Gateway 启动时自动启动 Python 进程
-    (api as any).registerService({
-      id: "xianyu-bridge",
-      start: async (ctx: any) => {
-        await bridgeManager.start(ctx.logger);
-      },
-      stop: async () => {
-        await bridgeManager.stop();
-      },
-    });
-  },
-};
-  id: "xianyu",
-  name: "Xianyu Channel",
-  description: "Xianyu (闲鱼) messaging channel via Bridge mode",
-  configSchema: emptyPluginConfigSchema(),
-  register(api: OpenClawPluginApi): void {
-    setXianyuRuntime(api.runtime);
-    api.registerChannel({ plugin: xianyuPlugin });
 
     // 注册 Bridge 进程服务 — Gateway 启动时自动启动 Python 进程
     (api as any).registerService({
