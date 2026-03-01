@@ -28,8 +28,8 @@ export class BridgeProcessManager {
 
   /** Python 项目根目录 */
   private get pythonRoot(): string {
-    // 硬编码路径指向实际的 Python 项目目录
-    return "C:\\Users\\Administrator\\.openclaw\\workspace\\skills\\xianyu-openclaw-channel";
+    // 指向闲鱼插件目录（venv 在这里）
+    return "C:\\Users\\Administrator\\.openclaw\\extensions\\xianyu";
   }
 
   async start(logger: BridgeLogger): Promise<void> {

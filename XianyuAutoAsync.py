@@ -24,14 +24,22 @@ import aiohttp
 from collections import defaultdict
 from db_manager import db_manager
 
+# 确保工作目录正确，避免导入失败
+import os
+if os.getcwd() != os.path.dirname(os.path.abspath(__file__)):
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    logger.info(f"工作目录已切换到：{os.getcwd()}")
+
 # OpenClaw Bridge 消息队列集成
 try:
     from bridge_message_queue import bridge_queue
     from bridge_api import register_xianyu_instance, unregister_xianyu_instance
     BRIDGE_ENABLED = True
-except ImportError:
+    logger.info(f"Bridge 模块导入成功，BRIDGE_ENABLED = {BRIDGE_ENABLED}")
+except ImportError as e:
     BRIDGE_ENABLED = False
     bridge_queue = None
+    logger.warning(f"Bridge 模块导入失败：{e}，BRIDGE_ENABLED = False")
     def register_xianyu_instance(account_id, instance): pass
     def unregister_xianyu_instance(account_id): pass
 
@@ -6898,10 +6906,10 @@ class XianyuLive:
             else:
                 raise
 
-        # 尝试使用 additional_headers 参数
+        # 尝试使用 extra_headers 参数
         async with websockets.connect(
             self.base_url,
-            additional_headers=headers
+            extra_headers=headers
         ) as websocket:
             await self._handle_websocket_connection(websocket, toid, item_id, text)
         headers = {
@@ -6931,7 +6939,7 @@ class XianyuLive:
                 # 使用兼容模式，通过subprotocols传递部分头信息
                 async with websockets.connect(
                     self.base_url,
-                    additional_headers=headers
+                    extra_headers=headers
                 ) as websocket:
                     await self._handle_websocket_connection(websocket, toid, item_id, text)
             else:
@@ -6945,35 +6953,11 @@ class XianyuLive:
         websockets_version = getattr(websockets, '__version__', '未知')
         logger.info(f"【{self.cookie_id}】websockets库版本: {websockets_version}")
 
-        try:
-            # 首先尝试使用 additional_headers 参数（标准参数名）
-            return websockets.connect(
-                self.base_url,
-                additional_headers=headers
-            )
-        except TypeError as e:
-            error_msg = self._safe_str(e)
-            logger.warning(f"【{self.cookie_id}】additional_headers参数失败: {error_msg}")
-
-            if "additional_headers" in error_msg or "unexpected keyword argument" in error_msg:
-                # 尝试使用 extra_headers 参数（旧版本）
-                try:
-                    return websockets.connect(
-                        self.base_url,
-                        extra_headers=headers
-                    )
-                except TypeError as e2:
-                    error_msg2 = self._safe_str(e2)
-                    logger.warning(f"【{self.cookie_id}】extra_headers参数失败: {error_msg2}")
-
-                    if "extra_headers" in error_msg2 or "unexpected keyword argument" in error_msg2:
-                        # 如果都不支持，则不传递headers
-                        logger.warning(f"【{self.cookie_id}】websockets库不支持headers参数，使用基础连接模式")
-                        return websockets.connect(self.base_url)
-                    else:
-                        raise e2
-            else:
-                raise e
+        # websockets 11.x 使用 extra_headers，直接使用正确的参数
+        return websockets.connect(
+            self.base_url,
+            extra_headers=headers
+        )
 
     async def _handle_websocket_connection(self, websocket, toid, item_id, text):
         """处理WebSocket连接的具体逻辑"""
@@ -6992,21 +6976,36 @@ class XianyuLive:
                 pass
 
     def is_chat_message(self, message):
-        """判断是否为用户聊天消息"""
+        """判断是否为用户聊天消息（包括普通文本、卡片、会话消息等）"""
         try:
+            if not isinstance(message, dict) or "1" not in message:
+                return False
+            
             # 处理 message["1"] 是列表的情况
             msg_1 = message.get("1")
             if isinstance(msg_1, list) and len(msg_1) > 0:
                 msg_1 = msg_1[0]  # 取第一个元素
             
-            return (
-                isinstance(message, dict)
-                and "1" in message
-                and isinstance(msg_1, dict)
-                and "10" in msg_1
-                and isinstance(msg_1["10"], dict)
-                and "reminderContent" in msg_1["10"]
-            )
+            if not isinstance(msg_1, dict):
+                return False
+            
+            # 类型 1: 系统提醒消息（有 reminderContent）
+            if "10" in msg_1 and isinstance(msg_1["10"], dict) and "reminderContent" in msg_1["10"]:
+                return True
+            
+            # 类型 2: 普通文本消息（有 "11" 字段表示文本内容）
+            if "11" in msg_1:
+                return True
+            
+            # 类型 3: 会话消息/卡片消息（有 "6" 字段表示富媒体内容）
+            if "6" in msg_1:
+                return True
+            
+            # 类型 4: 简单会话消息（只有用户 ID 信息，如 {'1': 'xxx@goofish', '4': 'yyy@goofish'}）
+            if "1" in msg_1 and "4" in msg_1:
+                return True
+            
+            return False
         except Exception:
             return False
         """判断是否为用户聊天消息"""
@@ -7765,18 +7764,15 @@ class XianyuLive:
                 if BRIDGE_ENABLED and bridge_queue:
                     try:
                         await bridge_queue.publish(self.cookie_id, {
-                            "event": "message",
-                            "data": {
-                                "messageId": f"{self.cookie_id}:{chat_id}:{int(create_time)}",
-                                "conversationId": chat_id,
-                                "senderId": send_user_id,
-                                "senderName": send_user_name,
-                                "content": send_message,
-                                "contentType": "text",
-                                "itemId": item_id,
-                                "timestamp": create_time,
-                                "accountId": self.cookie_id,
-                            }
+                            "messageId": f"{self.cookie_id}:{chat_id}:{int(create_time)}",
+                            "conversationId": chat_id,
+                            "senderId": send_user_id,
+                            "senderName": send_user_name,
+                            "content": send_message,
+                            "contentType": "text",
+                            "itemId": item_id,
+                            "timestamp": create_time,
+                            "accountId": self.cookie_id,
                         })
                     except Exception as e:
                         logger.debug(f"[Bridge] 发布消息到桥接队列失败: {e}")

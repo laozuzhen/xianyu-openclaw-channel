@@ -160,6 +160,7 @@ export async function handleBridgeMessage(
             conversationId,
             toUserId: senderId,
             text: textToSend,
+            accountId,
           });
 
           if (!result.ok) {
@@ -185,8 +186,9 @@ async function sendTextMessage(params: {
   conversationId: string;
   toUserId: string;
   text: string;
+  accountId?: string;
 }): Promise<{ ok: boolean; error?: string }> {
-  const { apiUrl, conversationId, toUserId, text } = params;
+  const { apiUrl, conversationId, toUserId, text, accountId } = params;
 
   try {
     const response = await fetch(`${apiUrl}/api/bridge/send`, {
@@ -196,6 +198,7 @@ async function sendTextMessage(params: {
         conversationId,
         toUserId,
         text,
+        accountId: accountId || "default",
       }),
     });
 
