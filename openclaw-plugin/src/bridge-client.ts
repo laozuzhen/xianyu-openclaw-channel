@@ -163,8 +163,9 @@ export class BridgeClient {
     conversationId: string,
     toUserId: string,
     text: string,
+    accountId?: string,
   ): Promise<SendResult> {
-    return this.post("/api/bridge/send", { conversationId, toUserId, text });
+    return this.post("/api/bridge/send", { conversationId, toUserId, text, accountId });
   }
 
   /** 发送图片消息 */
@@ -172,11 +173,13 @@ export class BridgeClient {
     conversationId: string,
     toUserId: string,
     imageUrl: string,
+    accountId?: string,
   ): Promise<SendResult> {
     return this.post("/api/bridge/send-media", {
       conversationId,
       toUserId,
       imageUrl,
+      accountId,
     });
   }
 
@@ -219,18 +222,25 @@ export class BridgeClient {
     body: Record<string, unknown>,
   ): Promise<T> {
     try {
+      // 确保请求体正确编码
+      const jsonBody = JSON.stringify(body);
+      console.log(`[BridgeClient] POST ${path}`, jsonBody.substring(0, 200));
+
       const response = await fetch(`${this.apiUrl}${path}`, {
         method: "POST",
         headers: this.getHeaders(),
-        body: JSON.stringify(body),
+        body: jsonBody,
       });
 
       if (!response.ok) {
         const text = await response.text().catch(() => response.statusText);
+        console.error(`[BridgeClient] POST ${path} failed: ${response.status}`, text);
         return { ok: false, error: `${response.status}: ${text}` } as T;
       }
 
-      return response.json() as Promise<T>;
+      const result = await response.json() as T;
+      console.log(`[BridgeClient] POST ${path} result:`, JSON.stringify(result).substring(0, 100));
+      return result;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       return { ok: false, error: message } as T;

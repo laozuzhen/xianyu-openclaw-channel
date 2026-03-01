@@ -86,24 +86,41 @@ export function resolveXianyuAccount(
   cfg: OpenClawConfig,
   accountId?: string | null,
 ): ResolvedXianyuAccount {
-  const id = accountId || DEFAULT_ACCOUNT_ID;
   const xianyu = cfg?.channels?.xianyu as XianyuChannelConfig | undefined;
 
-  if (id === DEFAULT_ACCOUNT_ID) {
+  // 如果没有指定 accountId，尝试从 accounts 中获取第一个可用的账号
+  if (!accountId || accountId === DEFAULT_ACCOUNT_ID) {
+    // 优先使用 accounts 中的第一个账号
+    if (xianyu?.accounts && Object.keys(xianyu.accounts).length > 0) {
+      const firstAccountId = Object.keys(xianyu.accounts)[0];
+      const account = xianyu.accounts[firstAccountId];
+      return {
+        accountId: firstAccountId,
+        apiUrl: account.apiUrl ?? xianyu.apiUrl ?? "",
+        bridgeToken: (account as any).bridgeToken ?? (xianyu as any).bridgeToken,
+        enabled: account.enabled ?? true,
+        configured: Boolean(account.apiUrl ?? xianyu.apiUrl),
+        name: account.name,
+      };
+    }
+
+    // 回退到顶层配置
     return {
-      accountId: id,
+      accountId: DEFAULT_ACCOUNT_ID,
       apiUrl: xianyu?.apiUrl ?? "",
+      bridgeToken: (xianyu as any)?.bridgeToken,
       enabled: xianyu?.enabled ?? true,
       configured: Boolean(xianyu?.apiUrl),
       name: xianyu?.name,
     };
   }
 
-  const account = xianyu?.accounts?.[id];
+  const account = xianyu?.accounts?.[accountId];
   if (account) {
     return {
-      accountId: id,
+      accountId: accountId,
       apiUrl: account.apiUrl,
+      bridgeToken: (account as any).bridgeToken,
       enabled: account.enabled ?? true,
       configured: Boolean(account.apiUrl),
       name: account.name,
@@ -111,7 +128,7 @@ export function resolveXianyuAccount(
   }
 
   return {
-    accountId: id,
+    accountId: accountId,
     apiUrl: "",
     enabled: false,
     configured: false,

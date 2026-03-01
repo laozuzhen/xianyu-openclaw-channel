@@ -81,9 +81,11 @@ export const xianyuPlugin: XianyuChannelPlugin = {
       log?.debug?.(`[xianyu] sendText: to=${to}, sessionKey=${sessionKey}, effectiveConversationId=${effectiveConversationId}`);
       const result = await sendTextService({
         apiUrl: account.apiUrl,
+        bridgeToken: account.bridgeToken,
         conversationId: effectiveConversationId,
         toUserId: to,
         text,
+        accountId: account.accountId,
       });
       if (!result.ok) {
         throw new Error(result.error || "sendText failed");
@@ -97,9 +99,11 @@ export const xianyuPlugin: XianyuChannelPlugin = {
       log?.debug?.(`[xianyu] sendMedia: to=${to}, sessionKey=${sessionKey}, effectiveConversationId=${effectiveConversationId}`);
       const result = await sendMediaService({
         apiUrl: account.apiUrl,
+        bridgeToken: account.bridgeToken,
         conversationId: effectiveConversationId,
         toUserId: to,
         imageUrl: mediaUrl || "",
+        accountId: account.accountId,
       });
       if (!result.ok) {
         throw new Error(result.error || "sendMedia failed");

@@ -5196,6 +5196,7 @@ class XianyuLive:
         await ws.send(json.dumps(msg))
 
     async def send_msg(self, ws, cid, toid, text):
+        logger.info(f"[send_msg] 开始发送消息: cid={cid}, toid={toid}, text={text[:50] if len(text) > 50 else text}")
         text = {
             "contentType": 1,
             "text": {
@@ -7736,6 +7737,18 @@ class XianyuLive:
                 send_user_name = message_10.get("senderNick", message_10.get("reminderTitle", "未知用户"))
                 send_user_id = message_10.get("senderUserId", "unknown")
                 send_message = message_10.get("reminderContent", "")
+                
+                # 检查是否有图片消息
+                content_type = 1  # 默认文本
+                pic_url = None
+                if "pic_info" in message_10:
+                    # 图片消息
+                    content_type = 2
+                    pic_info = message_10.get("pic_info", {})
+                    pic_url = pic_info.get("picUrl") or pic_info.get("pic_url")
+                    if pic_url:
+                        send_message = f"[图片] {pic_url}"
+                    logger.info(f"[{msg_time}] 【收到图片】用户: {send_user_name}, 图片URL: {pic_url}")
 
                 chat_id_raw = message_1.get("2", "")
                 chat_id = chat_id_raw.split('@')[0] if '@' in str(chat_id_raw) else str(chat_id_raw)
@@ -7763,17 +7776,21 @@ class XianyuLive:
                 # 🔗 OpenClaw Bridge 模式：将买家消息发布到 Bridge 消息队列
                 if BRIDGE_ENABLED and bridge_queue:
                     try:
-                        await bridge_queue.publish(self.cookie_id, {
+                        msg_data = {
                             "messageId": f"{self.cookie_id}:{chat_id}:{int(create_time)}",
                             "conversationId": chat_id,
                             "senderId": send_user_id,
                             "senderName": send_user_name,
                             "content": send_message,
-                            "contentType": "text",
+                            "contentType": "image" if content_type == 2 else "text",
                             "itemId": item_id,
                             "timestamp": create_time,
                             "accountId": self.cookie_id,
-                        })
+                        }
+                        # 如果是图片消息，添加图片URL
+                        if pic_url:
+                            msg_data["imageUrl"] = pic_url
+                        await bridge_queue.publish(self.cookie_id, msg_data)
                     except Exception as e:
                         logger.debug(f"[Bridge] 发布消息到桥接队列失败: {e}")
 

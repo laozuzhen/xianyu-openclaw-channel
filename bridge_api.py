@@ -126,6 +126,14 @@ async def stream_messages(
 
 def _get_instance(account_id: str):
     """获取 XianyuLive 实例，不存在或 ws 断开时抛出对应 HTTP 异常"""
+    # 如果是 default，返回第一个可用实例
+    if account_id == "default":
+        if not xianyu_instances:
+            raise HTTPException(status_code=404, detail="No XianyuLive instances registered")
+        # 返回第一个可用实例
+        account_id = list(xianyu_instances.keys())[0]
+        logger.info(f"[Bridge] default 账号映射到: {account_id}")
+
     instance = xianyu_instances.get(account_id)
     if instance is None:
         raise HTTPException(status_code=404, detail=f"Account '{account_id}' not found or not running")
@@ -141,14 +149,20 @@ def _get_instance(account_id: str):
 @bridge_router.post("/send")
 async def send_message(body: SendMessageRequest):
     """通过 XianyuLive WebSocket 发送文本消息"""
+    logger.info(f"[Bridge] 收到发送请求: accountId={body.accountId}, cid={body.conversationId}, to={body.toUserId}, text={body.text[:30] if len(body.text) > 30 else body.text}")
     try:
         instance = _get_instance(body.accountId)
+        logger.info(f"[Bridge] 找到实例，ws={instance.ws is not None}, 准备发送...")
         await instance.send_msg(instance.ws, body.conversationId, body.toUserId, body.text)
+        logger.info(f"[Bridge] 消息发送完成")
         return {"ok": True}
-    except HTTPException:
+    except HTTPException as e:
+        logger.error(f"[Bridge] HTTP异常: {e.detail}")
         raise
     except Exception as e:
         logger.error(f"[Bridge] 发送文本消息失败: {e}")
+        import traceback
+        logger.error(f"[Bridge] 堆栈: {traceback.format_exc()}")
         return {"ok": False, "error": str(e)}
 
 

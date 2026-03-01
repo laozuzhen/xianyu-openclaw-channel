@@ -108,6 +108,7 @@ export interface XianyuChannelConfig {
 export interface ResolvedXianyuAccount {
   accountId: string;
   apiUrl: string;
+  bridgeToken?: string;
   enabled: boolean;
   configured: boolean;
   name?: string;

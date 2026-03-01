@@ -29,11 +29,13 @@ export function chunkText(
 /** 发送文本消息（自动分块） */
 export async function sendText(params: {
   apiUrl: string;
+  bridgeToken?: string;
   conversationId: string;
   toUserId: string;
   text: string;
+  accountId?: string;
 }): Promise<SendResult> {
-  const client = new BridgeClient(params.apiUrl);
+  const client = new BridgeClient(params.apiUrl, params.bridgeToken);
   const chunks = chunkText(params.text);
 
   for (const chunk of chunks) {
@@ -41,6 +43,7 @@ export async function sendText(params: {
       params.conversationId,
       params.toUserId,
       chunk,
+      params.accountId,
     );
     if (!result.ok) {
       return result;
@@ -52,14 +55,17 @@ export async function sendText(params: {
 /** 发送媒体消息 */
 export async function sendMedia(params: {
   apiUrl: string;
+  bridgeToken?: string;
   conversationId: string;
   toUserId: string;
   imageUrl: string;
+  accountId?: string;
 }): Promise<SendResult> {
-  const client = new BridgeClient(params.apiUrl);
+  const client = new BridgeClient(params.apiUrl, params.bridgeToken);
   return client.sendMedia(
     params.conversationId,
     params.toUserId,
     params.imageUrl,
+    params.accountId,
   );
 }
