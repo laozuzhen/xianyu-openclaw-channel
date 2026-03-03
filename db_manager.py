@@ -5736,3 +5736,38 @@ db_manager = DBManager()
 # 确保进程结束时关闭数据库连接
 import atexit
 atexit.register(db_manager.close)
+
+
+# ---------------------------------------------------------------------------
+# AI Product API - 发货卡片和发货规则（使用现有表结构）
+# ---------------------------------------------------------------------------
+
+def add_card(account_id: str, name: str, card_type: str, content: str, delay_seconds: int = 0) -> int:
+    from datetime import datetime
+    with db_manager.lock:
+        cursor = db_manager.conn.cursor()
+        cursor.execute('INSERT INTO cards (user_id, name, type, text_content, delay_seconds, enabled, created_at, updated_at) VALUES (?, ?, ?, ?, ?, 1, ?, ?)', (account_id, name, card_type, content, delay_seconds, datetime.now().isoformat(), datetime.now().isoformat()))
+        db_manager.conn.commit()
+        return cursor.lastrowid
+
+def get_cards(account_id: str) -> list:
+    with db_manager.lock:
+        cursor = db_manager.conn.cursor()
+        cursor.execute('SELECT id, user_id, name, type, text_content, delay_seconds, enabled, created_at FROM cards WHERE user_id = ?', (account_id,))
+        rows = cursor.fetchall()
+        return [{'id': r[0], 'account_id': r[1], 'name': r[2], 'type': r[3], 'content': r[4], 'delay_seconds': r[5], 'enabled': bool(r[6]), 'created_at': r[7]} for r in rows]
+
+def add_delivery_rule(account_id: str, keyword: str, card_id: int, enabled: bool = True) -> int:
+    from datetime import datetime
+    with db_manager.lock:
+        cursor = db_manager.conn.cursor()
+        cursor.execute('INSERT INTO delivery_rules (user_id, keyword, card_id, enabled, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)', (account_id, keyword, card_id, 1 if enabled else 0, datetime.now().isoformat(), datetime.now().isoformat()))
+        db_manager.conn.commit()
+        return cursor.lastrowid
+
+def get_delivery_rules(account_id: str) -> list:
+    with db_manager.lock:
+        cursor = db_manager.conn.cursor()
+        cursor.execute('SELECT id, user_id, keyword, card_id, enabled, created_at FROM delivery_rules WHERE user_id = ?', (account_id,))
+        rows = cursor.fetchall()
+        return [{'id': r[0], 'account_id': r[1], 'keyword': r[2], 'card_id': r[3], 'enabled': bool(r[4]), 'created_at': r[5]} for r in rows]

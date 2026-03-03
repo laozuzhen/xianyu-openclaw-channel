@@ -315,3 +315,112 @@ async def confirm_delivery(body: ConfirmDeliveryRequest):
     except Exception as e:
         logger.error(f"[Bridge] 确认发货失败: {e}")
         return {"ok": False, "error": str(e)}
+# ---------------------------------------------------------------------------
+# AI Product API - 商品管理
+# ---------------------------------------------------------------------------
+
+class CreateProductRequest(BaseModel):
+    accountId: Optional[str] = "default"
+    title: str
+    price: float
+    description: Optional[str] = ""
+    images: Optional[list] = []
+    stock: Optional[int] = 1
+    categoryId: Optional[str] = None
+
+
+@bridge_router.post("/products")
+async def create_product(body: CreateProductRequest):
+    """创建闲鱼商品"""
+    try:
+        # TODO: 调用 XianyuLive 的商品创建功能
+        logger.info(f"[Bridge] 创建商品: accountId={body.accountId}, title={body.title}, price={body.price}")
+        return {"ok": True, "productId": "pending", "status": "created", "message": "Product creation endpoint ready"}
+    except Exception as e:
+        logger.error(f"[Bridge] 创建商品失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+@bridge_router.get("/products")
+async def list_products(accountId: str = "default", page: int = 1, limit: int = 20):
+    """列出闲鱼商品"""
+    try:
+        # TODO: 从数据库获取商品列表
+        logger.info(f"[Bridge] 列出商品: accountId={accountId}, page={page}, limit={limit}")
+        return {"ok": True, "products": [], "total": 0, "message": "Product listing endpoint ready"}
+    except Exception as e:
+        logger.error(f"[Bridge] 列出商品失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+# ---------------------------------------------------------------------------
+# AI Product API - 发货规则
+# ---------------------------------------------------------------------------
+
+class CreateDeliveryRuleRequest(BaseModel):
+    accountId: Optional[str] = "default"
+    keyword: str
+    cardId: int
+    enabled: Optional[bool] = True
+
+
+@bridge_router.post("/delivery-rules")
+async def create_delivery_rule(body: CreateDeliveryRuleRequest):
+    """创建自动发货规则"""
+    try:
+        import db_manager
+        rule_id = db_manager.add_delivery_rule(body.accountId, body.keyword, body.cardId, body.enabled)
+        logger.info(f"[Bridge] 创建发货规则: accountId={body.accountId}, keyword={body.keyword}, cardId={body.cardId}")
+        return {"ok": True, "ruleId": rule_id}
+    except Exception as e:
+        logger.error(f"[Bridge] 创建发货规则失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+@bridge_router.get("/delivery-rules")
+async def list_delivery_rules(accountId: str = "default"):
+    """列出自动发货规则"""
+    try:
+        import db_manager
+        rules = db_manager.get_delivery_rules(accountId)
+        return {"ok": True, "rules": rules}
+    except Exception as e:
+        logger.error(f"[Bridge] 列出发货规则失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+# ---------------------------------------------------------------------------
+# AI Product API - 发货卡片
+# ---------------------------------------------------------------------------
+
+class CreateCardRequest(BaseModel):
+    accountId: Optional[str] = "default"
+    name: str
+    type: str  # text, image, api
+    content: str
+    delaySeconds: Optional[int] = 0
+
+
+@bridge_router.post("/cards")
+async def create_card(body: CreateCardRequest):
+    """创建发货内容卡片"""
+    try:
+        import db_manager
+        card_id = db_manager.add_card(body.accountId, body.name, body.type, body.content, body.delaySeconds)
+        logger.info(f"[Bridge] 创建发货卡片: accountId={body.accountId}, name={body.name}, type={body.type}")
+        return {"ok": True, "cardId": card_id}
+    except Exception as e:
+        logger.error(f"[Bridge] 创建发货卡片失败: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+@bridge_router.get("/cards")
+async def list_cards(accountId: str = "default"):
+    """列出发货卡片"""
+    try:
+        import db_manager
+        cards = db_manager.get_cards(accountId)
+        return {"ok": True, "cards": cards}
+    except Exception as e:
+        logger.error(f"[Bridge] 列出发货卡片失败: {e}")
+        return {"ok": False, "error": str(e)}
