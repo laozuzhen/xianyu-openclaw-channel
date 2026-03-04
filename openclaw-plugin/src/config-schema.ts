@@ -24,6 +24,10 @@ export const XianyuConfigSchema = z.object({
   initialReconnectDelay: z.number().optional(),
   maxReconnectDelay: z.number().optional(),
   reconnectJitter: z.number().optional(),
+  // ✅ 问题5修复：添加 SSE 消息优化配置选项
+  sendMode: z.enum(["final-only", "all", "merged"]).optional(),
+  typingIndicator: z.boolean().optional(),
+  cacheTimeout: z.number().optional(),
 });
 
 export type XianyuConfigInput = z.input<typeof XianyuConfigSchema>;

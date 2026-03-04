@@ -102,6 +102,10 @@ export interface XianyuChannelConfig {
   initialReconnectDelay?: number;
   maxReconnectDelay?: number;
   reconnectJitter?: number;
+  // ✅ 问题5修复：SSE 消息优化配置选项
+  sendMode?: "final-only" | "all" | "merged";
+  typingIndicator?: boolean;
+  cacheTimeout?: number;
 }
 
 /** 解析后的闲鱼账号 */

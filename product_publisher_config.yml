@@ -1,0 +1,226 @@
+# 闲鱼商品发布器配置文件
+# 支持热加载，修改后无需重启程序
+
+# 选择器配置（支持多个备选选择器）
+selectors:
+  # 图片上传按钮（点击触发文件选择器）
+  image_upload_button:
+    primary: 'text=添加首图'
+    fallback:
+      - 'generic:has-text("添加首图")'
+      - 'div:has-text("添加首图")'
+      - '.upload-content--MU7R8CMf'
+      - 'generic:has-text("添加图片")'
+      - 'div:has-text("添加图片")'
+      - '[class*="upload"]:has-text("添加")'
+      - 'button:has-text("添加图片")'
+  
+  # 图片上传输入框（隐藏的 file input）
+  image_upload_input:
+    primary: 'input[type="file"]'
+    fallback:
+      - 'input[accept*="image"]'
+      - '.upload-input'
+      - '[data-testid="upload-input"]'
+  
+  # 标题输入框（可能在上传图片后出现）
+  title_input:
+    primary: 'input[placeholder*="标题"]'
+    fallback:
+      - 'input[placeholder*="宝贝"]'
+      - 'input[name="title"]'
+      - '.title-input'
+      - '[data-testid="title-input"]'
+  
+  # 价格输入框（第一个 placeholder="0.00" 的输入框）
+  price_input:
+    primary: 'input.ant-input[placeholder="0.00"]:nth-of-type(1)'
+    fallback:
+      - 'input[placeholder="0.00"]:first-of-type'
+      - 'input.ant-input[placeholder="0.00"]'
+      - 'input[type="text"][placeholder="0.00"]'
+      - 'input[placeholder*="价格"]'
+      - 'input[name="price"]'
+      - '.price-input'
+  
+  # 描述输入框（可编辑的 div 元素，contenteditable）
+  description_textarea:
+    primary: '.editor--MtHPS94K'
+    fallback:
+      - 'div[data-placeholder*="描述一下宝贝"]'
+      - 'div[contenteditable="true"]'
+      - '[contenteditable="true"]'
+      - 'textarea[placeholder*="描述"]'
+      - 'textarea[name="description"]'
+      - '.description-textarea'
+  
+  # 原价输入框（第二个 placeholder="0.00" 的输入框）
+  original_price_input:
+    primary: 'input.ant-input[placeholder="0.00"]:nth-of-type(2)'
+    fallback:
+      - 'input[placeholder="0.00"]:nth-of-type(2)'
+      - 'input[type="text"][placeholder="0.00"]:nth-of-type(2)'
+      - 'input[placeholder*="原价"]'
+      - 'input[name="original_price"]'
+      - '.original-price-input'
+  
+  # 分类选择器
+  category_selector:
+    primary: 'button:has-text("添加规格类型")'
+    fallback:
+      - '.category-selector'
+      - '[data-testid="category-selector"]'
+      - 'button:has-text("选择分类")'
+  
+  # 位置选择器（宝贝所在地按钮）
+  location_selector:
+    primary: 'generic:has-text("五源河公寓A区")'
+    fallback:
+      - 'generic:near(text="宝贝所在地")'
+      - '.location-selector'
+      - '[data-testid="location-selector"]'
+      - 'button:has-text("位置")'
+  
+  # 位置输入框
+  location_input:
+    primary: 'input[placeholder*="位置"]'
+    fallback:
+      - 'input[placeholder*="地址"]'
+      - 'input[name="location"]'
+      - '.location-input'
+  
+  # 位置结果项
+  location_result_item:
+    primary: '.location-result-item:first-child'
+    fallback:
+      - '.location-item:first-child'
+      - '[data-testid="location-item"]:first-child'
+  
+  # 发布按钮（button "发布" ref=e140）
+  publish_button:
+    primary: 'button:has-text("发布")'
+    fallback:
+      - 'button[type="submit"]'
+      - '.submit-btn'
+      - '[data-testid="publish-button"]'
+  
+  # 成功提示（短暂的 toast 消息）
+  success_message:
+    primary: 'text="发布成功"'
+    fallback:
+      - 'text="提交成功"'
+      - 'text="已发布"'
+      - '.success-message'
+      - '.toast-success'
+      - '[data-testid="success-message"]'
+      - '[class*="success"]'
+      - '[class*="toast"]'
+
+# 延迟配置（秒）
+delays:
+  # 操作间随机延迟范围
+  operation_min: 0.1
+  operation_max: 0.3
+  
+  # 商品间随机延迟范围（防检测）
+  product_min: 5
+  product_max: 15
+  
+  # 页面加载等待
+  page_load: 2
+  page_load_max: 3
+  
+  # 图片上传间隔
+  image_upload_min: 0.5
+  image_upload_max: 1.5
+  
+  # 图片上传完成等待
+  image_upload_complete_min: 2
+  image_upload_complete_max: 3
+
+# 重试配置
+retry:
+  # 最大重试次数
+  max_attempts: 3
+  
+  # 重试间隔（秒）
+  retry_delay: 2
+  
+  # 选择器查找超时（毫秒）
+  selector_timeout: 10000
+  
+  # 页面加载超时（毫秒）
+  page_load_timeout: 30000
+  
+  # 网络请求超时（毫秒）
+  network_timeout: 30000
+
+# 截图配置
+screenshot:
+  # 是否启用自动截图
+  enabled: true
+  
+  # 截图保存目录
+  save_dir: 'logs/screenshots'
+  
+  # 失败时是否截图
+  on_failure: true
+  
+  # 成功时是否截图
+  on_success: false
+  
+  # 截图格式
+  format: 'png'
+  
+  # 截图质量（1-100，仅对 jpeg 有效）
+  quality: 85
+
+# 防检测配置
+anti_detection:
+  # User-Agent 列表（随机选择）
+  user_agents:
+    - 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    - 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
+    - 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+  
+  # 是否启用鼠标移动模拟
+  enable_mouse_movement: true
+  
+  # 是否启用页面滚动模拟
+  enable_page_scroll: true
+  
+  # 鼠标移动步数范围
+  mouse_steps_min: 10
+  mouse_steps_max: 30
+  
+  # 滚动次数范围
+  scroll_times_min: 1
+  scroll_times_max: 3
+
+# 验证码配置
+captcha:
+  # 是否启用验证码检测
+  enabled: true
+  
+  # 验证码检测选择器
+  detection_selectors:
+    - '.captcha-container'
+    - '#captcha'
+    - '[data-testid="captcha"]'
+  
+  # 验证码等待超时（秒）
+  wait_timeout: 60
+  
+  # 是否自动处理验证码（需要集成验证码服务）
+  auto_handle: false
+
+# 日志配置
+logging:
+  # 日志级别
+  level: 'INFO'
+  
+  # 是否记录详细的选择器查找过程
+  log_selector_search: true
+  
+  # 是否记录网络请求
+  log_network: false

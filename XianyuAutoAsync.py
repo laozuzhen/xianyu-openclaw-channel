@@ -7776,21 +7776,39 @@ class XianyuLive:
                 # 🔗 OpenClaw Bridge 模式：将买家消息发布到 Bridge 消息队列
                 if BRIDGE_ENABLED and bridge_queue:
                     try:
-                        msg_data = {
-                            "messageId": f"{self.cookie_id}:{chat_id}:{int(create_time)}",
-                            "conversationId": chat_id,
-                            "senderId": send_user_id,
-                            "senderName": send_user_name,
-                            "content": send_message,
-                            "contentType": "image" if content_type == 2 else "text",
-                            "itemId": item_id,
-                            "timestamp": create_time,
-                            "accountId": self.cookie_id,
-                        }
-                        # 如果是图片消息，添加图片URL
-                        if pic_url:
-                            msg_data["imageUrl"] = pic_url
-                        await bridge_queue.publish(self.cookie_id, msg_data)
+                        # ✅ 商品所有权过滤：只发布属于当前账号的商品消息
+                        should_publish = True
+                        if item_id and item_id != "未知商品":
+                            try:
+                                from db_manager import db_manager
+                                item_info = db_manager.get_item_info(self.cookie_id, item_id)
+                                if not item_info:
+                                    logger.debug(f"[Bridge] 商品 {item_id} 不属于账号 {self.cookie_id}，跳过消息发布")
+                                    should_publish = False
+                                else:
+                                    logger.debug(f"[Bridge] 商品 {item_id} 归属验证通过，发布消息")
+                            except Exception as e:
+                                logger.warning(f"[Bridge] 检查商品归属失败: {e}，跳过消息发布")
+                                should_publish = False
+                        
+                        # 只有商品属于当前账号时才发布消息
+                        if should_publish:
+                            msg_data = {
+                                "messageId": f"{self.cookie_id}:{chat_id}:{int(create_time)}",
+                                "conversationId": chat_id,
+                                "senderId": send_user_id,
+                                "senderName": send_user_name,
+                                "content": send_message,
+                                "contentType": "image" if content_type == 2 else "text",
+                                "itemId": item_id,
+                                "timestamp": create_time,
+                                "accountId": self.cookie_id,
+                            }
+                            # 如果是图片消息，添加图片URL
+                            if pic_url:
+                                msg_data["imageUrl"] = pic_url
+                            await bridge_queue.publish(self.cookie_id, msg_data)
+                            logger.debug(f"[Bridge] 消息已发布到队列: item_id={item_id}, sender={send_user_name}")
                     except Exception as e:
                         logger.debug(f"[Bridge] 发布消息到桥接队列失败: {e}")
 

@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.24",
+    "lastTouchedAt": "2026-03-01T00:41:01.497Z"
+  },
+  "env": {
+    "vars": {
+      "PATH": "C:\\Program Files\\Python313;C:\\Program Files\\Python313\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\nodejs;C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-23T10:42:24.341Z",
+    "lastRunVersion": "2026.2.22-2",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "minimax-cn:default": {
+        "provider": "minimax-cn",
+        "mode": "api_key"
+      },
+      "zhipu:default": {
+        "provider": "zhipu",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax-cn": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "apiKey": "sk-cp-8WBHtMufrq0TFQrXy9fCTS33eJiXjy24GR4FcaFL-KtnRDDXXeFE7Up0Cn746QpwV1ly3ytyP9-4dnt6DoAR8Nxi6SPzWLk9wPAemrtD9S7lbv2d636aySk",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "zhipu": {
+        "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+        "apiKey": "a094459a2ca6442c9671aa47fc21ff0f.X8ScFzoR28dzaS9b",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "GLM-5",
+            "name": "GLM-5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "glm-4.6v",
+            "name": "GLM-4.6V",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 10,
+              "output": 10,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 4096
+          }
+        ]
+      },
+      "kimi": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "sk-sp-05c7cf4035684ff9bc5700c19453733e",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi-K2.5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 1,
+              "output": 4,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32000,
+            "maxTokens": 6000
+          }
+        ]
+      },
+      "qwen-portal": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "sk-sp-05c7cf4035684ff9bc5700c19453733e",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "Qwen3.5-Plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "glm-5",
+            "name": "glm-5",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "qianfan": {
+        "baseUrl": "https://qianfan.baidubce.com/v1",
+        "apiKey": "bce-v3/ALTAKSP-UEEKjn9LPZq8aRLFKEZMk/49f4fb99f3503fe07d901009827849ee2ce7b5a6",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "glm-5",
+            "name": "GLM-5",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 15,
+              "output": 60,
+              "cacheRead": 2,
+              "cacheWrite": 10
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "qianfan/glm-5",
+        "fallbacks": [
+          "qwen-portal/glm-5"
+        ]
+      },
+      "imageModel": {
+        "primary": "qwen-portal/qwen3.5-plus"
+      },
+      "models": {
+        "minimax-cn/MiniMax-M2.5": {
+          "alias": "Minimax"
+        },
+        "zhipu/glm-5": {
+          "alias": "GLM-5"
+        },
+        "zhipu/glm-4.6v": {
+          "alias": "GLM-4.6V"
+        },
+        "qwen-portal/qwen3.5-plus": {},
+        "qwen-portal/GLM-5": {},
+        "qwen-portal/glm-5": {},
+        "qianfan/glm-5": {
+          "alias": "Qianfan-GLM5"
+        }
+      },
+      "memorySearch": {
+        "enabled": false,
+        "provider": "openai",
+        "remote": {
+          "baseUrl": "https://api.siliconflow.cn/v1",
+          "apiKey": "sk-ypmsrvlzidxjgbyzpppvgjbrdxmnidrapibwtdcpjsaaldrl"
+        },
+        "model": "Qwen/Qwen3-Embedding-8B",
+        "cache": {
+          "enabled": true,
+          "maxEntries": 50000
+        }
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "小助手",
+        "workspace": "C:\\Users\\Administrator\\.openclaw\\workspace"
+      },
+      {
+        "id": "bot2",
+        "name": "工作助手",
+        "workspace": "C:\\Users\\Administrator\\.openclaw\\workspace-bot2",
+        "tools": {
+          "allow": ["*", "group:plugins"]
+        }
+      },
+      {
+        "id": "xianyu",
+        "name": "闲鱼助手",
+        "workspace": "C:\\Users\\Administrator\\.openclaw\\workspace-xianyu"
+      }
+    ]
+  },
+  "tools": {
+    "allow": [
+      "*"
+    ],
+    "web": {
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "main",
+        "bot2",
+        "xianyu"
+      ]
+    },
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off",
+      "pathPrepend": [
+        "C:\\Program Files\\Python313",
+        "C:\\Program Files\\Python313\\Scripts",
+        "C:\\Program Files\\nodejs",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\npm",
+        "C:\\Windows\\system32",
+        "C:\\Windows"
+      ],
+      "safeBins": [
+        "node",
+        "npm",
+        "npx",
+        "powershell"
+      ],
+      "safeBinProfiles": {
+        "npm": {},
+        "npx": {}
+      },
+      "applyPatch": {
+        "enabled": true
+      }
+    },
+    "sandbox": {
+      "tools": {
+        "allow": [
+          "group:runtime",
+          "group:fs",
+          "mcp-adapter"
+        ]
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "xiaozhushou"
+      }
+    },
+    {
+      "agentId": "bot2",
+      "match": {
+        "channel": "feishu",
+        "accountId": "gongzhu"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "bot1"
+      }
+    },
+    {
+      "agentId": "bot2",
+      "match": {
+        "channel": "feishu",
+        "accountId": "bot2"
+      }
+    },
+    
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "xianyu",
+        "accountId": "2207836320265"
+      }
+    }
+  ],
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "xianyu": {
+      "enabled": true,
+      "apiUrl": "http://localhost:8080",
+      "bridgeToken": "changeme",
+      "accounts": {
+        "2207836320265": {
+          "apiUrl": "http://localhost:8080",
+          "bridgeToken": "changeme",
+          "enabled": true
+        }
+      }
+    },
+    "feishu": {
+      "accounts": {
+        "xiaozhushou": {
+          "appId": "cli_a91efc82aa21dcb5",
+          "appSecret": "2s2iarnEY8FYGQVr9jRoVf3EYFHk1pFN",
+          "verificationToken": "JHc3Fr60U3RGVi3ApAFdwfaGhJgCkZ17",
+          "encryptKey": "X18MzQyBW4qgMcCTAAaXmbm5JTH5ASuA"
+        },
+        "gongzhu": {
+          "appId": "cli_a910d206b7f89cbb",
+          "appSecret": "7xcT97hupjt31LhIgPLtqd0tQk23NQY8",
+          "verificationToken": "WSZd93jSZLH99rHHdv3xWdqt8VrvQpTN"
+        },
+        "bot1": {
+          "appId": "cli_a929ad9643381cc7",
+          "appSecret": "eDL0NGI8zH6DeLcwcCnMEhY2BwqCgFTa",
+          "verificationToken": "Y96Fp3l52gV1HpJuK2ptadg8TeuhnHAK"
+        },
+        "bot2": {
+          "appId": "cli_a929adde17f89ccd",
+          "appSecret": "tKhituup3Rfhs0be5OLpPMwCumMenfZG",
+          "verificationToken": "K9cX0QeV3Gq3TEhj32JZOjkj7hXzTiYf"
+        }
+      },
+      "enabled": true,
+      "groupPolicy": "open",
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "097b01268bf144bfdc1ffb3460021d22936f5c71f39ec746"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "memory": {
+    "citations": "auto"
+  },
+  "skills": {
+    "entries": {
+      "*": {
+        "enabled": true
+      }
+    }
+  },
+  "plugins": {
+    "slots": {
+      "memory": "none"
+    },
+    "allow": [
+      "openclaw-mcp-adapter",
+      "feishu",
+      "bocha-search",
+      "qwen-portal-auth",
+      "memos-cloud-openclaw-plugin",
+      "xianyu"
+    ],
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "bocha-search": {
+        "enabled": true,
+        "config": {
+          "apiKey": "sk-f281603550f34ab38b2e374f883f2cd2"
+        }
+      },
+      "openclaw-mcp-adapter": {
+        "enabled": true,
+        "config": {
+          "servers": [
+            {
+              "name": "playwright",
+              "transport": "stdio",
+              "command": "npx",
+              "args": [
+                "-y",
+                "@playwright/mcp"
+              ]
+            },
+            {
+              "name": "ddg",
+              "transport": "stdio",
+              "command": "npx",
+              "args": [
+                "-y",
+                "duckduckgo-websearch"
+              ]
+            },
+            {
+              "name": "tavily",
+              "transport": "stdio",
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-tavily-search"
+              ],
+              "env": {
+                "TAVILY_API_KEY": "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"
+              }
+            },
+            {
+              "name": "memos",
+              "transport": "stdio",
+              "command": "npx",
+              "args": [
+                "-y",
+                "@memtensor/memos-api-mcp"
+              ],
+              "env": {
+                "MEMOS_API_KEY": "mpg-5EnJP2v7XUQsPX1eGjr9PrYglm8wkPNUHpt06uiS",
+                "MEMOS_USER_ID": "openclaw-user",
+                "MEMOS_BASE_URL": "https://memos.memtensor.cn/api/openmem/v1"
+              }
+            },
+            {
+              "name": "xianyu",
+              "transport": "stdio",
+              "command": "python",
+              "args": [
+                "C:\\Users\\Administrator\\.openclaw\\workspace\\skills\\xianyu-mcp\\xianyu_mcp_server.py"
+              ]
+            }
+          ]
+        }
+      },
+      "memos-cloud-openclaw-plugin": {
+        "enabled": true,
+        "config": {
+          "apiKey": "mpg-5EnJP2v7XUQsPX1eGjr9PrYglm8wkPNUHpt06uiS",
+          "userId": "openclaw-user"
+        }
+      },
+      "qwen-portal-auth": {
+        "enabled": true
+      },
+      "xianyu": {
+        "enabled": true
+      }
+    }
+  }
+}

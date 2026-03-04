@@ -1,0 +1,777 @@
+2026-02-27 10:00:30.977 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-02-27 10:00:30.978 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-02-27 10:00:30.978 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-27 10:00:30.979 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-27 10:00:30.980 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 0 个Cookie、0 组关键字、0 个状态记录和 0 个自动确认设置
+2026-02-27 10:00:30.981 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-02-27 10:00:32.730 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-02-27 10:00:32.730 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-02-27 10:00:32.732 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-02-27 10:00:32.736 | INFO | utils.image_utils:_ensure_upload_dir:30 - 图片上传目录已准备: static/uploads/images
+2026-02-27 10:00:32.760 | INFO | reply_server:<module>:336 - ✅ 已注册刮刮乐远程控制路由: /api/captcha
+2026-02-27 10:00:32.760 | INFO | reply_server:<module>:345 - Web服务器启动，文件日志收集器已初始化
+2026-02-27 10:00:57.289 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /
+2026-02-27 10:00:57.292 | INFO | reply_server:log_requests:357 - ✅ API响应: GET / - 200 (0.003s)
+2026-02-27 10:00:57.299 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /static/assets/index-BHaU2eGe.js
+2026-02-27 10:00:57.489 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /static/assets/index-BHaU2eGe.js - 200 (0.190s)
+2026-02-27 10:00:57.491 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /static/assets/index-DxoEwNpO.css
+2026-02-27 10:00:57.493 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /static/assets/index-DxoEwNpO.css - 200 (0.002s)
+2026-02-27 10:00:57.599 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /static/favicon.svg
+2026-02-27 10:00:57.602 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /static/favicon.svg - 200 (0.003s)
+2026-02-27 10:01:01.069 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /admin/stats
+2026-02-27 10:01:01.072 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:01.075 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:01.078 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /admin/stats - 401 (0.009s)
+2026-02-27 10:01:01.079 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 401 (0.004s)
+2026-02-27 10:01:01.080 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 401 (0.008s)
+2026-02-27 10:01:01.082 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /items
+2026-02-27 10:01:01.082 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders/valid
+2026-02-27 10:01:01.086 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders/valid - 401 (0.004s)
+2026-02-27 10:01:01.087 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /items - 401 (0.005s)
+2026-02-27 10:01:01.092 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /
+2026-02-27 10:01:01.094 | INFO | reply_server:log_requests:357 - ✅ API响应: GET / - 200 (0.002s)
+2026-02-27 10:01:01.098 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /
+2026-02-27 10:01:01.100 | INFO | reply_server:log_requests:357 - ✅ API响应: GET / - 200 (0.002s)
+2026-02-27 10:01:01.106 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /
+2026-02-27 10:01:01.107 | INFO | reply_server:log_requests:357 - ✅ API响应: GET / - 200 (0.001s)
+2026-02-27 10:01:01.380 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /
+2026-02-27 10:01:01.382 | INFO | reply_server:log_requests:357 - ✅ API响应: GET / - 200 (0.002s)
+2026-02-27 10:01:09.268 | INFO | reply_server:log_requests:352 - 🌐 API请求: POST /login
+2026-02-27 10:01:09.273 | INFO | reply_server:login:506 - 【admin】尝试用户名登录
+2026-02-27 10:01:09.274 | INFO | reply_server:login:523 - 【admin#1】登录成功（管理员）
+2026-02-27 10:01:09.278 | INFO | reply_server:log_requests:357 - ✅ API响应: POST /login - 200 (0.012s)
+2026-02-27 10:01:09.286 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /admin/stats
+2026-02-27 10:01:09.286 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:09.288 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:09.290 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询订单分析数据: 2026-02-13 - 2026-02-20
+2026-02-27 10:01:09.290 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询订单分析数据: 2026-02-20 - 2026-02-27
+2026-02-27 10:01:09.290 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询系统统计信息
+2026-02-27 10:01:09.293 | ERROR | db_manager:get_order_analytics:5603 - 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:09.294 | ERROR | reply_server:log_with_user:255 - 【admin#1】 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:09.295 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 500 (0.008s)
+2026-02-27 10:01:09.296 | ERROR | db_manager:get_order_analytics:5603 - 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:09.296 | ERROR | reply_server:log_with_user:255 - 【admin#1】 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:09.296 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /items
+2026-02-27 10:01:09.296 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-27 10:01:09.297 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 500 (0.010s)
+2026-02-27 10:01:09.298 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-27 10:01:09.299 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders/valid
+2026-02-27 10:01:09.301 | INFO | reply_server:log_with_user:253 - 【admin#1】 系统统计信息查询完成: {'total_users': 1, 'total_cookies': 0, 'active_cookies': 0, 'total_cards': 0, 'total_keywords': 0, 'total_orders': 0}
+2026-02-27 10:01:09.301 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:09.304 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /admin/stats - 200 (0.018s)
+2026-02-27 10:01:09.304 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询有效订单列表: 2026-02-20 - 2026-02-27
+2026-02-27 10:01:09.305 | ERROR | db_manager:get_orders_for_analytics:5729 - 获取订单列表失败: no such column: receiver_city
+2026-02-27 10:01:09.305 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /items - 200 (0.009s)
+2026-02-27 10:01:09.305 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询到 0 个有效订单
+2026-02-27 10:01:09.307 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders/valid - 200 (0.007s)
+2026-02-27 10:01:17.979 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /api/orders
+2026-02-27 10:01:17.981 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /items
+2026-02-27 10:01:17.984 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:17.984 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询用户订单信息 (page=1, page_size=20)
+2026-02-27 10:01:17.985 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:17.985 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /items - 200 (0.004s)
+2026-02-27 10:01:17.986 | INFO | reply_server:log_with_user:253 - 【admin#1】 用户订单查询成功，共 0 条记录，第 1/0 页
+2026-02-27 10:01:17.987 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /api/orders - 200 (0.008s)
+2026-02-27 10:01:19.673 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /admin/stats
+2026-02-27 10:01:19.675 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:19.679 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询订单分析数据: 2026-02-13 - 2026-02-20
+2026-02-27 10:01:19.679 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询系统统计信息
+2026-02-27 10:01:19.681 | ERROR | db_manager:get_order_analytics:5603 - 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:19.682 | ERROR | reply_server:log_with_user:255 - 【admin#1】 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:19.683 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-27 10:01:19.683 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 500 (0.008s)
+2026-02-27 10:01:19.684 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-27 10:01:19.685 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders
+2026-02-27 10:01:19.685 | INFO | reply_server:log_with_user:253 - 【admin#1】 系统统计信息查询完成: {'total_users': 1, 'total_cookies': 0, 'active_cookies': 0, 'total_cards': 0, 'total_keywords': 0, 'total_orders': 0}
+2026-02-27 10:01:19.687 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /admin/stats - 200 (0.014s)
+2026-02-27 10:01:19.689 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询订单分析数据: 2026-02-20 - 2026-02-27
+2026-02-27 10:01:19.689 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /items
+2026-02-27 10:01:19.691 | ERROR | db_manager:get_order_analytics:5603 - 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:19.691 | ERROR | reply_server:log_with_user:255 - 【admin#1】 获取订单分析数据失败: no such column: receiver_city
+2026-02-27 10:01:19.691 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:19.692 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders - 500 (0.007s)
+2026-02-27 10:01:19.693 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /items - 200 (0.004s)
+2026-02-27 10:01:19.694 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /analytics/orders/valid
+2026-02-27 10:01:19.696 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询有效订单列表: 2026-02-20 - 2026-02-27
+2026-02-27 10:01:19.697 | ERROR | db_manager:get_orders_for_analytics:5729 - 获取订单列表失败: no such column: receiver_city
+2026-02-27 10:01:19.697 | INFO | reply_server:log_with_user:253 - 【admin#1】 查询到 0 个有效订单
+2026-02-27 10:01:19.698 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /analytics/orders/valid - 200 (0.004s)
+2026-02-27 10:01:20.119 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /cookies/details
+2026-02-27 10:01:20.121 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:20.122 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /cookies/details - 200 (0.003s)
+2026-02-27 10:01:20.124 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /ai-reply-settings
+2026-02-27 10:01:20.126 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:01:20.127 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /ai-reply-settings - 200 (0.003s)
+2026-02-27 10:01:21.416 | INFO | reply_server:log_requests:352 - 🌐 API请求: POST /qr-login/generate
+2026-02-27 10:01:21.418 | INFO | reply_server:log_with_user:253 - 【admin#1】 请求生成扫码登录二维码
+2026-02-27 10:01:24.713 | INFO | utils.qr_login:generate_qr_code:210 - 获取m_h5_tk成功: c7edf6ce-75ec-423b-ab12-ad4cb6078a02
+2026-02-27 10:01:49.718 | INFO | utils.qr_login:generate_qr_code:214 - 获取登录参数成功: c7edf6ce-75ec-423b-ab12-ad4cb6078a02
+2026-02-27 10:01:53.351 | INFO | utils.qr_login:generate_qr_code:272 - 二维码生成成功: c7edf6ce-75ec-423b-ab12-ad4cb6078a02
+2026-02-27 10:01:53.353 | INFO | utils.qr_login:_monitor_qr_status:312 - 开始监控二维码状态: c7edf6ce-75ec-423b-ab12-ad4cb6078a02
+2026-02-27 10:01:54.310 | INFO | reply_server:log_with_user:253 - 【admin#1】 扫码登录二维码生成成功: c7edf6ce-75ec-423b-ab12-ad4cb6078a02
+2026-02-27 10:01:54.311 | INFO | reply_server:log_requests:357 - ✅ API响应: POST /qr-login/generate - 200 (32.895s)
+2026-02-27 10:01:56.123 | INFO | reply_server:log_requests:352 - 🌐 API请求: POST /qr-login/generate
+2026-02-27 10:01:56.125 | INFO | reply_server:log_with_user:253 - 【admin#1】 请求生成扫码登录二维码
+2026-02-27 10:01:59.562 | INFO | utils.qr_login:generate_qr_code:210 - 获取m_h5_tk成功: 75d91893-8527-48f3-80ed-97aef0f4bc8b
+2026-02-27 10:02:02.671 | ERROR | utils.qr_login:_get_login_params:198 - 获取登录参数时连接错误
+2026-02-27 10:02:02.672 | ERROR | utils.qr_login:generate_qr_code:288 - 连接错误: 
+2026-02-27 10:02:02.673 | WARNING | reply_server:log_with_user:257 - 【admin#1】 扫码登录二维码生成失败: 连接错误，请检查网络或代理设置
+2026-02-27 10:02:02.674 | INFO | reply_server:log_requests:357 - ✅ API响应: POST /qr-login/generate - 200 (6.551s)
+2026-02-27 10:02:07.434 | INFO | reply_server:log_requests:352 - 🌐 API请求: POST /qr-login/generate
+2026-02-27 10:02:07.437 | INFO | reply_server:log_with_user:253 - 【admin#1】 请求生成扫码登录二维码
+2026-02-27 10:02:08.523 | INFO | utils.qr_login:generate_qr_code:210 - 获取m_h5_tk成功: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:09.594 | INFO | utils.qr_login:generate_qr_code:214 - 获取登录参数成功: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:10.714 | INFO | utils.qr_login:generate_qr_code:272 - 二维码生成成功: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:10.715 | INFO | utils.qr_login:_monitor_qr_status:312 - 开始监控二维码状态: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:11.068 | INFO | reply_server:log_with_user:253 - 【admin#1】 扫码登录二维码生成成功: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:11.069 | INFO | reply_server:log_requests:357 - ✅ API响应: POST /qr-login/generate - 200 (3.635s)
+2026-02-27 10:02:12.403 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /.well-known/appspecific/com.chrome.devtools.json
+2026-02-27 10:02:12.405 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /.well-known/appspecific/com.chrome.devtools.json - 200 (0.002s)
+2026-02-27 10:02:13.297 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:13.301 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:13.301 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:13.302 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.005s)
+2026-02-27 10:02:15.167 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:15.514 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:15.515 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:15.515 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.348s)
+2026-02-27 10:02:17.075 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:17.076 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:17.077 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:17.078 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.003s)
+2026-02-27 10:02:19.075 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:19.077 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:19.077 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:19.078 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.003s)
+2026-02-27 10:02:21.074 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:21.076 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:21.076 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:21.077 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.002s)
+2026-02-27 10:02:23.074 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:23.075 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:23.076 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'waiting', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:23.076 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.002s)
+2026-02-27 10:02:23.805 | INFO | utils.qr_login:_monitor_qr_status:380 - 二维码已扫描，等待确认: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:25.079 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:25.082 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:25.083 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:25.084 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.005s)
+2026-02-27 10:02:27.399 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:27.402 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:27.402 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:27.403 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.004s)
+2026-02-27 10:02:29.140 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:29.144 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:29.145 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'scanned', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:29.145 | INFO | reply_server:log_requests:357 - ✅ API响应: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05 - 200 (0.005s)
+2026-02-27 10:02:29.359 | INFO | utils.qr_login:_monitor_qr_status:363 - 扫码登录成功: 3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05, UNB: 2207836320265
+2026-02-27 10:02:31.083 | INFO | reply_server:log_requests:352 - 🌐 API请求: GET /qr-login/check/3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05
+2026-02-27 10:02:31.093 | INFO | utils.qr_login:get_session_status:416 - 获取会话状态: {'status': 'success', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05'}
+2026-02-27 10:02:31.094 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态1111111: {'status': 'success', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05', 'cookies': 'cookie2=1685a65a16b5d6f95613e64310dba330; XSRF-TOKEN=4cc706fb-0ee1-4c72-ace7-ef9766ed0a82; _samesite_flag_=true; sgcookie=E100XXqsu5aUwdEsiX3Pxh07KQTJI2rrNd3w5L%2B30SrIA%2Fk%2BxsjN986H%2B5zNyURhzS7FrUZ3iPtPXZ6o%2FrJLU%2F1sJnS1kyN6aA03vCVLYgzefCYSh4ji%2FY1sJjZQjKrQT6c7; tracknick=tb735246321; csg=ffb57e15; t=17cbf72e0b9c45efcf452ff464c065a7; _tb_token_=e0dd3e3ed4eab; unb=2207836320265', 'unb': '2207836320265'}
+2026-02-27 10:02:31.094 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话状态22222222: {'status': 'success', 'session_id': '3d2dbbaf-02a8-4c98-b7c4-f1364ad6ec05', 'cookies': 'cookie2=1685a65a16b5d6f95613e64310dba330; XSRF-TOKEN=4cc706fb-0ee1-4c72-ace7-ef9766ed0a82; _samesite_flag_=true; sgcookie=E100XXqsu5aUwdEsiX3Pxh07KQTJI2rrNd3w5L%2B30SrIA%2Fk%2BxsjN986H%2B5zNyURhzS7FrUZ3iPtPXZ6o%2FrJLU%2F1sJnS1kyN6aA03vCVLYgzefCYSh4ji%2FY1sJjZQjKrQT6c7; tracknick=tb735246321; csg=ffb57e15; t=17cbf72e0b9c45efcf452ff464c065a7; _tb_token_=e0dd3e3ed4eab; unb=2207836320265', 'unb': '2207836320265'}
+2026-02-27 10:02:31.095 | INFO | reply_server:log_with_user:253 - 【admin#1】 获取会话Cookie: {'cookies': 'cookie2=1685a65a16b5d6f95613e64310dba330; XSRF-TOKEN=4cc706fb-0ee1-4c72-ace7-ef9766ed0a82; _samesite_flag_=true; sgcookie=E100XXqsu5aUwdEsiX3Pxh07KQTJI2rrNd3w5L%2B30SrIA%2Fk%2BxsjN986H%2B5zNyURhzS7FrUZ3iPtPXZ6o%2FrJLU%2F1sJnS1kyN6aA03vCVLYgzefCYSh4ji%2FY1sJjZQjKrQT6c7; tracknick=tb735246321; csg=ffb57e15; t=17cbf72e0b9c45efcf452ff464c065a7; _tb_token_=e0dd3e3ed4eab; unb=2207836320265', 'unb': '2207836320265'}
+2026-02-27 10:02:31.096 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies WHERE user_id = ? | 参数: [1]
+2026-02-27 10:02:31.097 | INFO | reply_server:log_with_user:253 - 【admin#1】 扫码登录准备创建新账号: 2207836320265, UNB: 2207836320265
+2026-02-27 10:02:31.097 | INFO | reply_server:log_with_user:253 - 【admin#1】 开始使用扫码cookie获取真实cookie: 2207836320265
+2026-02-27 15:36:33.772 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-02-27 15:36:33.772 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-02-27 15:36:33.773 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-27 15:36:33.774 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-27 15:36:33.775 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-27 15:36:33.777 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-02-27 15:36:33.778 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-02-27 15:36:33.778 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-27 15:36:33.778 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-02-27 15:36:33.778 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-02-27 15:36:33.779 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-02-27 15:36:33.779 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-02-27 15:36:33.779 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-02-27 15:36:33.780 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-02-27 15:36:33.780 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-02-27 15:36:34.411 | ERROR | __main__:_start_api_server:603 - uvicorn服务器启动失败: '{' was never closed (reply_server.py, line 2386)
+2026-02-27 15:36:34.782 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-02-27 15:36:34.783 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-02-27 15:36:34.784 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-02-28 09:14:44.988 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-02-28 09:14:44.989 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-02-28 09:14:44.989 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-28 09:14:44.989 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-28 09:14:44.990 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 09:14:44.990 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-02-28 09:14:44.990 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-02-28 09:14:44.990 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 09:14:44.991 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-02-28 09:14:44.991 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-02-28 09:14:44.991 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-02-28 09:14:44.991 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-02-28 09:14:44.994 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-02-28 09:14:44.995 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-02-28 09:14:44.995 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-02-28 09:14:45.204 | ERROR | __main__:_start_api_server:603 - uvicorn服务器启动失败: '{' was never closed (reply_server.py, line 2386)
+2026-02-28 09:14:45.585 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-02-28 09:14:45.585 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-02-28 09:14:45.586 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-02-28 10:20:24.148 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-02-28 10:20:24.149 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-02-28 10:20:24.149 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-28 10:20:24.149 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-28 10:20:24.151 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 10:20:24.153 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-02-28 10:20:24.153 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-02-28 10:20:24.153 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 10:20:24.154 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-02-28 10:20:24.154 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-02-28 10:20:24.154 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-02-28 10:20:24.154 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-02-28 10:20:24.154 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-02-28 10:20:24.154 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-02-28 10:20:24.155 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-02-28 10:20:25.088 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-02-28 10:20:25.089 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-02-28 10:20:25.089 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-02-28 11:05:55.954 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-02-28 11:05:55.955 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-02-28 11:05:55.955 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-02-28 11:05:55.956 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-02-28 11:05:55.957 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 11:05:55.961 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-02-28 11:05:55.961 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-02-28 11:05:55.962 | INFO | db_manager:_log_sql:1242 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-02-28 11:05:55.962 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-02-28 11:05:55.962 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-02-28 11:05:55.963 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-02-28 11:05:55.963 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-02-28 11:05:55.964 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-02-28 11:05:55.964 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-02-28 11:05:55.966 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-02-28 11:05:56.996 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-02-28 11:05:56.997 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-02-28 11:05:56.997 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-03 23:24:42.243 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-03 23:24:42.244 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-03 23:24:42.244 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-03 23:24:42.246 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-03 23:24:42.249 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-03 23:24:42.250 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-03 23:24:42.250 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-03 23:24:42.250 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-03 23:24:42.251 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-03 23:24:42.251 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-03 23:24:42.251 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-03 23:24:42.252 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-03 23:24:42.252 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-03 23:24:42.253 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-03 23:24:42.254 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-03 23:24:43.741 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-03 23:24:43.742 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-03 23:24:43.743 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-03 23:33:14.653 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-03 23:33:14.654 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-03 23:33:14.655 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-03 23:33:14.656 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-03 23:33:14.659 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-03 23:33:14.659 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-03 23:33:14.659 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-03 23:33:14.660 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-03 23:33:14.660 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-03 23:33:14.660 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-03 23:33:14.660 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-03 23:33:14.661 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-03 23:33:14.661 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-03 23:33:14.663 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-03 23:33:14.663 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-03 23:33:15.446 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-03 23:33:15.447 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-03 23:33:15.448 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:11:44.496 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:11:44.497 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:11:44.498 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:11:44.499 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:11:44.499 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:11:44.505 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:11:44.506 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:11:44.506 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:11:44.507 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:11:44.507 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:11:44.507 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:11:44.508 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:11:44.509 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:11:44.510 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:11:44.511 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:11:45.411 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:11:45.415 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:11:45.416 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:21:13.046 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:21:13.046 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:21:13.047 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:21:13.048 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:21:13.050 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:21:13.052 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:21:13.052 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:21:13.052 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:21:13.052 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:21:13.052 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:21:13.052 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:21:13.052 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:21:13.056 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:21:13.056 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:21:13.059 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:21:13.873 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:21:13.874 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:21:13.874 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:27:41.539 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:27:41.540 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:27:41.541 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:27:41.545 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:27:41.545 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:27:41.546 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:27:41.547 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:27:41.547 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:27:41.547 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:27:41.547 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:27:41.548 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:27:41.548 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:27:41.549 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:27:41.550 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:27:41.550 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:27:42.955 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:27:42.956 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:27:42.956 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:27:42.988 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:33:33.536 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:33:33.536 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:33:33.538 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:33:33.543 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:33:33.543 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:33:33.547 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:33:33.547 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:33:33.547 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:33:33.547 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:33:33.547 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:33:33.547 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:33:33.547 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:33:33.547 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:33:33.547 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:33:33.547 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:33:34.392 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:33:34.392 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:33:34.393 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:33:34.427 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:34:49.514 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:34:49.515 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:34:49.515 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:34:49.516 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:34:49.519 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:34:49.521 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:34:49.521 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:34:49.522 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:34:49.522 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:34:49.522 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:34:49.522 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:34:49.522 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:34:49.522 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:34:49.524 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:34:49.524 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:34:50.397 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:34:50.401 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:34:50.401 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:34:50.435 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:42:37.946 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:42:37.947 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:42:37.948 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:42:37.953 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:42:37.953 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:42:37.954 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:42:37.954 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:42:37.955 | INFO | db_manager:_log_sql:1273 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:42:37.955 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:42:37.956 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:42:37.956 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:42:37.956 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:42:37.957 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:42:37.958 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:42:37.959 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:42:38.841 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:42:38.841 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:42:38.841 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:42:38.877 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:45:05.712 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:45:05.712 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:45:05.712 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:45:05.715 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:45:05.719 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:45:05.720 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:45:05.720 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:45:05.720 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:45:05.720 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:45:05.720 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:45:05.720 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:45:05.720 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:45:05.720 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:45:05.720 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:45:05.724 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:45:06.580 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:45:06.581 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:45:06.582 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:45:06.611 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:47:57.409 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:47:57.410 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:47:57.411 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:47:57.412 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:47:57.417 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:47:57.418 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:47:57.418 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:47:57.419 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:47:57.419 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:47:57.420 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:47:57.420 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:47:57.421 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:47:57.422 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:47:57.423 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:47:57.424 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:47:58.283 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:47:58.284 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:47:58.284 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:47:58.316 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 09:55:31.951 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 09:55:31.952 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 09:55:31.953 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 09:55:31.954 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 09:55:31.958 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:55:31.959 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 09:55:31.959 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 09:55:31.959 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 09:55:31.960 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 09:55:31.961 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 09:55:31.961 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 09:55:31.961 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 09:55:31.962 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 09:55:31.963 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 09:55:31.963 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 09:55:32.917 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 09:55:32.918 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 09:55:32.919 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 09:55:32.951 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:11:50.090 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:11:50.092 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:11:50.092 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:11:50.094 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:11:50.098 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:11:50.098 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:11:50.101 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:11:50.101 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:11:50.102 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:11:50.102 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:11:50.102 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:11:50.102 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:11:50.102 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:11:50.102 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:11:50.102 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:11:51.164 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:11:51.165 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:11:51.166 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:11:51.213 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:21:37.657 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:21:37.658 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:21:37.658 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:21:37.659 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:21:37.665 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:21:37.665 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:21:37.666 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:21:37.666 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:21:37.667 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:21:37.667 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:21:37.667 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:21:37.667 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:21:37.668 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:21:37.669 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:21:37.669 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:21:38.588 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:21:38.588 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:21:38.590 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:21:38.626 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:25:03.788 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:25:03.789 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:25:03.789 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:25:03.790 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:25:03.795 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:25:03.796 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:25:03.797 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:25:03.797 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:25:03.798 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:25:03.798 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:25:03.799 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:25:03.799 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:25:03.800 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:25:03.801 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:25:03.801 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:25:04.579 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:25:04.580 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:25:04.581 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:25:04.612 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:26:20.633 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:26:20.633 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:26:20.634 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:26:20.635 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:26:20.640 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:26:20.641 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:26:20.641 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:26:20.641 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:26:20.642 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:26:20.642 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:26:20.642 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:26:20.642 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:26:20.643 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:26:20.643 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:26:20.643 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:26:21.461 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:26:21.464 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:26:21.465 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:26:21.497 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:28:01.156 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:28:01.156 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:28:01.157 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:28:01.158 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:28:01.163 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:28:01.163 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:28:01.163 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:28:01.164 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:28:01.164 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:28:01.164 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:28:01.165 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:28:01.165 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:28:01.165 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:28:01.166 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:28:01.167 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:28:02.089 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:28:02.090 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:28:02.092 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:28:02.121 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:30:34.235 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:30:34.235 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:30:34.237 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:30:34.243 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:30:34.243 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:30:34.243 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:30:34.243 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:30:34.243 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:30:34.243 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:30:34.247 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:30:34.247 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:30:34.247 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:30:34.247 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:30:34.247 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:30:34.250 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:30:35.157 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:30:35.158 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:30:35.159 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:30:35.197 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:34:44.378 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:34:44.379 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:34:44.379 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:34:44.380 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:34:44.385 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:34:44.386 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:34:44.386 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:34:44.386 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:34:44.387 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:34:44.387 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:34:44.388 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:34:44.389 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:34:44.389 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:34:44.390 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:34:44.391 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:34:45.363 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:34:45.364 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:34:45.365 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:34:45.413 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:38:26.456 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:38:26.456 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:38:26.458 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:38:26.464 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:38:26.466 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:38:26.466 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:38:26.468 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:38:26.468 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:38:26.469 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:38:26.469 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:38:26.469 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:38:26.469 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:38:26.469 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:38:26.472 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:38:26.472 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:38:27.348 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:38:27.348 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:38:27.351 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:38:27.381 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:40:29.109 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:40:29.110 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:40:29.111 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:40:29.111 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:40:29.118 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:40:29.119 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:40:29.119 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:40:29.119 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:40:29.119 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:40:29.121 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:40:29.121 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:40:29.121 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:40:29.121 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:40:29.123 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:40:29.123 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:40:29.918 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:40:29.918 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:40:29.918 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:40:29.944 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:47:15.180 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:47:15.182 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:47:15.182 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:47:15.189 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:47:15.190 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:47:15.190 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:47:15.190 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:47:15.190 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:47:15.190 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:47:15.190 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:47:15.190 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:47:15.190 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:47:15.193 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:47:15.194 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:47:15.194 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:47:16.064 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:47:16.065 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:47:16.066 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:47:16.095 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:48:46.391 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:48:46.392 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:48:46.393 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:48:46.394 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:48:46.400 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:48:46.401 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:48:46.401 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:48:46.402 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:48:46.403 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:48:46.403 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:48:46.403 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:48:46.403 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:48:46.403 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:48:46.404 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:48:46.404 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:48:47.210 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:48:47.210 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:48:47.211 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:48:47.238 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 10:57:18.937 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 10:57:18.938 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 10:57:18.939 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 10:57:18.941 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 10:57:18.952 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:57:18.953 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 10:57:18.954 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 10:57:18.955 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 10:57:18.955 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 10:57:18.956 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 10:57:18.956 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 10:57:18.957 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 10:57:18.958 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 10:57:18.960 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 10:57:18.961 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 10:57:19.876 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 10:57:19.876 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 10:57:19.877 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 10:57:19.924 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 11:04:08.539 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 11:04:08.540 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 11:04:08.541 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 11:04:08.542 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 11:04:08.548 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:04:08.549 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 11:04:08.550 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 11:04:08.550 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:04:08.551 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 11:04:08.551 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 11:04:08.551 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 11:04:08.551 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 11:04:08.552 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 11:04:08.553 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 11:04:08.553 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 11:04:09.358 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 11:04:09.359 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 11:04:09.360 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 11:04:09.392 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 11:09:21.572 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 11:09:21.572 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 11:09:21.573 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 11:09:21.574 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 11:09:21.580 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:09:21.581 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 11:09:21.582 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 11:09:21.582 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:09:21.583 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 11:09:21.583 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 11:09:21.584 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 11:09:21.584 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 11:09:21.585 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 11:09:21.586 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 11:09:21.587 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 11:09:22.433 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 11:09:22.433 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 11:09:22.434 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 11:09:22.474 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 11:19:15.551 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 11:19:15.551 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 11:19:15.552 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 11:19:15.559 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 11:19:15.559 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:19:15.560 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 11:19:15.561 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 11:19:15.561 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:19:15.561 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 11:19:15.562 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 11:19:15.562 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 11:19:15.562 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 11:19:15.563 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 11:19:15.563 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 11:19:15.564 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 11:19:16.422 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 11:19:16.423 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 11:19:16.425 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 11:19:16.462 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 11:24:46.533 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 11:24:46.533 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 11:24:46.534 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 11:24:46.535 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 11:24:46.542 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:24:46.543 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 11:24:46.543 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 11:24:46.544 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:24:46.544 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 11:24:46.544 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 11:24:46.545 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 11:24:46.545 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 11:24:46.545 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 11:24:46.546 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 11:24:46.547 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 11:24:47.399 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 11:24:47.400 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 11:24:47.401 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 11:24:47.433 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True
+2026-03-04 11:30:25.973 | INFO | file_log_collector:setup_loguru_file_output:73 - 文件日志收集器已启动
+2026-03-04 11:30:25.974 | INFO | __main__:main:644 - 文件日志收集器已启动，开始收集实时日志
+2026-03-04 11:30:25.974 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value FROM cookies
+2026-03-04 11:30:25.975 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT cookie_id, keyword, reply FROM keywords
+2026-03-04 11:30:25.976 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT auto_confirm FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:30:25.985 | INFO | cookie_manager:_load_from_db:40 - 从数据库加载了 1 个Cookie、0 组关键字、1 个状态记录和 1 个自动确认设置
+2026-03-04 11:30:25.986 | INFO | __main__:main:665 - 正在获取Cookie详细信息: 2207836320265
+2026-03-04 11:30:25.986 | INFO | db_manager:_log_sql:1282 - 🗄️ SQL EXECUTE: SELECT id, value, user_id, auto_confirm, remark, pause_duration, username, password, show_browser, created_at FROM cookies WHERE id = ? | 参数: ['2207836320265']
+2026-03-04 11:30:25.987 | INFO | __main__:main:668 - Cookie详细信息获取成功: 2207836320265, user_id: 1
+2026-03-04 11:30:25.987 | INFO | __main__:main:670 - 正在创建异步任务: 2207836320265
+2026-03-04 11:30:25.987 | INFO | __main__:main:673 - 启动数据库中的 Cookie 任务: 2207836320265 (用户ID: 1)
+2026-03-04 11:30:25.988 | INFO | __main__:main:674 - 任务已添加到管理器，当前任务数: 1
+2026-03-04 11:30:25.989 | INFO | __main__:_start_api_server:593 - 启动Web服务器: http://0.0.0.0:8080
+2026-03-04 11:30:25.990 | INFO | cookie_manager:_run_xianyu:62 - 【2207836320265】_run_xianyu方法开始执行...
+2026-03-04 11:30:25.990 | INFO | cookie_manager:_run_xianyu:65 - 【2207836320265】正在导入XianyuLive...
+2026-03-04 11:30:26.913 | INFO | utils.xianyu_utils:<module>:27 - 可用的JavaScript运行时: <module 'execjs.runtime_names' from 'C:\\Program Files\\Python312\\Lib\\site-packages\\execjs\\runtime_names.py'>
+2026-03-04 11:30:26.914 | INFO | utils.xianyu_utils:<module>:31 - 当前JavaScript运行时: Node.js (V8)
+2026-03-04 11:30:26.914 | INFO | utils.xianyu_utils:<module>:34 - JavaScript文件加载成功
+2026-03-04 11:30:26.944 | INFO | XianyuAutoAsync:<module>:38 - Bridge 模块导入成功，BRIDGE_ENABLED = True

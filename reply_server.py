@@ -7205,10 +7205,22 @@ async def import_orders(
 
 from product_publisher import XianyuProductPublisher, ProductInfo
 
+class ProductInfoRequest(BaseModel):
+    """商品信息请求（不包含 cookie_id）"""
+    title: Optional[str] = None  # 标题（可选，闲鱼页面没有标题输入框）
+    description: str
+    price: float
+    images: List[str]  # 图片路径列表
+    category: Optional[str] = None
+    location: Optional[str] = None
+    original_price: Optional[float] = None
+    stock: Optional[int] = 1
+
+
 class ProductPublishRequest(BaseModel):
     """商品发布请求"""
     cookie_id: str
-    title: str
+    title: Optional[str] = None  # 标题（可选，闲鱼页面没有标题输入框）
     description: str
     price: float
     images: List[str]  # 图片路径列表
@@ -7221,7 +7233,7 @@ class ProductPublishRequest(BaseModel):
 class BatchProductPublishRequest(BaseModel):
     """批量商品发布请求"""
     cookie_id: str
-    products: List[ProductPublishRequest]
+    products: List[ProductInfoRequest]
 
 
 @app.post('/api/products/publish')
@@ -7256,7 +7268,7 @@ async def publish_single_product(
         
         # 创建商品信息对象
         product = ProductInfo(
-            title=request.title,
+            title=request.title or "闲鱼商品",  # 如果没有标题，使用默认标题
             description=request.description,
             price=request.price,
             images=request.images,
@@ -7267,9 +7279,15 @@ async def publish_single_product(
         )
         
         # 创建发布器并发布
+        # 显式转换类型并记录日志
+        cookie_id_str = str(request.cookie_id)
+        cookies_str_str = str(cookies_str)
+        
+        logger.info(f"【admin#{current_user['user_id']}】创建发布器: cookie_id={cookie_id_str} (type={type(request.cookie_id)}), cookies_str长度={len(cookies_str_str)}")
+        
         publisher = XianyuProductPublisher(
-            cookie_id=request.cookie_id,
-            cookies_str=cookies_str,
+            cookie_id=cookie_id_str,
+            cookies_str=cookies_str_str,
             headless=True
         )
         
@@ -7281,16 +7299,31 @@ async def publish_single_product(
                 raise HTTPException(status_code=401, detail="Cookie 登录失败")
             
             # 发布商品
-            success = await publisher.publish_product(product)
+            success, product_id, product_url = await publisher.publish_product(product)
             
             if success:
-                log_with_user('info', f"商品发布成功: {request.title}", current_user)
+                # 保存商品 ID 到数据库
+                if product_id:
+                    db_manager.save_published_product_info(
+                        user_id=current_user['user_id'],
+                        cookie_id=request.cookie_id,
+                        product_id=product_id,
+                        product_url=product_url,
+                        title=request.title,
+                        price=request.price
+                    )
+                    log_with_user('info', f"商品发布成功，ID: {product_id}", current_user)
+                else:
+                    log_with_user('info', f"商品发布成功（未获取到商品ID）", current_user)
+                
                 return {
                     "success": True,
                     "message": "商品发布成功",
                     "product": {
                         "title": request.title,
-                        "price": request.price
+                        "price": request.price,
+                        "product_id": product_id,
+                        "product_url": product_url
                     }
                 }
             else:

@@ -1,0 +1,493 @@
+[2026-02-27 10:02:39] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg08d5e8cc12c44ecdja1f74d3c89d3d42fbd400677fd1806d721772157759a-717315356a829576438abaac3en2207836320265a33b370230498579516b2e357ecd9be0187d__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 10:02:39] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg08d5e8cc12c44ecdja1f74d3c89d3d42fbd400677fd1806d721772157759a-717315356a829576438abaac3en2207836320265a33b370230498579516b2e357ecd9be0187d__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 10:03:40] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 10:03:46] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg95ae3d3cb83dfc38jaabdc3304812e211abe12dc3b238864a71772157826a-717315356a829576438abaac3en2207836320265a33b035d2d690bad5bb498e0684499bb6214__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 10:03:46] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg95ae3d3cb83dfc38jaabdc3304812e211abe12dc3b238864a71772157826a-717315356a829576438abaac3en2207836320265a33b035d2d690bad5bb498e0684499bb6214__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 10:03:55] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1664, 新增1个x5, 更新0个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2265313939313365666365373131316330222c22617365727665723b33223a22307c43494c3367383047454a6239676f77424b4941454d50617079597344227d
+[2026-02-27 10:43:49] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:44:40] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:45:30] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:46:21] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:47:12] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:48:02] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:48:53] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:49:44] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:50:34] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:51:25] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:52:16] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:53:06] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 10:53:57] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:03:22] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:04:33] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:06:14] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:07:54] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:09:35] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:11:16] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:12:56] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:14:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:16:18] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 11:17:58] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 15:36:35] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg9711abd13886f43cjad15ab05df13099c96bd3aa93dbe558c61772177796a-717315356a829576438abaac3en2207836320265a33b2b8e521507ec65e077f247b0c6c39216__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 15:36:35] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg9711abd13886f43cjad15ab05df13099c96bd3aa93dbe558c61772177796a-717315356a829576438abaac3en2207836320265a33b2b8e521507ec65e077f247b0c6c39216__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 15:37:14] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1620, 新增0个x5, 更新1个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2266333439646163303336663130326461222c22617365727665723b33223a22307c4349535468633047454b625179636f424b4941454d50617079597344227d
+[2026-02-27 15:37:14] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_TOKEN_EXOIRED::令牌过期"],"v":"1.0"}
+[2026-02-27 15:37:14] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-27 16:09:34] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:10:24] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:11:15] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:12:06] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:12:56] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:13:47] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:14:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:15:28] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:16:19] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:17:09] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:18:00] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:18:33] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgf1148507237b9f88ja48e47e8c22f82ba919c9669e45213efa1772180313a-717315356a829576438abaac3en2207836320265a33bc770aeda0d4a35a01b2d5a869712fd9c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:18:33] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgf1148507237b9f88ja48e47e8c22f82ba919c9669e45213efa1772180313a-717315356a829576438abaac3en2207836320265a33bc770aeda0d4a35a01b2d5a869712fd9c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:19:48] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 16:20:09] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xga2d6fbe6f4094ad5jadc424726b7e4eb3f2e03ec2676815af31772180410a-717315356a829576438abaac3en2207836320265a33bbc62e493d608c3b4cf4d1914705a53a6__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:20:09] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xga2d6fbe6f4094ad5jadc424726b7e4eb3f2e03ec2676815af31772180410a-717315356a829576438abaac3en2207836320265a33bbc62e493d608c3b4cf4d1914705a53a6__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:21:26] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 16:21:26] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-27 16:21:27] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg31339c0f7d50bafeja09041c4bc0d936aa98fa81404db49f671772180488a-717315356a829576438abaac3en2207836320265a33bb7ec2ab87d2a3622be00e51697ad6c4e__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:21:27] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg31339c0f7d50bafeja09041c4bc0d936aa98fa81404db49f671772180488a-717315356a829576438abaac3en2207836320265a33bb7ec2ab87d2a3622be00e51697ad6c4e__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:22:46] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 16:22:52] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg8c3cc16f86a81dcejaa2d37f7a944e0d3b461457c61ee641d41772180573a-717315356a829576438abaac3en2207836320265a33bb15e653c6a525ee7d38562bb0fc9bbdc__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:22:52] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg8c3cc16f86a81dcejaa2d37f7a944e0d3b461457c61ee641d41772180573a-717315356a829576438abaac3en2207836320265a33bb15e653c6a525ee7d38562bb0fc9bbdc__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:24:11] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 16:24:22] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgfb2f37e9d0feaa1ejaac982f4f44290030e94a22367e54da931772180663a-717315356a829576438abaac3en2207836320265a33bd73c645c4649f6a7c1f127f34022cf2c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:24:22] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgfb2f37e9d0feaa1ejaac982f4f44290030e94a22367e54da931772180663a-717315356a829576438abaac3en2207836320265a33bd73c645c4649f6a7c1f127f34022cf2c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:25:03] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-27 16:25:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg1a4cbc37f6f34a89jadc6d5d97a28de7592503258d50a7f4ca1772180719a-717315356a829576438abaac3en2207836320265a33bf01e18ed233fa2993d3943cc9290a98f__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 16:25:18] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg1a4cbc37f6f34a89jadc6d5d97a28de7592503258d50a7f4ca1772180719a-717315356a829576438abaac3en2207836320265a33bf01e18ed233fa2993d3943cc9290a98f__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 16:25:58] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1636, 新增0个x5, 更新1个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2263313466323133303137383035373930222c22617365727665723b33223a22307c434f2b7068633047454f725a716376342f2f2f2f2f77456f6741517739716e4a69774d3d227d
+[2026-02-27 17:40:39] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg2b47e7507616cf42jaf1c8cfdefb10b6eea826f07cd6579c8f1772185240a-717315356a829576438abaac3en2207836320265a33bcbd2dde8895dd7b09ef2f62fe37da465__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 17:40:39] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg2b47e7507616cf42jaf1c8cfdefb10b6eea826f07cd6579c8f1772185240a-717315356a829576438abaac3en2207836320265a33bcbd2dde8895dd7b09ef2f62fe37da465__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 17:41:14] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1620, 新增0个x5, 更新1个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2231313664346361626134636164303962222c22617365727665723b33223a22307c434a6a4e68633047454c4c73376f6b464b4941454d50617079597344227d
+[2026-02-27 18:14:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg0ceae3c78b760036jaaef662e3448d74ec3e909d3c18fadea91772187259a-717315356a829576438abaac3en2207836320265a33b28e20a44d0acc64c6c4c14d529b91eb5__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-27 18:14:18] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg0ceae3c78b760036jaaef662e3448d74ec3e909d3c18fadea91772187259a-717315356a829576438abaac3en2207836320265a33b28e20a44d0acc64c6c4c14d529b91eb5__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-27 18:14:36] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1619, 新增0个x5, 更新2个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2238306264633435616333653331636264222c22617365727665723b33223a22307c4350766368633047454f6d77724b51424b4941454d50617079597344227d; x5secdata=xgb2072e369e0c8c88ja54b2319481358e38a01bb020d83d3f8c1772187266a-717315356a1038868164abaad3eaa33bc06573b2e603142371e72c7d84e4840d__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-02-28 09:14:46] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgbb503ce12f79ce20ja2e0d0e82e27a44030270cdcd81b9b6f31772241287a-717315356a829576438abaac3en2207836320265a33bf19c6b9080fc0d289c80f4d373154eca__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 09:14:46] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgbb503ce12f79ce20ja2e0d0e82e27a44030270cdcd81b9b6f31772241287a-717315356a829576438abaac3en2207836320265a33bf19c6b9080fc0d289c80f4d373154eca__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 10:20:25] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgccf45bab82e6139ejad94171c4950283fc43a2c4ea4b17a34d1772245226a-717315356a829576438abaac3en2207836320265a33b49c78f02193d93380b99f641e91060fa__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 10:20:25] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgccf45bab82e6139ejad94171c4950283fc43a2c4ea4b17a34d1772245226a-717315356a829576438abaac3en2207836320265a33b49c78f02193d93380b99f641e91060fa__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 11:06:02] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgf43870e53da0313dja988ae95b1a74687e36ef66b1cd1135de1772247963a-717315356a829576438abaac3en2207836320265a33bdd222120bef40315374c5725d979a960__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 11:06:02] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgf43870e53da0313dja988ae95b1a74687e36ef66b1cd1135de1772247963a-717315356a829576438abaac3en2207836320265a33bdd222120bef40315374c5725d979a960__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 11:07:03] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-28 11:07:14] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg0f4d29f2c703efd4ja3e300765798e17057276f2ece3a03ca01772248035a-717315356a829576438abaac3en2207836320265a33ba452a8824d3c21d6d937a8583f72e9ba__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 11:07:14] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg0f4d29f2c703efd4ja3e300765798e17057276f2ece3a03ca01772248035a-717315356a829576438abaac3en2207836320265a33ba452a8824d3c21d6d937a8583f72e9ba__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 11:08:14] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-28 11:08:30] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgecd31925013e360bja3e1fff7ba44389241cc79c98ed0882731772248111a-717315356a829576438abaac3en2207836320265a33bac76fb413c0ac54318dadf635ba1a767__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 11:08:30] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xgecd31925013e360bja3e1fff7ba44389241cc79c98ed0882731772248111a-717315356a829576438abaac3en2207836320265a33bac76fb413c0ac54318dadf635ba1a767__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 11:09:30] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-02-28 11:09:51] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg4ac5d0d70ffa775dja8806ae0a5bf301ba3d3a775622db60891772248192a-717315356a829576438abaac3en2207836320265a33b68e35981b5098938af92affdc29790e1__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-02-28 11:09:51] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg4ac5d0d70ffa775dja8806ae0a5bf301ba3d3a775622db60891772248192a-717315356a829576438abaac3en2207836320265a33b68e35981b5098938af92affdc29790e1__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-02-28 11:10:01] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1636, 新增0个x5, 更新1个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2234646366666265326231313739313465222c22617365727665723b33223a22307c4349433569633047454f6d79672b6a392f2f2f2f2f77456f6741517739716e4a69774d3d227d
+[2026-02-28 11:10:01] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:01] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:01] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:10:03] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:03] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:08] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:08] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:19] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:19] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:35] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:35] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:56] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:56] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:10:56] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:10:57] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:10:57] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:03] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:03] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:14] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:14] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:30] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:30] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:51] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:51] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:51] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:11:52] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:52] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:11:58] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:11:58] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:12:09] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:12:09] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:12:25] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:12:25] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:12:45] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:12:45] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:12:46] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:12:47] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:12:47] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:12:53] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:12:53] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:03] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:04] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:19] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:19] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:40] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:40] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:40] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:13:41] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:41] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:47] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:47] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:13:58] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:13:58] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:14:14] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:14:14] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:14:35] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:14:35] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:14:35] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:14:36] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:14:36] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:14:42] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:14:42] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:14:53] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:14:53] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:15:09] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:15:09] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:15:30] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:15:30] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:15:30] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:15:31] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:15:31] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:15:37] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:15:37] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:15:48] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:15:48] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:04] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:04] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:25] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:25] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:25] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:16:26] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:26] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:32] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:32] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:43] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:43] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:16:59] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:16:59] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:17:20] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:17:20] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:17:20] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:17:21] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:17:21] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:17:27] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:17:27] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:17:38] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:17:38] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:17:54] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:17:54] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:18:15] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:18:15] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:18:15] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:18:16] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:18:16] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:18:22] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:18:22] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:18:33] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:18:33] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:18:49] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:18:49] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:19:09] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:19:09] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:19:10] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:19:11] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:19:11] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:19:17] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:19:17] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:19:28] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:19:28] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:19:43] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:19:43] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:04] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:04] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:04] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:20:06] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:06] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:11] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:11] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:22] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:22] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:38] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:38] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:59] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:20:59] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:20:59] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:21:00] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:00] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:21:06] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:06] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:21:17] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:17] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:21:33] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:33] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:21:54] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:54] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:21:54] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:21:55] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:21:55] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:01] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:01] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:12] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:12] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:28] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:28] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:48] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:48] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:49] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:22:50] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:50] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:22:56] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:22:56] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:23:06] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:23:06] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:23:22] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:23:22] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:23:43] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:23:43] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:23:43] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:23:44] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:23:44] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:23:50] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:23:50] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:01] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:01] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:17] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:17] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:38] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:38] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:38] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:24:39] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:39] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:45] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:45] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:24:56] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:24:56] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:25:12] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:25:12] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:25:33] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:25:33] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:25:33] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:25:34] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:25:34] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:25:40] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:25:40] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:25:51] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:25:51] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:26:07] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:26:07] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:26:27] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:26:27] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:26:27] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:26:29] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:26:29] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:26:34] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:26:34] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:26:45] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:26:45] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:01] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:01] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:22] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:22] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:22] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:27:23] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:23] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:29] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:29] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:40] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:40] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:27:56] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:27:56] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:28:17] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:28:17] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:28:17] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:28:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:28:18] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:28:24] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:28:24] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:28:35] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:28:35] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:28:50] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:28:50] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:29:11] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:29:11] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:29:11] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:29:13] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:29:13] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:29:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:29:18] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:29:29] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:29:29] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:29:45] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:29:45] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:30:06] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:30:06] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:30:06] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:30:07] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:30:07] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:30:13] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:30:13] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:30:24] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:30:24] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:30:40] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:30:40] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:00] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:00] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:00] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:31:02] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:02] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:08] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:08] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:18] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:34] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:34] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:55] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:55] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:31:55] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:31:56] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:31:56] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:02] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:02] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:13] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:13] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:29] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:29] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:50] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:50] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:50] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:32:51] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:51] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:32:57] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:32:57] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:33:08] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:33:08] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:33:24] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:33:24] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:33:44] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:33:44] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:33:44] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:33:46] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:33:46] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:33:52] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:33:52] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:03] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:03] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:18] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:18] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:39] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:39] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:39] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:34:41] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:41] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:47] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:47] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:34:57] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:34:57] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:35:13] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:35:13] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:35:34] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:35:34] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:35:34] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:35:36] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:35:36] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:35:41] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:35:41] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:35:52] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:35:52] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:36:08] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:36:08] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:36:29] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:36:29] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:36:29] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-02-28 11:36:30] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:36:30] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:36:36] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:36:36] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:36:47] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:36:47] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-02-28 11:37:03] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_SESSION_EXPIRED::Session过期"],"v":"1.0"}
+[2026-02-28 11:37:03] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-03-03 23:25:33] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:26:24] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:27:15] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:28:05] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:35:24] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:36:15] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:37:05] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:37:56] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:38:46] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:39:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:40:28] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:45:24] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:46:14] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:47:05] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:47:56] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:48:46] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:49:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:50:27] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:51:18] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:52:09] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:52:59] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:53:50] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:54:41] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:55:31] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:56:22] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:57:12] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:58:03] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:58:54] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-03 23:59:44] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:12:36] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:13:26] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:14:17] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:15:07] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:15:58] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:16:49] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:17:39] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:18:30] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:19:21] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:20:11] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:22:04] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:23:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:24:27] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:25:18] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:26:08] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 09:27:43] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg96095bb10a7254c3ja872ada99ae12e3d5dcdfbba3c706a77d1772587663a-717315356a829576438abaac3en2207836320265a33bb9e483391402ca6fdc9e1539f7ab3363__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 09:27:43] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg96095bb10a7254c3ja872ada99ae12e3d5dcdfbba3c706a77d1772587663a-717315356a829576438abaac3en2207836320265a33bb9e483391402ca6fdc9e1539f7ab3363__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 09:27:54] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1563, 新增1个x5, 更新1个x5, 总计22个cookie项, x5 cookies: x5sec=7b22733b32223a2261333064323764376264646434653931222c22617365727665723b33223a22307c43492b566e733047454b3762304e63454b4941454d50617079597344227d; x5secdata=xg650dbae05ae5088fja2993cff7f19111b023531381183f97631772587670a-717315356a1038868164abaad3eaa33bdbb46da9965e2b9a3e49fb91e1fc7f23__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 10:08:16] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xga9d734bf1bb9187fja4529f289a30f59b015f58718b00666c91772590096a-717315356a829576438abaac3en2207836320265a33baf5e6a00ea4cb81333e32935c46bc11c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 10:08:16] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xga9d734bf1bb9187fja4529f289a30f59b015f58718b00666c91772590096a-717315356a829576438abaac3en2207836320265a33baf5e6a00ea4cb81333e32935c46bc11c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 10:08:35] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1640, 新增1个x5, 更新1个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2239373962653363376239363563616334222c22617365727665723b33223a22307c434a436f6e733047454e61676b4d59484b4941454d50617079597344227d; x5secdata=xg6f1cae506d9423f8jafddee0a55ea9babea1cca3821884259f1772590103a-717315356a1038868164abaad3eaa33bd7c454925978e3ac0b9e8a53cad1cd63__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 10:11:51] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg6d69656737ae87dfja90d88ce51b752e14980df128da33d1b61772590311a-717315356a829576438abaac3en2207836320265a33bb0cb035dae3d44d2352bc442fe56d043__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 10:11:51] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg6d69656737ae87dfja90d88ce51b752e14980df128da33d1b61772590311a-717315356a829576438abaac3en2207836320265a33bb0cb035dae3d44d2352bc442fe56d043__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 10:12:09] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1519, 新增0个x5, 更新2个x5, 总计22个cookie项, x5 cookies: x5sec=7b22733b32223a2266326265393332326636356162663537222c22617365727665723b33223a22307c434f65706e733047454d2b64383549484b4941454d50617079597344227d; x5secdata=xg9ff5865698650c5ajae638c9ea36ff89f6801d78a71e40c1941772590317a-717315356a1038868164abaad3eaa33b17ca6a91f26dcc0e331b7d76ec1bf125__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 10:47:16] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg906fc62797a3fe44ja9e6e2b0b6b950f54c70778a3b77f60781772592436a-717315356a829576438abaac3en2207836320265a33b07cb6102aca5e8f5cb1b6a6109e10c3d__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 10:47:16] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg906fc62797a3fe44ja9e6e2b0b6b950f54c70778a3b77f60781772592436a-717315356a829576438abaac3en2207836320265a33b07cb6102aca5e8f5cb1b6a6109e10c3d__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 10:47:35] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1519, 新增0个x5, 更新2个x5, 总计22个cookie项, x5 cookies: x5sec=7b22733b32223a2238383637323334363566326435623735222c22617365727665723b33223a22307c434c53366e733047454b6e54753477424b4941454d50617079597344227d; x5secdata=xg46fd8d886f518451ja2a930e6470a94638ac7a4864940e25431772592443a-717315356a1038868164abaad3eaa33beeb26c604095532a60ba9c141e668ad9__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 11:19:17] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg19bc26d8f9cbf187ja971eda925d7c8c9693d21b8575ec748c1772594357a-717315356a829576438abaac3en2207836320265a33b74b41e79cad938fa112b16d4ced9ab4c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 11:19:17] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg19bc26d8f9cbf187ja971eda925d7c8c9693d21b8575ec748c1772594357a-717315356a829576438abaac3en2207836320265a33b74b41e79cad938fa112b16d4ced9ab4c__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 11:19:27] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1535, 新增0个x5, 更新2个x5, 总计22个cookie项, x5 cookies: x5sec=7b22733b32223a2261623864353934643561393938613766222c22617365727665723b33223a22307c434c584a6e7330474549536a7a3572392f2f2f2f2f77456f6741517739716e4a69774d3d227d; x5secdata=xg3ecbe3dedd198ae0jab7ba131ff52ae6474b5962c9b6e8caf31772594363a-717315356a1038868164abaad3eaa33bda85b997e4f63b1a13b8f1a5d8e8561f__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 12:31:40] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 12:33:34] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 12:34:24] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 12:35:26] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg5c2e6f7b0642d322jaa0d20d144031ffcedfb70f2b571b7f0e1772598926a-717315356a829576438abaac3en2207836320265a33bf611e381a00865138c3b5e04f7d924f6__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 12:35:26] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg5c2e6f7b0642d322jaa0d20d144031ffcedfb70f2b571b7f0e1772598926a-717315356a829576438abaac3en2207836320265a33bf611e381a00865138c3b5e04f7d924f6__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 12:35:43] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1593, 新增0个x5, 更新2个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2265346632613166663434336439373135222c22617365727665723b33223a22307c434937746e733047454e4b6f743745474b4941454d50617079597344227d; x5secdata=xg7b3e6e1a81b4ca0fja51d01d5359411d7481a84e2b082733cb1772598932a-717315356a1038868164abaad3eaa33b743398e9678fa801b3fc385ff00983c0__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 12:37:49] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 12:39:29] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 13:39:58] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg3b654dfe29f36d29ja462604736946f2e2b15c39694c5c12991772602798a-717315356a829576438abaac3en2207836320265a33b95cce4696e5230765fbb42e2e75be31b__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 13:39:58] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg3b654dfe29f36d29ja462604736946f2e2b15c39694c5c12991772602798a-717315356a829576438abaac3en2207836320265a33b95cce4696e5230765fbb42e2e75be31b__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 14:39:49] 【2207836320265】滑块验证失败 - 失败 - XianyuSliderStealth执行失败, 环境: 本地
+[2026-03-04 14:48:37] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例
+[2026-03-04 14:48:38] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"ret":["FAIL_SYS_USER_VALIDATE","RGV587_ERROR::SM::哎哟喂,被挤爆啦,请稍后重试"],"data":{"url":"https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg1d59e849ae74adb5jada869863f0e34b9efda4c840eb0f457a1772606919a-717315356a829576438abaac3en2207836320265a33b91194f3547730f87a70b3dedea744623__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha="}}
+[2026-03-04 14:48:38] 【2207836320265】检测到滑块验证 - 进行中 - 触发场景: Token刷新, URL: https://h5api.m.goofish.com:443//h5/mtop.taobao.idlemessage.pc.login.token/1.0/_____tmd_____/punish?x5secdata=xg1d59e849ae74adb5jada869863f0e34b9efda4c840eb0f457a1772606919a-717315356a829576438abaac3en2207836320265a33b91194f3547730f87a70b3dedea744623__bx__h5api.m.goofish.com:443/h5/mtop.taobao.idlemessage.pc.login.token/1.0&x5step=2&action=captcha&pureCaptcha=
+[2026-03-04 14:49:00] 【2207836320265】滑块验证成功并自动更新数据库 - 成功 - cookies长度: 1593, 新增0个x5, 更新2个x5, 总计23个cookie项, x5 cookies: x5sec=7b22733b32223a2237363130303361316662343439323062222c22617365727665723b33223a22307c434d65726e383047454a36566a4f38424b4941454d50617079597344227d; x5secdata=xg59afe22e1bce4b04ja842da19accf02a71b07d333144e797121772606928a-717315356a1038868164abaad3eaa33b9a8ebbf0249cc599ba3c2549a454c546__bx__h5api.m.taobao.com:443/h5/mtop.relationrecommend.wirelessrecommend.recommend/2.0
+[2026-03-04 14:49:00] 【2207836320265】检查滑块验证响应 - 进行中 - res_json内容: {"api":"mtop.taobao.idlemessage.pc.login.token","data":{},"ret":["FAIL_SYS_TOKEN_EXOIRED::令牌过期"],"v":"1.0"}
+[2026-03-04 14:49:00] 【2207836320265】令牌/Session过期触发Cookie刷新和实例重启 - 进行中 - 检测到令牌/Session过期，准备刷新Cookie并重启实例
+[2026-03-04 15:00:17] 【2207836320265】连续失败5次触发Cookie刷新和实例重启 - 进行中 - 检测到连续失败5次，准备刷新Cookie并重启实例

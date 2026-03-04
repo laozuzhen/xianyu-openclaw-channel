@@ -1,0 +1,11 @@
+title,description,price,images,category,location,original_price,stock
+全新 iPhone 15 Pro Max 256GB,全新未拆封，原装正品，支持验货，不满意包退。国行正品，一年保修。,8999.00,examples/images/phone_1.jpg|examples/images/phone_2.jpg,数码产品/手机/苹果,北京市/朝阳区,9999.00,1
+二手 MacBook Pro 2023 M2,9成新，无划痕，性能完美。配件齐全，原装充电器。适合办公和开发。,12999.00,examples/images/laptop_1.jpg|examples/images/laptop_2.jpg,数码产品/笔记本/苹果,上海市/浦东新区,15999.00,1
+全新 AirPods Pro 2,全新未拆封，官方正品。主动降噪，空间音频，续航持久。,1599.00,examples/images/airpods_1.jpg,数码产品/耳机/苹果,广州市/天河区,1899.00,2
+二手 iPad Air 5 64GB,8成新，屏幕完美无划痕。日常使用流畅，适合学习和娱乐。,3299.00,examples/images/ipad_1.jpg|examples/images/ipad_2.jpg,数码产品/平板/苹果,深圳市/南山区,4399.00,1
+全新 Nike Air Max 270 运动鞋,全新正品，美国代购。舒适透气，适合跑步和日常穿着。,899.00,examples/images/shoes_1.jpg|examples/images/shoes_2.jpg,服装鞋包/运动鞋/Nike,杭州市/西湖区,1299.00,3
+二手《Python 编程从入门到实践》,9成新，无笔记无划痕。经典编程入门书籍，适合初学者。,39.00,examples/images/book_1.jpg,图书音像/计算机/编程,成都市/武侯区,89.00,1
+全新小米手环 8,全新未拆封，官方正品。支持心率监测、睡眠监测、运动记录。,199.00,examples/images/band_1.jpg,数码产品/智能穿戴/小米,武汉市/洪山区,299.00,5
+二手 Sony WH-1000XM4 降噪耳机,8成新，功能完好。顶级降噪效果，音质出色，适合通勤和旅行。,1299.00,examples/images/headphone_1.jpg|examples/images/headphone_2.jpg,数码产品/耳机/索尼,南京市/鼓楼区,2499.00,1
+全新罗技 MX Master 3S 鼠标,全新未拆封，官方正品。人体工学设计，适合长时间办公。,699.00,examples/images/mouse_1.jpg,数码产品/电脑配件/罗技,西安市/雁塔区,899.00,2
+二手 Kindle Paperwhite 5,9成新，屏幕完美。6.8英寸大屏，阅读体验极佳，续航持久。,599.00,examples/images/kindle_1.jpg,数码产品/电子书/亚马逊,重庆市/渝北区,998.00,1

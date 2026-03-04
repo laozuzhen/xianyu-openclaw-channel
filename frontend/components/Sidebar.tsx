@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { LayoutDashboard, Users, ShoppingBag, CreditCard, Settings, LogOut, Box, Sparkles, Zap, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, Users, ShoppingBag, CreditCard, Settings, LogOut, Box, Sparkles, MessageSquare, Upload, Layers } from 'lucide-react';
 
 interface SidebarProps {
   activeTab: string;
@@ -13,8 +13,9 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onLogout }) 
     { id: 'accounts', icon: Users, label: '账号管理' },
     { id: 'orders', icon: ShoppingBag, label: '订单管理' },
     { id: 'cards', icon: CreditCard, label: '卡密库存' },
-    { id: 'rules', icon: Zap, label: '发货规则' },
     { id: 'items', icon: Box, label: '商品列表' },
+    { id: 'publish', icon: Upload, label: '发布商品' },
+    { id: 'batch-publish', icon: Layers, label: '批量发布' },
     { id: 'keywords', icon: MessageSquare, label: '关键词管理' },
     { id: 'settings', icon: Settings, label: '系统与AI' },
   ];

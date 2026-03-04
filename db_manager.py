@@ -255,6 +255,15 @@ class DBManager:
                 self._execute_sql(cursor, "ALTER TABLE orders ADD COLUMN receiver_address TEXT DEFAULT ''")
                 logger.info("orders 表收货人信息列添加完成")
 
+            # 检查并添加 receiver_city 列
+            try:
+                self._execute_sql(cursor, "SELECT receiver_city FROM orders LIMIT 1")
+            except sqlite3.OperationalError:
+                # receiver_city 列不存在，需要添加
+                logger.info("正在为 orders 表添加 receiver_city 列...")
+                self._execute_sql(cursor, "ALTER TABLE orders ADD COLUMN receiver_city TEXT DEFAULT ''")
+                logger.info("orders 表 receiver_city 列添加完成")
+
             # 检查并添加 version 列（用于乐观锁）
             try:
                 self._execute_sql(cursor, "SELECT version FROM orders LIMIT 1")
@@ -518,6 +527,22 @@ class DBManager:
             ('item_sync_enabled', 'true', '是否启用定时自动同步商品'),
             ('item_sync_interval', '600', '商品同步间隔时间（秒）'),
             ('item_sync_max_pages', '5', '每次最多同步的页数')
+            ''')
+
+            # 创建爬虫商品表（用于存储搜索爬取的商品）
+            cursor.execute('''
+            CREATE TABLE IF NOT EXISTS spider_products (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                price TEXT,
+                area TEXT,
+                seller TEXT,
+                link TEXT NOT NULL,
+                link_hash TEXT UNIQUE NOT NULL,
+                image_url TEXT,
+                publish_time TIMESTAMP,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
             ''')
 
             # 检查并升级数据库
@@ -1382,19 +1407,20 @@ class DBManager:
             cookie_id: Cookie ID
 
         Returns:
-            Dict包含cookie信息，包括cookies_str字段，如果不存在返回None
+            Dict包含cookie信息，包括cookies_str和user_id字段，如果不存在返回None
         """
         with self.lock:
             try:
                 cursor = self.conn.cursor()
-                self._execute_sql(cursor, "SELECT id, value, created_at FROM cookies WHERE id = ?", (cookie_id,))
+                self._execute_sql(cursor, "SELECT id, value, user_id, created_at FROM cookies WHERE id = ?", (cookie_id,))
                 result = cursor.fetchone()
                 if result:
                     return {
-                        'id': result[0],
+                        'id': str(result[0]),      # 显式转换为字符串，避免类型错误
                         'cookies_str': result[1],  # 使用cookies_str字段名以匹配调用方期望
                         'value': result[1],        # 保持向后兼容
-                        'created_at': result[2]
+                        'user_id': result[2],      # 添加user_id字段用于权限验证
+                        'created_at': result[3]
                     }
                 return None
             except Exception as e:
@@ -6055,6 +6081,286 @@ class DBManager:
                 'failed': 0,
                 'success_rate': 0
             }
+
+    def save_published_product_info(self, user_id: int, cookie_id: str, product_id: str, product_url: str, title: str, price: float):
+        """保存已发布商品的信息
+        
+        Args:
+            user_id: 用户ID
+            cookie_id: 账号ID
+            product_id: 商品ID
+            product_url: 商品URL
+            title: 商品标题
+            price: 商品价格
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                
+                # 检查 product_publish_history 表是否有 product_id 和 product_url 列
+                cursor.execute("PRAGMA table_info(product_publish_history)")
+                columns = [col[1] for col in cursor.fetchall()]
+                
+                if 'product_id' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_id 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_id TEXT")
+                
+                if 'product_url' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_url 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_url TEXT")
+                
+                # 插入商品发布信息
+                self._execute_sql(cursor, '''
+                    INSERT INTO product_publish_history 
+                    (user_id, cookie_id, product_id, product_url, title, price, status, published_at)
+                    VALUES (?, ?, ?, ?, ?, ?, 'success', CURRENT_TIMESTAMP)
+                ''', (user_id, cookie_id, product_id, product_url, title, price))
+                
+                self.conn.commit()
+                logger.info(f"已保存商品发布信息: product_id={product_id}, title={title}")
+                
+        except Exception as e:
+            logger.error(f"保存商品发布信息失败: {e}")
+            self.conn.rollback()
+    
+    def get_product_by_hash(self, cookie_id: str, product_hash: str) -> Optional[Dict[str, Any]]:
+        """根据商品哈希值查询是否已发布过相同商品
+        
+        Args:
+            cookie_id: 账号ID
+            product_hash: 商品哈希值（标题+价格+描述的MD5）
+            
+        Returns:
+            商品信息字典，未找到返回None
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                
+                # 检查是否有 product_hash 列
+                cursor.execute("PRAGMA table_info(product_publish_history)")
+                columns = [col[1] for col in cursor.fetchall()]
+                
+                if 'product_hash' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_hash 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_hash TEXT")
+                    self._execute_sql(cursor, "CREATE INDEX IF NOT EXISTS idx_product_hash ON product_publish_history(cookie_id, product_hash)")
+                    self.conn.commit()
+                    return None  # 新添加的列，肯定没有数据
+                
+                # 查询是否存在相同哈希的商品
+                self._execute_sql(cursor, '''
+                    SELECT product_id, product_url, title, price, published_at
+                    FROM product_publish_history
+                    WHERE cookie_id = ? AND product_hash = ? AND status = 'success'
+                    ORDER BY published_at DESC
+                    LIMIT 1
+                ''', (cookie_id, product_hash))
+                
+                row = cursor.fetchone()
+                if row:
+                    return {
+                        'product_id': row[0],
+                        'product_url': row[1],
+                        'title': row[2],
+                        'price': row[3],
+                        'published_at': row[4]
+                    }
+                return None
+                
+        except Exception as e:
+            logger.error(f"查询商品哈希失败: {e}")
+            return None
+    
+    def save_published_product_with_hash(self, user_id: int, cookie_id: str, product_id: str, 
+                                        product_url: str, title: str, price: float, 
+                                        product_hash: str):
+        """保存已发布商品的信息（包含哈希值）
+        
+        Args:
+            user_id: 用户ID
+            cookie_id: 账号ID
+            product_id: 商品ID
+            product_url: 商品URL
+            title: 商品标题
+            price: 商品价格
+            product_hash: 商品哈希值
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                
+                # 检查 product_publish_history 表是否有必要的列
+                cursor.execute("PRAGMA table_info(product_publish_history)")
+                columns = [col[1] for col in cursor.fetchall()]
+                
+                if 'product_id' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_id 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_id TEXT")
+                
+                if 'product_url' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_url 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_url TEXT")
+                
+                if 'product_hash' not in columns:
+                    logger.info("为 product_publish_history 表添加 product_hash 列...")
+                    self._execute_sql(cursor, "ALTER TABLE product_publish_history ADD COLUMN product_hash TEXT")
+                    self._execute_sql(cursor, "CREATE INDEX IF NOT EXISTS idx_product_hash ON product_publish_history(cookie_id, product_hash)")
+                
+                # 插入商品发布信息
+                self._execute_sql(cursor, '''
+                    INSERT INTO product_publish_history 
+                    (user_id, cookie_id, product_id, product_url, title, price, product_hash, status, published_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, 'success', CURRENT_TIMESTAMP)
+                ''', (user_id, cookie_id, product_id, product_url, title, price, product_hash))
+                
+                self.conn.commit()
+                logger.info(f"已保存商品发布信息（含哈希）: product_id={product_id}, title={title}, hash={product_hash[:8]}...")
+                
+        except Exception as e:
+            logger.error(f"保存商品发布信息失败: {e}")
+            self.conn.rollback()
+
+    # ==================== 爬虫商品相关方法 ====================
+    
+    def save_spider_product(self, title: str, price: str, area: str, seller: str, 
+                           link: str, link_hash: str, image_url: str, 
+                           publish_time: Optional[Any] = None) -> Optional[int]:
+        """保存爬虫商品到数据库
+        
+        Args:
+            title: 商品标题
+            price: 价格
+            area: 发货地区
+            seller: 卖家昵称
+            link: 商品链接
+            link_hash: 链接哈希（用于去重）
+            image_url: 商品图片链接
+            publish_time: 发布时间
+            
+        Returns:
+            商品ID，失败返回None
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                self._execute_sql(cursor, '''
+                    INSERT INTO spider_products 
+                    (title, price, area, seller, link, link_hash, image_url, publish_time)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (title, price, area, seller, link, link_hash, image_url, publish_time))
+                
+                self.conn.commit()
+                product_id = cursor.lastrowid
+                logger.debug(f"保存爬虫商品成功: {title} (ID: {product_id})")
+                return product_id
+                
+        except sqlite3.IntegrityError as e:
+            # 链接哈希重复，商品已存在
+            logger.debug(f"商品已存在（链接哈希重复）: {title}")
+            return None
+        except Exception as e:
+            logger.error(f"保存爬虫商品失败: {e}")
+            self.conn.rollback()
+            return None
+    
+    def get_spider_product_by_hash(self, link_hash: str) -> Optional[Dict[str, Any]]:
+        """根据链接哈希查询爬虫商品
+        
+        Args:
+            link_hash: 链接哈希
+            
+        Returns:
+            商品信息字典，不存在返回None
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                self._execute_sql(cursor, '''
+                    SELECT id, title, price, area, seller, link, link_hash, 
+                           image_url, publish_time, created_at
+                    FROM spider_products
+                    WHERE link_hash = ?
+                ''', (link_hash,))
+                
+                row = cursor.fetchone()
+                if row:
+                    return {
+                        'id': row[0],
+                        'title': row[1],
+                        'price': row[2],
+                        'area': row[3],
+                        'seller': row[4],
+                        'link': row[5],
+                        'link_hash': row[6],
+                        'image_url': row[7],
+                        'publish_time': row[8],
+                        'created_at': row[9]
+                    }
+                return None
+                
+        except Exception as e:
+            logger.error(f"查询爬虫商品失败: {e}")
+            return None
+    
+    def get_spider_products(self, limit: int = 100, offset: int = 0) -> List[Dict[str, Any]]:
+        """获取爬虫商品列表
+        
+        Args:
+            limit: 返回数量限制
+            offset: 偏移量
+            
+        Returns:
+            商品列表
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                self._execute_sql(cursor, '''
+                    SELECT id, title, price, area, seller, link, link_hash, 
+                           image_url, publish_time, created_at
+                    FROM spider_products
+                    ORDER BY created_at DESC
+                    LIMIT ? OFFSET ?
+                ''', (limit, offset))
+                
+                rows = cursor.fetchall()
+                products = []
+                for row in rows:
+                    products.append({
+                        'id': row[0],
+                        'title': row[1],
+                        'price': row[2],
+                        'area': row[3],
+                        'seller': row[4],
+                        'link': row[5],
+                        'link_hash': row[6],
+                        'image_url': row[7],
+                        'publish_time': row[8],
+                        'created_at': row[9]
+                    })
+                return products
+                
+        except Exception as e:
+            logger.error(f"获取爬虫商品列表失败: {e}")
+            return []
+    
+    def count_spider_products(self) -> int:
+        """统计爬虫商品总数
+        
+        Returns:
+            商品总数
+        """
+        try:
+            with self.lock:
+                cursor = self.conn.cursor()
+                self._execute_sql(cursor, 'SELECT COUNT(*) FROM spider_products')
+                row = cursor.fetchone()
+                return row[0] if row else 0
+                
+        except Exception as e:
+            logger.error(f"统计爬虫商品总数失败: {e}")
+            return 0
 
 
 # 全局单例

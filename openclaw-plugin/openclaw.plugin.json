@@ -1,5 +1,33 @@
 {
   "id": "xianyu",
   "channels": ["xianyu"],
+  "skills": ["./skills"],
+  "tools": [
+    {
+      "name": "search_xianyu_products",
+      "description": "搜索闲鱼商品，支持关键词搜索和多页爬取。返回商品标题、价格、地区、卖家、链接、图片、发布时间等信息。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "搜索关键词，例如：iPhone、笔记本电脑、二手书等"
+          },
+          "max_pages": {
+            "type": "integer",
+            "description": "最大爬取页数（默认1页，每页约50个商品）",
+            "default": 1,
+            "minimum": 1,
+            "maximum": 10
+          },
+          "cookie_id": {
+            "type": "string",
+            "description": "账号Cookie ID（可选，默认使用第一个可用账号）"
+          }
+        },
+        "required": ["keyword"]
+      }
+    }
+  ],
   "configSchema": { "type": "object", "additionalProperties": true, "properties": {} }
 }
