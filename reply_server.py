@@ -7201,6 +7201,409 @@ async def import_orders(
         raise HTTPException(status_code=500, detail=f"导入订单失败: {str(e)}")
 
 
+# ==================== 商品发布相关接口 ====================
+
+from product_publisher import XianyuProductPublisher, ProductInfo
+
+class ProductPublishRequest(BaseModel):
+    """商品发布请求"""
+    cookie_id: str
+    title: str
+    description: str
+    price: float
+    images: List[str]  # 图片路径列表
+    category: Optional[str] = None
+    location: Optional[str] = None
+    original_price: Optional[float] = None
+    stock: Optional[int] = 1
+
+
+class BatchProductPublishRequest(BaseModel):
+    """批量商品发布请求"""
+    cookie_id: str
+    products: List[ProductPublishRequest]
+
+
+@app.post('/api/products/publish')
+async def publish_single_product(
+    request: ProductPublishRequest,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """发布单个商品
+    
+    Args:
+        request: 商品发布请求
+        current_user: 当前登录用户
+        
+    Returns:
+        发布结果
+    """
+    try:
+        log_with_user('info', f"开始发布商品: {request.title} (账号: {request.cookie_id})", current_user)
+        
+        # 获取账号的 Cookie
+        cookie_data = db_manager.get_cookie_by_id(request.cookie_id)
+        if not cookie_data:
+            raise HTTPException(status_code=404, detail=f"账号不存在: {request.cookie_id}")
+        
+        # 检查账号所有权
+        if cookie_data.get('user_id') != current_user['user_id']:
+            raise HTTPException(status_code=403, detail="无权操作此账号")
+        
+        cookies_str = cookie_data.get('value', '')
+        if not cookies_str:
+            raise HTTPException(status_code=400, detail="账号 Cookie 为空")
+        
+        # 创建商品信息对象
+        product = ProductInfo(
+            title=request.title,
+            description=request.description,
+            price=request.price,
+            images=request.images,
+            category=request.category,
+            location=request.location,
+            original_price=request.original_price,
+            stock=request.stock
+        )
+        
+        # 创建发布器并发布
+        publisher = XianyuProductPublisher(
+            cookie_id=request.cookie_id,
+            cookies_str=cookies_str,
+            headless=True
+        )
+        
+        try:
+            await publisher.init_browser()
+            
+            # Cookie 登录
+            if not await publisher.login_with_cookie():
+                raise HTTPException(status_code=401, detail="Cookie 登录失败")
+            
+            # 发布商品
+            success = await publisher.publish_product(product)
+            
+            if success:
+                log_with_user('info', f"商品发布成功: {request.title}", current_user)
+                return {
+                    "success": True,
+                    "message": "商品发布成功",
+                    "product": {
+                        "title": request.title,
+                        "price": request.price
+                    }
+                }
+            else:
+                log_with_user('error', f"商品发布失败: {request.title}", current_user)
+                return {
+                    "success": False,
+                    "message": "商品发布失败，请查看日志"
+                }
+        
+        finally:
+            await publisher.close()
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        log_with_user('error', f"发布商品异常: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"发布商品失败: {str(e)}")
+
+
+@app.post('/api/products/batch-publish')
+async def batch_publish_products(
+    request: BatchProductPublishRequest,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """批量发布商品
+    
+    Args:
+        request: 批量发布请求
+        current_user: 当前登录用户
+        
+    Returns:
+        批量发布结果
+    """
+    try:
+        log_with_user('info', f"开始批量发布 {len(request.products)} 个商品 (账号: {request.cookie_id})", current_user)
+        
+        # 获取账号的 Cookie
+        cookie_data = db_manager.get_cookie_by_id(request.cookie_id)
+        if not cookie_data:
+            raise HTTPException(status_code=404, detail=f"账号不存在: {request.cookie_id}")
+        
+        # 检查账号所有权
+        if cookie_data.get('user_id') != current_user['user_id']:
+            raise HTTPException(status_code=403, detail="无权操作此账号")
+        
+        cookies_str = cookie_data.get('value', '')
+        if not cookies_str:
+            raise HTTPException(status_code=400, detail="账号 Cookie 为空")
+        
+        # 转换为 ProductInfo 对象列表
+        products = [
+            ProductInfo(
+                title=p.title,
+                description=p.description,
+                price=p.price,
+                images=p.images,
+                category=p.category,
+                location=p.location,
+                original_price=p.original_price,
+                stock=p.stock
+            )
+            for p in request.products
+        ]
+        
+        # 创建发布器并批量发布
+        publisher = XianyuProductPublisher(
+            cookie_id=request.cookie_id,
+            cookies_str=cookies_str,
+            headless=True
+        )
+        
+        results = await publisher.batch_publish(products)
+        
+        log_with_user('info', f"批量发布完成: 成功 {results['success']}/{results['total']}", current_user)
+        
+        return {
+            "success": True,
+            "message": f"批量发布完成: 成功 {results['success']}/{results['total']}",
+            "results": results
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        log_with_user('error', f"批量发布商品异常: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"批量发布失败: {str(e)}")
+
+
+@app.get('/api/products/templates')
+async def get_product_templates(
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """获取商品模板列表
+    
+    Returns:
+        商品模板列表
+    """
+    try:
+        user_id = current_user['user_id']
+        templates = db_manager.get_product_templates(user_id)
+        
+        return {
+            "success": True,
+            "templates": templates
+        }
+    
+    except Exception as e:
+        log_with_user('error', f"获取商品模板失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"获取商品模板失败: {str(e)}")
+
+
+@app.post('/api/products/templates')
+async def create_product_template(
+    name: str = Body(...),
+    category: str = Body(None),
+    location: str = Body(None),
+    description_template: str = Body(None),
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """创建商品模板
+    
+    Args:
+        name: 模板名称
+        category: 分类路径
+        location: 位置
+        description_template: 描述模板
+        
+    Returns:
+        创建结果
+    """
+    try:
+        user_id = current_user['user_id']
+        
+        template_id = db_manager.create_product_template(
+            user_id=user_id,
+            name=name,
+            category=category,
+            location=location,
+            description_template=description_template
+        )
+        
+        if template_id:
+            log_with_user('info', f"创建商品模板成功: {name}", current_user)
+            return {
+                "success": True,
+                "message": "模板创建成功",
+                "template_id": template_id
+            }
+        else:
+            raise HTTPException(status_code=500, detail="模板创建失败")
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        log_with_user('error', f"创建商品模板失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"创建商品模板失败: {str(e)}")
+
+
+@app.put('/api/products/templates/{template_id}')
+async def update_product_template(
+    template_id: int,
+    name: str = Body(None),
+    category: str = Body(None),
+    location: str = Body(None),
+    description_template: str = Body(None),
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """更新商品模板
+    
+    Args:
+        template_id: 模板ID
+        name: 模板名称
+        category: 分类路径
+        location: 位置
+        description_template: 描述模板
+        
+    Returns:
+        更新结果
+    """
+    try:
+        user_id = current_user['user_id']
+        
+        # 构建更新参数
+        update_data = {}
+        if name is not None:
+            update_data['name'] = name
+        if category is not None:
+            update_data['category'] = category
+        if location is not None:
+            update_data['location'] = location
+        if description_template is not None:
+            update_data['description_template'] = description_template
+        
+        if not update_data:
+            raise HTTPException(status_code=400, detail="没有提供要更新的字段")
+        
+        success = db_manager.update_product_template(
+            template_id=template_id,
+            user_id=user_id,
+            **update_data
+        )
+        
+        if success:
+            log_with_user('info', f"更新商品模板成功: template_id={template_id}", current_user)
+            return {
+                "success": True,
+                "message": "模板更新成功"
+            }
+        else:
+            raise HTTPException(status_code=404, detail="模板不存在或无权限")
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        log_with_user('error', f"更新商品模板失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"更新商品模板失败: {str(e)}")
+
+
+@app.delete('/api/products/templates/{template_id}')
+async def delete_product_template(
+    template_id: int,
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """删除商品模板
+    
+    Args:
+        template_id: 模板ID
+        
+    Returns:
+        删除结果
+    """
+    try:
+        user_id = current_user['user_id']
+        
+        success = db_manager.delete_product_template(
+            template_id=template_id,
+            user_id=user_id
+        )
+        
+        if success:
+            log_with_user('info', f"删除商品模板成功: template_id={template_id}", current_user)
+            return {
+                "success": True,
+                "message": "模板删除成功"
+            }
+        else:
+            raise HTTPException(status_code=404, detail="模板不存在或无权限")
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        log_with_user('error', f"删除商品模板失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"删除商品模板失败: {str(e)}")
+
+
+@app.get('/api/products/publish-history')
+async def get_publish_history(
+    limit: int = Query(100, ge=1, le=1000),
+    offset: int = Query(0, ge=0),
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """获取商品发布历史
+    
+    Args:
+        limit: 每页数量
+        offset: 偏移量
+        
+    Returns:
+        发布历史列表
+    """
+    try:
+        user_id = current_user['user_id']
+        
+        history = db_manager.get_publish_history(
+            user_id=user_id,
+            limit=limit,
+            offset=offset
+        )
+        
+        return {
+            "success": True,
+            "history": history
+        }
+    
+    except Exception as e:
+        log_with_user('error', f"获取发布历史失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"获取发布历史失败: {str(e)}")
+
+
+@app.get('/api/products/publish-statistics')
+async def get_publish_statistics(
+    current_user: Dict[str, Any] = Depends(get_current_user)
+):
+    """获取商品发布统计信息
+    
+    Returns:
+        统计信息（总数、成功数、失败数、成功率）
+    """
+    try:
+        user_id = current_user['user_id']
+        
+        statistics = db_manager.get_publish_statistics(user_id)
+        
+        return {
+            "success": True,
+            "statistics": statistics
+        }
+    
+    except Exception as e:
+        log_with_user('error', f"获取发布统计失败: {str(e)}", current_user)
+        raise HTTPException(status_code=500, detail=f"获取发布统计失败: {str(e)}")
+
+
 # ==================== 前端 SPA Catch-All 路由 ====================
 # 必须放在所有 API 路由之后，用于处理前端 SPA 的直接访问
 # 这样用户直接访问 /dashboard、/accounts 等前端路由时，会返回 index.html

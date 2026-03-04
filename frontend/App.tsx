@@ -5,6 +5,8 @@ import AccountList from './components/AccountList';
 import OrderList from './components/OrderList';
 import CardList from './components/CardList';
 import ItemList from './components/ItemList';
+import ProductPublish from './components/ProductPublish';
+import BatchProductPublish from './components/BatchProductPublish';
 import Settings from './components/Settings';
 import Keywords from './components/Keywords';
 import { login, verifyToken } from './services/api';
@@ -160,6 +162,8 @@ const App: React.FC = () => {
       case 'orders': return <OrderList />;
       case 'cards': return <CardList />;
       case 'items': return <ItemList />;
+      case 'publish': return <ProductPublish />;
+      case 'batch-publish': return <BatchProductPublish />;
       case 'keywords': return <Keywords />;
       case 'settings': return <Settings />;
       default: return <Dashboard />;

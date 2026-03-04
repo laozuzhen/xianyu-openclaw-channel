@@ -234,12 +234,13 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  // 计算趋势百分比
+  // 计算趋势百分比 - 添加空值检查
   const getTrendPercent = () => {
     if (!analytics || !previousAnalytics) return null;
+    if (!analytics.revenue_stats || !previousAnalytics.revenue_stats) return null;
 
-    const currentAmount = analytics.revenue_stats.total_amount;
-    const previousAmount = previousAnalytics.revenue_stats.total_amount;
+    const currentAmount = analytics.revenue_stats.total_amount || 0;
+    const previousAmount = previousAnalytics.revenue_stats.total_amount || 0;
 
     if (previousAmount === 0) {
       return currentAmount > 0 ? '+100%' : '0%';
@@ -308,10 +309,10 @@ const Dashboard: React.FC = () => {
       avgAmount: d.order_count > 0 ? (d.amount / d.order_count).toFixed(2) : 0
   })) || [];
 
-  // 计算图表数据（在渲染时直接计算）
+  // 计算图表数据（在渲染时直接计算）- 添加空值检查
   const itemStats = analytics.item_stats || [];
-  const totalOrders = analytics.revenue_stats.total_orders || 0;
-  const totalAmount = analytics.revenue_stats.total_amount || 0;
+  const totalOrders = analytics.revenue_stats?.total_orders || 0;
+  const totalAmount = analytics.revenue_stats?.total_amount || 0;
 
   // 1. 商品销量排行：按订单数量排序
   const productSalesData = itemStats.length > 0 ? itemStats
@@ -428,7 +429,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="累计营收 (CNY)"
-          value={`¥${analytics.revenue_stats.total_amount.toLocaleString('zh-CN', { minimumFractionDigits: 2 })}`}
+          value={`¥${(analytics.revenue_stats?.total_amount || 0).toLocaleString('zh-CN', { minimumFractionDigits: 2 })}`}
           icon={DollarSign}
           colorClass="bg-yellow-400"
           trend={getTrendPercent() || undefined}
@@ -441,7 +442,7 @@ const Dashboard: React.FC = () => {
         />
         <StatCard
           title="订单数"
-          value={analytics.revenue_stats.total_orders.toLocaleString()}
+          value={(analytics.revenue_stats?.total_orders || 0).toLocaleString()}
           icon={ShoppingCart}
           colorClass="bg-orange-500"
         />
@@ -460,7 +461,7 @@ const Dashboard: React.FC = () => {
           <p className="text-sm text-gray-400 mt-1">最近7天的销售额走势</p>
         </div>
         <div className="h-[350px] w-full">
-          {chartData.length === 0 || analytics.revenue_stats.total_amount === 0 ? (
+          {chartData.length === 0 || (analytics.revenue_stats?.total_amount || 0) === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-gray-400">
               <ShoppingCart className="w-16 h-16 mb-4 opacity-20" />
               <p className="text-lg font-medium">暂无营收数据</p>
