@@ -1100,16 +1100,25 @@ class XianyuProductPublisher:
                     logger.info(f"【{self.cookie_id}】URL 匹配成功模式: {pattern}")
                     return (True, product_id, product_url)
             
-            # 方法2: 检查页面标题是否包含商品相关关键词
+            # 方法2: 检查 URL 是否不再是发布页面（提前检查）
+            if self.PUBLISH_URL not in current_url and 'publish' not in current_url:
+                logger.info(f"【{self.cookie_id}】已离开发布页面，推测发布成功")
+                return (True, product_id, product_url)
+            
+            # 方法3: 检查页面标题是否包含商品相关关键词（排除"发布"相关标题）
             try:
                 page_title = await self.page.title()
                 logger.info(f"【{self.cookie_id}】页面标题: {page_title}")
                 
-                # 商品详情页标题通常包含这些关键词
-                title_keywords = ['闲鱼', '咸鱼', '商品', '宝贝', 'goofish']
-                if any(keyword in page_title for keyword in title_keywords):
-                    logger.info(f"【{self.cookie_id}】页面标题包含商品关键词")
-                    return (True, product_id, product_url)
+                # 如果标题包含"发布"关键词，说明还在发布页面
+                if '发布' in page_title or 'publish' in page_title.lower():
+                    logger.warning(f"【{self.cookie_id}】页面标题包含'发布'，还在发布页面")
+                else:
+                    # 商品详情页标题通常包含这些关键词
+                    title_keywords = ['商品', '宝贝', 'item', 'product']
+                    if any(keyword in page_title for keyword in title_keywords):
+                        logger.info(f"【{self.cookie_id}】页面标题包含商品关键词")
+                        return (True, product_id, product_url)
             except Exception as e:
                 logger.debug(f"【{self.cookie_id}】获取页面标题失败: {e}")
             

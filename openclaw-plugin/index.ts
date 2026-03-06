@@ -252,7 +252,7 @@ const plugin: XianyuPluginModule = {
       async execute(_id: string, params: unknown) {
         const { cookie_id, title, description, price, images, category, location, original_price, stock } = params as any;
         try {
-          const response = await fetch(`http://localhost:8080/api/publish/single`, {
+          const response = await fetch(`http://localhost:8080/api/bridge/publish/single`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ 
@@ -375,7 +375,7 @@ const plugin: XianyuPluginModule = {
       async execute(_id: string, params: unknown) {
         const { cookie_id, products } = params as any;
         try {
-          const response = await fetch(`http://localhost:8080/api/publish/batch`, {
+          const response = await fetch(`http://localhost:8080/api/bridge/publish/batch`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ cookie_id, products }),
