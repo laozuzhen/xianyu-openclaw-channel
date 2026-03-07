@@ -278,13 +278,13 @@ async def refresh_cookie(body: RefreshCookieRequest):
         if instance is None:
             raise HTTPException(status_code=404, detail=f"Account '{body.accountId}' not found")
         
-        # 从数据库获取最新Cookie
+        # 从 CookieManager 获取 cookie_value
         from cookie_manager import manager as cookie_manager
-        account_info = cookie_manager.get_cookie(body.accountId)
-        if not account_info:
+        cookies_str = cookie_manager.cookies.get(body.accountId, '')
+        if not cookies_str:
             raise HTTPException(status_code=404, detail=f"Cookie not found for account '{body.accountId}'")
         
-        db_cookie_value = account_info.get('cookie_value', '')
+        db_cookie_value = cookies_str
         if db_cookie_value and db_cookie_value != instance.cookies_str:
             instance.cookies_str = db_cookie_value
             from utils.trans_cookies import trans_cookies
@@ -346,7 +346,7 @@ async def create_product(body: CreateProductRequest):
 # ---------------------------------------------------------------------------
 
 class PublishSingleProductRequest(BaseModel):
-    cookie_id: str
+    cookie_id: Optional[str] = None  # 可选，不提供则自动使用已连接账号
     title: Optional[str] = None
     description: str
     price: float
@@ -358,8 +358,27 @@ class PublishSingleProductRequest(BaseModel):
 
 
 class PublishBatchProductsRequest(BaseModel):
-    cookie_id: str
+    cookie_id: Optional[str] = None  # 可选，不提供则自动使用已连接账号
     products: list[dict]
+
+
+def get_connected_account_id() -> Optional[str]:
+    """获取第一个已连接的账号ID"""
+    for account_id, instance in xianyu_instances.items():
+        if hasattr(instance, 'connected') and instance.connected:
+            return account_id
+    # 如果没有找到已连接的实例，返回第一个实例
+    if xianyu_instances:
+        return list(xianyu_instances.keys())[0]
+    return None
+
+
+def get_connected_account_id() -> Optional[str]:
+    """获取第一个已连接的账号ID"""
+    for account_id, instance in xianyu_instances.items():
+        if hasattr(instance, 'connected') and instance.connected:
+            return account_id
+    return None
 
 
 @bridge_router.post("/publish/single")
@@ -413,20 +432,25 @@ async def publish_single_product(body: PublishSingleProductRequest):
         from product_publisher import XianyuProductPublisher, ProductInfo
         import cookie_manager
         
-        logger.info(f"[Bridge] 发布单个商品: cookie_id={body.cookie_id}, title={body.title}, price={body.price}")
+        # 自动选择账号（如果没有提供 cookie_id）
+        cookie_id = body.cookie_id
+        if not cookie_id:
+            cookie_id = get_connected_account_id()
+            if not cookie_id:
+                return {"ok": False, "error": "No connected account found"}
+            logger.info(f"[Bridge] 自动选择账号: {cookie_id}")
+        
+        logger.info(f"[Bridge] 发布单个商品: cookie_id={cookie_id}, title={body.title}, price={body.price}")
         
         # 获取 Cookie
         mgr = cookie_manager.manager
         if mgr is None:
             return {"ok": False, "error": "Cookie manager not initialized"}
         
-        account_info = mgr.get_cookie(body.cookie_id)
-        if not account_info:
-            return {"ok": False, "error": f"Cookie not found for account '{body.cookie_id}'"}
-        
-        cookies_str = account_info.get('cookie_value', '')
+        # 从 CookieManager.cookies 获取 cookie_value
+        cookies_str = mgr.cookies.get(cookie_id, '')
         if not cookies_str:
-            return {"ok": False, "error": f"Cookie value is empty for account '{body.cookie_id}'"}
+            return {"ok": False, "error": f"Cookie not found for account '{cookie_id}'"}
         
         # 【修复】验证 Cookie 有效性
         # 1. 验证 Cookie 格式
@@ -487,7 +511,7 @@ async def publish_single_product(body: PublishSingleProductRequest):
         
         # 初始化发布器
         publisher = XianyuProductPublisher(
-            cookie_id=body.cookie_id,
+            cookie_id=cookie_id,
             cookies_str=cookies_str,
             headless=True
         )
@@ -515,7 +539,7 @@ async def publish_single_product(body: PublishSingleProductRequest):
                 user_id = 1  # TODO: 从认证系统获取真实用户ID
                 db_manager.db_manager.save_published_product_with_hash(
                     user_id=user_id,
-                    cookie_id=body.cookie_id,
+                    cookie_id=cookie_id,
                     product_id=product_id,
                     product_url=product_url,
                     title=product.title or "AI 生成标题",
@@ -589,14 +613,10 @@ async def publish_batch_products_stream(body: PublishBatchProductsRequest):
                 yield f"data: {json.dumps({'event': 'error', 'data': {'error': 'Cookie manager not initialized'}})}\n\n"
                 return
             
-            account_info = mgr.get_cookie(body.cookie_id)
-            if not account_info:
-                yield f"data: {json.dumps({'event': 'error', 'data': {'error': f'Cookie not found for account {body.cookie_id}'}})}\n\n"
-                return
-            
-            cookies_str = account_info.get('cookie_value', '')
+            # 从 CookieManager.cookies 获取 cookie_value
+            cookies_str = mgr.cookies.get(body.cookie_id, '')
             if not cookies_str:
-                yield f"data: {json.dumps({'event': 'error', 'data': {'error': 'Cookie value is empty'}})}\n\n"
+                yield f"data: {json.dumps({'event': 'error', 'data': {'error': f'Cookie not found for account {body.cookie_id}'}})}\n\n"
                 return
             
             # 初始化
@@ -760,24 +780,29 @@ async def publish_batch_products(body: PublishBatchProductsRequest):
         from product_publisher import XianyuProductPublisher, ProductInfo
         import cookie_manager
         
-        logger.info(f"[Bridge] 批量发布商品: cookie_id={body.cookie_id}, count={len(body.products)}")
+        # 自动选择账号（如果没有提供 cookie_id）
+        cookie_id = body.cookie_id
+        if not cookie_id:
+            cookie_id = get_connected_account_id()
+            if not cookie_id:
+                return {"ok": False, "error": "No connected account found"}
+            logger.info(f"[Bridge] 自动选择账号: {cookie_id}")
+        
+        logger.info(f"[Bridge] 批量发布商品: cookie_id={cookie_id}, count={len(body.products)}")
         
         # 获取 Cookie
         mgr = cookie_manager.manager
         if mgr is None:
             return {"ok": False, "error": "Cookie manager not initialized"}
         
-        account_info = mgr.get_cookie(body.cookie_id)
-        if not account_info:
-            return {"ok": False, "error": f"Cookie not found for account '{body.cookie_id}'"}
-        
-        cookies_str = account_info.get('cookie_value', '')
+        # CookieManager 没有 get_cookie 方法，直接从 cookies 字典获取
+        cookies_str = mgr.cookies.get(cookie_id, '')
         if not cookies_str:
-            return {"ok": False, "error": f"Cookie value is empty for account '{body.cookie_id}'"}
+            return {"ok": False, "error": f"Cookie not found for account '{cookie_id}'"}
         
         # 初始化发布器
         publisher = XianyuProductPublisher(
-            cookie_id=body.cookie_id,
+            cookie_id=cookie_id,
             cookies_str=cookies_str,
             headless=True
         )
@@ -818,7 +843,7 @@ async def publish_batch_products(body: PublishBatchProductsRequest):
                         user_id = 1  # TODO: 从认证系统获取真实用户ID
                         db_manager.db_manager.save_published_product_info(
                             user_id=user_id,
-                            cookie_id=body.cookie_id,
+                            cookie_id=cookie_id,
                             product_id=product_id,
                             product_url=product_url,
                             title=product.title,
@@ -957,14 +982,14 @@ async def list_cards(accountId: str = "default"):
 
 class SearchProductsRequest(BaseModel):
     """商品搜索请求"""
-    cookie_id: str
+    cookie_id: Optional[str] = None  # 可选，不提供则自动使用已连接账号
     keyword: str
     max_pages: Optional[int] = 1
 
 
 class SearchProductsMultiRequest(BaseModel):
     """多页商品搜索请求"""
-    cookie_id: str
+    cookie_id: Optional[str] = None  # 可选，不提供则自动使用已连接账号
     keyword: str
     max_pages: int = 5
 
@@ -993,17 +1018,67 @@ async def search_products(body: SearchProductsRequest):
         from cookie_manager import manager as cookie_manager
         from product_spider import search_xianyu_products
         
+        # 自动选择账号（如果没有提供 cookie_id）
+        cookie_id = body.cookie_id
+        if not cookie_id:
+            cookie_id = get_connected_account_id()
+            if not cookie_id:
+                return {"ok": False, "error": "No connected account found"}
+            logger.info(f"[Bridge] 自动选择账号: {cookie_id}")
+        
         # 获取Cookie
-        cookie_value = cookie_manager.cookies.get(body.cookie_id)
+        cookie_value = cookie_manager.cookies.get(cookie_id)
         if not cookie_value:
-            logger.error(f"[Bridge] Cookie不存在: {body.cookie_id}")
-            return {"ok": False, "error": f"Cookie不存在: {body.cookie_id}"}
+            logger.error(f"[Bridge] Cookie不存在: {cookie_id}")
+            return {"ok": False, "error": f"Cookie不存在: {cookie_id}"}
         
-        logger.info(f"[Bridge] 开始搜索商品: cookie_id={body.cookie_id}, keyword={body.keyword}, max_pages={body.max_pages}")
+        logger.info(f"[Bridge] 开始搜索商品: cookie_id={cookie_id}, keyword={body.keyword}, max_pages={body.max_pages}")
         
-        # 执行搜索
+        # 获取后端实例，使用共享浏览器执行搜索
+        try:
+            from XianyuAutoAsync import live_instances
+            backend_instance = live_instances.get(cookie_id)
+            if backend_instance:
+                logger.info(f"[Bridge] 使用后端共享浏览器实例执行搜索...")
+                
+                # 获取共享浏览器实例
+                browser, context, page = await backend_instance.get_shared_browser()
+                if page:
+                    logger.info(f"[Bridge] 共享浏览器实例获取成功，开始搜索...")
+                    
+                    # 直接在共享页面上执行搜索
+                    from product_spider import ProductSpider
+                    spider = ProductSpider(cookie_id=cookie_id, cookies_str=cookie_value, headless=True)
+                    
+                    # 使用共享的 page 实例
+                    spider.page = page
+                    spider.context = context
+                    spider.browser = browser
+                    spider._using_shared_browser = True  # 标记使用共享浏览器，不关闭
+                    
+                    # 执行搜索
+                    total_results, new_records, new_ids = await spider.search_products(
+                        keyword=body.keyword,
+                        max_pages=body.max_pages
+                    )
+                    
+                    logger.info(f"[Bridge] 搜索完成(共享浏览器): keyword={body.keyword}, total={total_results}, new={new_records}")
+                    
+                    return {
+                        "ok": True,
+                        "keyword": body.keyword,
+                        "total_results": total_results,
+                        "new_records": new_records,
+                        "new_record_ids": new_ids
+                    }
+                else:
+                    logger.warning(f"[Bridge] 无法获取共享浏览器实例，使用独立浏览器")
+        except Exception as e:
+            logger.warning(f"[Bridge] 使用共享浏览器失败: {e}，回退到独立浏览器")
+        
+        # 回退方案：使用独立的浏览器实例
         total_results, new_records, new_ids = await search_xianyu_products(
-            cookie_id=body.cookie_id,
+            cookie_id=cookie_id,
             cookies_str=cookie_value,
             keyword=body.keyword,
             max_pages=body.max_pages,
@@ -1051,17 +1126,25 @@ async def search_products_multi(body: SearchProductsMultiRequest):
         from cookie_manager import manager as cookie_manager
         from product_spider import search_xianyu_products
         
-        # 获取Cookie
-        cookie_value = cookie_manager.cookies.get(body.cookie_id)
-        if not cookie_value:
-            logger.error(f"[Bridge] Cookie不存在: {body.cookie_id}")
-            return {"ok": False, "error": f"Cookie不存在: {body.cookie_id}"}
+        # 自动选择账号（如果没有提供 cookie_id）
+        cookie_id = body.cookie_id
+        if not cookie_id:
+            cookie_id = get_connected_account_id()
+            if not cookie_id:
+                return {"ok": False, "error": "No connected account found"}
+            logger.info(f"[Bridge] 自动选择账号: {cookie_id}")
         
-        logger.info(f"[Bridge] 开始多页搜索商品: cookie_id={body.cookie_id}, keyword={body.keyword}, max_pages={body.max_pages}")
+        # 获取Cookie
+        cookie_value = cookie_manager.cookies.get(cookie_id)
+        if not cookie_value:
+            logger.error(f"[Bridge] Cookie不存在: {cookie_id}")
+            return {"ok": False, "error": f"Cookie不存在: {cookie_id}"}
+        
+        logger.info(f"[Bridge] 开始多页搜索商品: cookie_id={cookie_id}, keyword={body.keyword}, max_pages={body.max_pages}")
         
         # 执行搜索
         total_results, new_records, new_ids = await search_xianyu_products(
-            cookie_id=body.cookie_id,
+            cookie_id=cookie_id,
             cookies_str=cookie_value,
             keyword=body.keyword,
             max_pages=body.max_pages,
@@ -1123,3 +1206,144 @@ async def get_spider_products(page: int = 1, limit: int = 20):
     except Exception as e:
         logger.error(f"[Bridge] 获取爬虫商品列表失败: {e}")
         return {"ok": False, "error": str(e)}
+
+
+# ---------------------------------------------------------------------------
+# 日志API
+# ---------------------------------------------------------------------------
+
+@bridge_router.get("/logs")
+async def get_logs(lines: int = 100, level: str = "all"):
+    """获取后端日志
+    
+    Args:
+        lines: 返回的行数（默认100）
+        level: 日志级别过滤 (all/debug/info/warning/error)
+    
+    Returns:
+        {
+            "ok": True/False,
+            "logs": [日志行列表],
+            "total": 总行数,
+            "error": "错误信息"（如果失败）
+        }
+    """
+    try:
+        from pathlib import Path
+        
+        # 日志文件路径
+        log_dir = Path(__file__).parent / "logs"
+        log_files = sorted(log_dir.glob("xianyu_*.log"), key=lambda x: x.name, reverse=True)
+        
+        if not log_files:
+            return {"ok": True, "logs": [], "total": 0, "message": "没有日志文件"}
+        
+        # 读取最新的日志文件
+        log_file = log_files[0]
+        
+        with open(log_file, 'r', encoding='utf-8', errors='ignore') as f:
+            all_lines = f.readlines()
+        
+        # 过滤日志级别
+        if level != "all":
+            level_map = {
+                "debug": "DEBUG",
+                "info": "INFO",
+                "warning": "WARNING",
+                "error": "ERROR"
+            }
+            level_tag = level_map.get(level.lower(), "INFO")
+            filtered_lines = [l for l in all_lines if f" | {level_tag} | " in l or f"|{level_tag}|" in l]
+        else:
+            filtered_lines = all_lines
+        
+        # 取最后N行
+        result_lines = filtered_lines[-lines:] if len(filtered_lines) > lines else filtered_lines
+        
+        # 格式化日志
+        logs = []
+        for line in result_lines:
+            line = line.strip()
+            if not line:
+                continue
+            
+            # 解析日志格式 (loguru格式: 时间 | 级别 | 模块:行号 | 消息)
+            parts = line.split(" | ")
+            if len(parts) >= 4:
+                logs.append({
+                    "time": parts[0].strip(),
+                    "level": parts[1].strip() if len(parts) > 1 else "INFO",
+                    "module": parts[2].strip() if len(parts) > 2 else "",
+                    "message": " | ".join(parts[3:]).strip() if len(parts) > 3 else line
+                })
+            else:
+                logs.append({
+                    "time": "",
+                    "level": "INFO",
+                    "module": "",
+                    "message": line
+                })
+        
+        return {
+            "ok": True,
+            "logs": logs,
+            "total": len(logs),
+            "file": log_file.name
+        }
+        
+    except Exception as e:
+        return {"ok": False, "error": str(e), "logs": [], "total": 0}
+
+
+@bridge_router.get("/logs/stream")
+async def stream_logs():
+    """实时日志流 (SSE)
+    
+    用于前端实时显示日志
+    """
+    import asyncio
+    from pathlib import Path
+    
+    async def log_generator():
+        log_dir = Path(__file__).parent / "logs"
+        log_files = sorted(log_dir.glob("xianyu_*.log"), key=lambda x: x.name, reverse=True)
+        
+        if not log_files:
+            yield f"data: {json.dumps({'error': '没有日志文件'})}\n\n"
+            return
+        
+        log_file = log_files[0]
+        last_pos = 0
+        
+        # 先发送最后50行
+        with open(log_file, 'r', encoding='utf-8', errors='ignore') as f:
+            lines = f.readlines()[-50:]
+            for line in lines:
+                if line.strip():
+                    yield f"data: {json.dumps({'log': line.strip()})}\n\n"
+            last_pos = f.tell()
+        
+        # 持续监控新日志
+        while True:
+            try:
+                with open(log_file, 'r', encoding='utf-8', errors='ignore') as f:
+                    f.seek(last_pos)
+                    new_content = f.read()
+                    if new_content:
+                        for line in new_content.split('\n'):
+                            if line.strip():
+                                yield f"data: {json.dumps({'log': line.strip()})}\n\n"
+                        last_pos = f.tell()
+            except Exception:
+                pass
+            
+            await asyncio.sleep(1)
+    
+    return StreamingResponse(
+        log_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+        }
+    )
