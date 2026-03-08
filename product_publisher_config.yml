@@ -64,13 +64,13 @@ selectors:
       - 'input[name="original_price"]'
       - '.original-price-input'
   
-  # 分类选择器
+  # 分类选择器（暂不使用，避免误点添加规格按钮）
   category_selector:
-    primary: 'button:has-text("添加规格类型")'
+    primary: '.category-selector'
     fallback:
-      - '.category-selector'
       - '[data-testid="category-selector"]'
       - 'button:has-text("选择分类")'
+      - '.category-text'
   
   # 位置选择器（宝贝所在地按钮）
   location_selector:

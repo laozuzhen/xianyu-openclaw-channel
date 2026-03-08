@@ -5,7 +5,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-16+-green?logo=node.js)](https://nodejs.org/)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Channel%20Plugin-purple)](https://github.com/nicepkg/openclaw)
 
-> 将闲鱼二手交易平台的消息接入 [OpenClaw](https://github.com/nicepkg/openclaw) AI Agent，实现智能客服、自动回复、自动发货等功能。
+> 将闲鱼二手交易平台的消息接入 [OpenClaw](https://github.com/nicepkg/openclaw) AI Agent，实现智能客服、自动回复、自动发货、商品发布等功能。
 
 ## ✨ 特性
 
@@ -14,6 +14,8 @@
 - 🚀 **自动启动** — OpenClaw Gateway 启动时自动拉起闲鱼服务，停止时自动关闭
 - 📱 **多账号** — 支持同时管理多个闲鱼账号
 - 🚚 **自动发货** — 检测付款消息自动确认发货
+- 🛒 **商品发布** — 支持单个/批量商品发布（API + 工具）
+- 🔍 **商品搜索** — 爬取闲鱼商品信息，市场调研
 - 🔒 **Bridge 模式** — TypeScript 插件通过 HTTP/SSE 桥接 Python 闲鱼服务，安全隔离
 
 ## 🏗️ 架构
@@ -26,6 +28,7 @@ OpenClaw Agent ←→ Channel Plugin (TS) ←HTTP/SSE→ Bridge API (Python) ←
 - **Channel Plugin**（`openclaw-plugin/`）：TypeScript OpenClaw 频道适配器
 - **Bridge API**（`bridge_api.py`）：Python 端 RESTful + SSE 接口
 - **闲鱼核心**（`XianyuAutoAsync.py`）：WebSocket 连接、消息处理、自动回复
+- **商品发布器**（`product_publisher.py`）：Playwright 自动化发布商品
 - Gateway 启动时，插件通过 `registerService` 自动 spawn Python 进程
 
 ## 📋 环境要求
@@ -61,85 +64,60 @@ install-openclaw.bat
 - ✅ Bridge Token 自动生成
 - ✅ 插件注册到 OpenClaw extensions
 
-可选参数：
-```bash
---bridge-token TOKEN   # 指定 Bridge Token（默认自动生成）
---skip-python          # 跳过 Python 依赖（已装过）
---openclaw-only        # 只装 OpenClaw 插件
-```
-
 ### 3. 配置 OpenClaw
 
-在 `~/.clawdbot/moltbot.json` 中添加闲鱼频道：
+在 `~/.openclaw/openclaw.json` 中添加配置：
 
-#### 单账号配置（推荐）
+#### 插件加载配置（必须）
 
 ```json5
 {
-  "channels": {
-    "xianyu": {
-      "apiUrl": "http://localhost:8080",
-      "enabled": true
-    }
-  },
-  "bindings": [
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu"
+  "plugins": {
+    "allow": ["xianyu"],
+    "load": {
+      "paths": ["<扩展目录>/xianyu/openclaw-plugin"]
+    },
+    "entries": {
+      "xianyu": {
+        "enabled": true
       }
     }
-  ]
+  }
 }
 ```
 
-**重要**: 
-- 不指定 `accountId` 时,默认使用 `"default"`
-- 确保闲鱼管理界面中添加的账号 ID 为 `"default"`,或者在配置中明确指定 `accountId`
-
-#### 多账号配置
-
-如果你有多个闲鱼账号,需要为每个账号指定 `accountId`:
+#### 频道配置
 
 ```json5
 {
   "channels": {
     "xianyu": {
       "accounts": {
-        "shop1": {
-          "apiUrl": "http://localhost:8080",
-          "enabled": true
-        },
-        "shop2": {
-          "apiUrl": "http://localhost:8081",
-          "enabled": true
+        "2207836320265_1": {  // 账号ID，对应闲鱼管理界面中的Cookie ID
+          "apiUrl": "http://localhost:8080"
         }
-      }
+      },
+      "enabled": true
     }
-  },
-  "bindings": [
+  }
+}
+```
+
+#### Agent 绑定配置
+
+```json5
+{
+  "agentMatch": [
     {
-      "agentId": "main",
+      "agentId": "xianyu-kefu",  // 绑定到闲鱼客服 agent
       "match": {
-        "channel": "xianyu",
-        "accountId": "shop1"
-      }
-    },
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu",
-        "accountId": "shop2"
+        "accountId": "2207836320265_1",
+        "channel": "xianyu"
       }
     }
   ]
 }
 ```
-
-**说明**:
-- `accountId` 必须与闲鱼管理界面中添加的账号 ID 一致
-- 每个账号需要运行独立的 Python Bridge API 实例(不同端口)
-- SSE 连接会自动订阅对应 `accountId` 的消息队列
 
 ### 4. 配置闲鱼账号
 
@@ -148,226 +126,179 @@ install-openclaw.bat
 3. 添加闲鱼账号的 Cookie
 
 **重要**: 
-- 添加账号时,账号 ID 必须与 OpenClaw 配置中的 `accountId` 一致
-- 单账号模式: 账号 ID 设置为 `"default"`
-- 多账号模式: 账号 ID 设置为 `"shop1"`, `"shop2"` 等(与配置对应)
+- 添加账号时，账号 ID 必须与 OpenClaw 配置中的 `accountId` 一致
+- Cookie 必须包含 `unb` 和 `_m_h5_tk` 字段
 
 ### 5. 启动
 
 ```bash
-# 方式 A：通过 OpenClaw Gateway（推荐，自动启动 Python 进程）
-moltbot start
+# 启动 Python 后端
+python Start.py
 
-# 方式 B：手动分别启动
-python Start.py                    # 启动闲鱼服务
-moltbot start                      # 启动 OpenClaw Gateway
+# 重启 OpenClaw Gateway 使配置生效
+openclaw gateway restart
 ```
 
-> 使用方式 A 时，插件会自动检测 venv 并启动 `Start.py`，无需手动管理 Python 进程。
+## 🛠️ 可用工具
+
+闲鱼插件注册了以下工具供 AI Agent 调用：
+
+| 工具名称 | 说明 |
+|---------|------|
+| `xianyu_publish_product` | 发布单个商品到闲鱼 |
+| `xianyu_batch_publish_products` | 批量发布多个商品 |
+| `xianyu_get_orders` | 获取订单列表 |
+| `xianyu_confirm_delivery` | 确认订单发货 |
+| `xianyu_create_card` | 创建发货内容卡片 |
+| `xianyu_create_delivery_rule` | 创建自动发货规则 |
+| `xianyu_search_products` | 搜索闲鱼商品 |
+| `xianyu_get_spider_products` | 获取已爬取的商品列表 |
+
+### 商品发布示例
+
+```
+用户：帮我发布一个商品
+Agent：好的，请提供商品信息...
+[调用 xianyu_publish_product 工具]
+```
+
+**工具参数说明**：
+
+```json
+{
+  "cookie_id": "2207836320265_1",  // 必填：账号 Cookie ID
+  "title": "商品标题",              // 可选
+  "description": "商品描述",        // 必填
+  "price": 99.9,                   // 必填：价格（元）
+  "images": ["/path/to/image.jpg"], // 必填：图片路径列表
+  "category": "数码产品/手机",       // 可选
+  "location": "北京市/朝阳区"        // 可选
+}
+```
+
+## ⚠️ 商品发布注意事项
+
+### 1. 规格选择问题
+
+**问题描述**：发布页面有时会自动选中商品规格，导致发布按钮禁用。
+
+**解决方案**：
+- 当前代码已处理：自动跳过规格选择
+- 如遇到问题，检查 `product_publisher_config.yml` 中的 `category_selector` 配置
+- **不要使用** `button:has-text("添加规格类型")` 作为选择器，会误点添加规格按钮
+
+### 2. 滑块验证
+
+**现状**：闲鱼发布商品的滑块验证已升级为**双物体拼接**类型，需要拖动滑块使两个物体完整拼接。
+
+**解决方案**：
+- 方案 A：使用可见模式（`headless=False`），人工辅助完成验证
+- 方案 B：接入第三方打码服务
+- 方案 C：发布前手动完成验证
+
+### 3. 发布验证
+
+发布成功的判断依据：
+1. 页面 URL 从 `/publish` 跳转到 `/item?id=xxx`
+2. 能解析到 `product_id` 和 `product_url`
+
+## 🔌 Bridge API 端点
+
+| 端点 | 方法 | 说明 |
+|------|------|------|
+| `/api/bridge/messages` | GET (SSE) | 实时消息推送流 |
+| `/api/bridge/send` | POST | 发送文本消息 |
+| `/api/bridge/send-media` | POST | 发送图片消息 |
+| `/api/bridge/accounts` | GET | 获取账号列表 |
+| `/api/bridge/status` | GET | 获取桥接状态 |
+| `/api/bridge/confirm-delivery` | POST | 确认发货 |
+| `/api/bridge/publish/single` | POST | 发布单个商品 |
+| `/api/bridge/publish/batch` | POST | 批量发布商品 |
+| `/api/bridge/spider/search` | POST | 搜索商品 |
+| `/api/bridge/logs` | GET | 获取后端日志 |
 
 ## 📁 项目结构
 
 ```
 xianyu-openclaw-channel/
 ├── openclaw-plugin/           # OpenClaw 频道插件 (TypeScript)
-│   ├── index.ts               # 插件入口，注册 channel + service
-│   ├── openclaw.plugin.json   # 插件清单
-│   ├── package.json
-│   ├── tsconfig.json
+│   ├── index.ts               # 插件入口，注册 channel + service + tools
 │   └── src/
-│       ├── bridge-client.ts       # Bridge API HTTP 客户端
-│       ├── bridge-process.ts      # Python 进程生命周期管理
-│       ├── channel.ts             # 频道定义（SSE 收消息、HTTP 发消息）
-│       ├── config.ts              # 配置解析
-│       ├── config-schema.ts       # 配置 Schema
-│       ├── connection-manager.ts  # SSE 连接管理 + 重连
-│       ├── dedup.ts               # 消息去重
-│       ├── inbound-handler.ts     # 入站消息处理
-│       ├── runtime.ts             # 运行时引用
-│       ├── send-service.ts        # 发送消息服务
-│       └── types.ts               # 类型定义
+│       ├── channel.ts             # 频道定义
+│       ├── bridge-client.ts       # Bridge API 客户端
+│       └── ...
 ├── bridge_api.py              # Bridge API（Python 端 HTTP/SSE）
-├── bridge_message_queue.py    # 消息队列
+├── product_publisher.py       # 商品发布器（Playwright）
+├── product_publisher_config.yml # 发布器配置
 ├── Start.py                   # Python 启动入口
 ├── XianyuAutoAsync.py         # 闲鱼 WebSocket 核心
-├── reply_server.py            # FastAPI Web 服务
-├── install-openclaw.sh        # 一键安装（Linux/macOS）
-├── install-openclaw.bat       # 一键安装（Windows）
-├── requirements.txt           # Python 依赖
-├── .env.example               # 环境变量模板
-└── ...                        # 其他闲鱼自动回复文件
-```
-
-## 🔌 Bridge API 端点
-
-| 端点 | 方法 | 说明 |
-|------|------|------|
-| `/api/bridge/messages?account_id=<accountId>` | GET (SSE) | 实时消息推送流(订阅特定账号) |
-| `/api/bridge/send` | POST | 发送文本消息 |
-| `/api/bridge/send-media` | POST | 发送图片消息 |
-| `/api/bridge/accounts` | GET | 获取账号列表 |
-| `/api/bridge/status` | GET | 获取桥接状态 |
-| `/api/bridge/confirm-delivery` | POST | 确认发货 |
-
-**重要**: 
-- SSE 端点 `/api/bridge/messages` 需要传递 `account_id` 参数
-- `account_id` 对应闲鱼管理界面中的账号 ID
-- OpenClaw 插件会自动根据配置的 `accountId` 订阅对应的消息队列
-
-## ⚙️ 高级配置
-
-### 多账号配置
-
-#### 方案 A: 单 Python 实例 + 多账号
-
-如果所有账号在同一个 Python 实例中管理:
-
-```json5
-{
-  "channels": {
-    "xianyu": {
-      "accounts": {
-        "shop1": {
-          "apiUrl": "http://localhost:8080",
-          "enabled": true
-        },
-        "shop2": {
-          "apiUrl": "http://localhost:8080",  // 同一个 API 地址
-          "enabled": true
-        }
-      }
-    }
-  },
-  "bindings": [
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu",
-        "accountId": "shop1"
-      }
-    },
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu",
-        "accountId": "shop2"
-      }
-    }
-  ]
-}
-```
-
-**说明**:
-- 所有账号共享同一个 Python Bridge API 实例
-- 每个 `accountId` 对应闲鱼管理界面中的一个账号
-- SSE 连接会根据 `accountId` 订阅不同的消息队列
-
-#### 方案 B: 多 Python 实例 + 多账号
-
-如果每个账号运行独立的 Python 实例:
-
-```json5
-{
-  "channels": {
-    "xianyu": {
-      "accounts": {
-        "shop1": {
-          "apiUrl": "http://localhost:8080",
-          "enabled": true
-        },
-        "shop2": {
-          "apiUrl": "http://localhost:8081",  // 不同端口
-          "enabled": true
-        }
-      }
-    }
-  },
-  "bindings": [
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu",
-        "accountId": "shop1"
-      }
-    },
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "xianyu",
-        "accountId": "shop2"
-      }
-    }
-  ]
-}
-```
-
-**说明**:
-- 每个账号运行独立的 Python 进程(不同端口)
-- 适合需要完全隔离的场景
-
-### 连接参数
-
-```json5
-{
-  "channels": {
-    "xianyu": {
-      "apiUrl": "http://localhost:8080",
-      "enabled": true,
-      // 可选: 连接重试配置
-      "maxConnectionAttempts": 10,        // 最大重连次数
-      "initialReconnectDelay": 1000,      // 初始重连延迟(毫秒)
-      "maxReconnectDelay": 60000,         // 最大重连延迟(毫秒)
-      "reconnectJitter": 0.3              // 重连抖动系数
-    }
-  }
-}
-```
-
-### Docker 部署
-
-闲鱼 Python 端也支持 Docker：
-
-```bash
-docker-compose up -d
-```
-
-详见 `Dockerfile` 和 `docker-compose.yml`。
-
-## 🔧 开发
-
-```bash
-# 安装插件开发依赖
-cd openclaw-plugin && npm install
-
-# TypeScript 编译
-npx tsc
-
-# 开发模式（link 到 OpenClaw）
-moltbot plugins install -l ./openclaw-plugin
+└── reply_server.py            # FastAPI Web 服务
 ```
 
 ## ❓ 常见问题
 
-**Q: Gateway 启动后 Python 进程没起来？**
-A: 检查 `venv/` 是否存在，或者系统 PATH 中是否有 python。插件日志会输出 `[bridge-process]` 前缀的信息。
+### Q: 工具没有注册到 OpenClaw？
 
-**Q: SSE 连接一直断开重连？**
-A: 
-1. 确认 Python 端 `Start.py` 正在运行
-2. 检查 `apiUrl` 配置是否正确
-3. 确认 `accountId` 与闲鱼管理界面中的账号 ID 一致
+**A**: 检查以下几点：
 
-**Q: 收不到消息？**
-A:
-1. 检查 OpenClaw 配置中的 `accountId` 是否与闲鱼管理界面中的账号 ID 一致
-2. 查看 Python 日志,确认消息是否被正确发布到队列
-3. 查看 OpenClaw 日志,确认 SSE 连接是否订阅了正确的 `account_id`
+1. **插件是否在 `plugins.allow` 列表中**：
+```json
+"plugins": {
+  "allow": ["xianyu", ...]
+}
+```
 
-**Q: 如何查看当前账号 ID？**
-A: 访问闲鱼管理界面 `http://localhost:8080`,在账号列表中查看账号 ID 列。
+2. **插件路径是否配置**：
+```json
+"plugins": {
+  "load": {
+    "paths": ["<扩展目录>/xianyu/openclaw-plugin"]
+  }
+}
+```
 
-**Q: 如何只用闲鱼自动回复，不用 OpenClaw？**
-A: 直接 `python Start.py`，访问 `http://localhost:8080` 使用原生管理界面。
+3. **重启 Gateway**：
+```bash
+openclaw gateway restart
+```
+
+### Q: 收不到闲鱼消息？
+
+**A**: 
+1. 检查 Python 后端是否运行：`python Start.py`
+2. 检查 `accountId` 是否与 Cookie ID 一致
+3. 查看 SSE 连接日志
+
+### Q: 商品发布失败？
+
+**A**: 
+1. 检查 Cookie 是否有效
+2. 确认图片路径存在且格式正确
+3. 查看后端日志：`GET /api/bridge/logs`
+4. 使用可见模式测试：修改 `product_publisher.py` 中的 `headless=False`
+
+### Q: Gateway 启动后 Python 进程没起来？
+
+**A**: 
+- 检查 `venv/` 是否存在
+- 查看插件日志中的 `[bridge-process]` 前缀信息
+- 确认系统 PATH 中有 python
+
+### Q: 如何只用闲鱼自动回复，不用 OpenClaw？
+
+**A**: 直接 `python Start.py`，访问 `http://localhost:8080` 使用原生管理界面。
+
+## 📝 更新日志
+
+### 2026-03-08
+- 🐛 修复商品发布时误点"添加规格类型"按钮的问题
+- ✨ 改进发布验证逻辑
+- 📝 更新文档，添加工具注册说明
+
+### 2026-03-07
+- ✨ 添加商品发布 API 和工具
+- ✨ 添加商品搜索功能
+- ✨ 添加后端日志 API
 
 ## 📜 致谢
 

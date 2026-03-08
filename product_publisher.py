@@ -711,6 +711,9 @@ class XianyuProductPublisher:
                 if not await self._select_category(product.category):
                     logger.warning(f"【{self.cookie_id}】分类选择失败，继续...")
             
+            # 删除规格（如果有默认选中的规格）
+            await self._remove_default_specs()
+            
             # 设置位置（如果提供）
             if product.location:
                 if not await self._set_location(product.location):
@@ -979,6 +982,97 @@ class XianyuProductPublisher:
         except Exception as e:
             logger.error(f"【{self.cookie_id}】分类选择失败: {e}")
             return False
+    
+    async def _remove_default_specs(self):
+        """删除默认选中的商品规格
+        
+        闲鱼发布页有时会自动选中一些规格，需要点击垃圾桶按钮删除
+        """
+        try:
+            logger.info(f"【{self.cookie_id}】检查并删除默认规格...")
+            
+            # 等待页面稳定
+            await asyncio.sleep(1)
+            
+            # 查找已添加的规格项（通常有删除/垃圾桶图标）
+            # 先尝试查找规格区域
+            spec_area = await self.page.query_selector('[class*="spec"]')
+            if not spec_area:
+                logger.info(f"【{self.cookie_id}】未找到规格区域，无需删除")
+                return
+            
+            # 使用JavaScript查找并点击删除按钮
+            deleted = await self.page.evaluate('''
+                async () => {
+                    const deleted = [];
+                    
+                    // 查找所有可能的删除按钮
+                    const findDeleteButtons = () => {
+                        const buttons = [];
+                        
+                        // 1. 查找SVG图标（垃圾桶）
+                        document.querySelectorAll('svg').forEach(svg => {
+                            const html = svg.outerHTML.toLowerCase();
+                            if (html.includes('delete') || html.includes('trash') || 
+                                html.includes('remove') || html.includes('close')) {
+                                buttons.push({ type: 'svg', el: svg });
+                            }
+                        });
+                        
+                        // 2. 查找带删除功能的按钮
+                        document.querySelectorAll('button, span, i, div').forEach(el => {
+                            const classList = (el.className || '').toLowerCase();
+                            const id = (el.id || '').toLowerCase();
+                            const onclick = (el.onclick || '').toString().toLowerCase();
+                            
+                            if (classList.includes('delete') || classList.includes('trash') ||
+                                classList.includes('remove') || classList.includes('close') ||
+                                id.includes('delete') || id.includes('trash') ||
+                                onclick.includes('delete') || onclick.includes('remove')) {
+                                buttons.push({ type: el.tagName, el: el });
+                            }
+                        });
+                        
+                        // 3. 查找规格项旁边的删除按钮
+                        document.querySelectorAll('[class*="spec-item"], [class*="specItem"]').forEach(item => {
+                            // 在规格项内查找删除按钮
+                            const delBtn = item.querySelector('[class*="delete"], [class*="trash"], [class*="remove"]');
+                            if (delBtn) {
+                                buttons.push({ type: 'spec-delete', el: delBtn });
+                            }
+                        });
+                        
+                        return buttons;
+                    };
+                    
+                    const buttons = findDeleteButtons();
+                    
+                    for (const btn of buttons) {
+                        try {
+                            // 检查是否可见
+                            if (btn.el.offsetParent !== null) {
+                                // 模拟点击
+                                btn.el.click();
+                                deleted.push(btn.type);
+                                // 等待一下
+                                await new Promise(r => setTimeout(r, 500));
+                            }
+                        } catch (e) {}
+                    }
+                    
+                    return deleted;
+                }
+            ''')
+            
+            if deleted and len(deleted) > 0:
+                logger.info(f"【{self.cookie_id}】已删除 {len(deleted)} 个规格: {deleted}")
+            else:
+                logger.info(f"【{self.cookie_id}】未找到需要删除的规格")
+            
+            logger.info(f"【{self.cookie_id}】规格删除完成")
+            
+        except Exception as e:
+            logger.warning(f"【{self.cookie_id}】删除规格时出错: {e}")
     
     async def _set_location(self, location: str) -> bool:
         """设置发货地

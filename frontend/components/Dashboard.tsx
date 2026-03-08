@@ -3,7 +3,6 @@ import { AdminStats, OrderAnalytics, Order, OrderStatus, Item } from '../types';
 import { getAdminStats, getOrderAnalytics, getValidOrders, getItems } from '../services/api';
 import { TrendingUp, Users, ShoppingCart, AlertCircle, DollarSign, Activity, Package, ArrowUpRight, Calendar, X, BarChart3, PackageCheck, ExternalLink, Eye, Edit } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, Legend } from 'recharts';
-import LogViewer from './LogViewer';
 
 // 状态徽章组件
 const StatusBadge: React.FC<{ status: OrderStatus }> = ({ status }) => {
@@ -777,11 +776,6 @@ const Dashboard: React.FC = () => {
             </>
           )}
         </div>
-      </div>
-
-      {/* 后端日志 */}
-      <div className="mt-8">
-        <LogViewer />
       </div>
     </div>
   );
